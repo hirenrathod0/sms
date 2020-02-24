@@ -1,3 +1,4 @@
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,19 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- <link href="assets/css/style-responsive.css" rel="stylesheet"> -->
+
+    <script src="assets/js/chart-master/Chart.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -191,7 +205,13 @@
               <li class="nav-item">
                 <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 1</p>
+                  <p> Form</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="complaint_admin.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Complaint Admin</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -227,28 +247,63 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                menu 3
+                Complaint Admin
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="add_cate.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 1</p>
+                  <p>Add Category</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="not_pro.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 2</p>
+                  <p>Not processsing</p>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a href="pend_comp.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pending comp</p>
                 </a>
               </li>
-            
+              <li class="nav-item">
+                <a href="closed_comp.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Closed comp</p>
+                </a>
+              </li>             
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Complaint User
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="cmp_reg.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register Complaint</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="cmp_history.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Complaint History</p>
+                </a>
+              </li>            
             </ul>
           </li>
           
