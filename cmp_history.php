@@ -1,12 +1,25 @@
 <?php include('header.php'); ?>
 
-<section id="container" >
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Your Complaint Hstory</h1>
+          </div><!-- /.col -->
 
-	<section id="main-content">
-		<section class="wrapper">
-			<h3><i class="fa fa-angle-right"></i>Your Complaint Hstory</h3>
-			<div class="row mt">
-				<div class="col-lg-12">
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content-header">
+      <div class="container-fluid">
+
+        
+      	<div class="col-lg-12">
 					<div class="content-panel">
 						<section id="unseen">
 							<table class="table table-bordered table-striped table-condensed">
@@ -59,10 +72,11 @@
 						</div><!-- /col-lg-4 -->			
 					</div><!-- /row -->
 
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
 
 
-				</section>
-			</section><!-- /MAIN CONTENT -->
-
-		</section>
-		<?php include('footer.php'); ?>
+<?php include('footer.php'); ?>
