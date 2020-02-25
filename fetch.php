@@ -25,7 +25,6 @@ $output = '
 		<th>BHK</th>
 		<th>Floor No.</th>
 		<th>Price</th>
-		<th>User Id</th>
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
@@ -42,7 +41,6 @@ if($total_row > 0)
 			<td width="40%">'.$row["BHK"].'</td>
 			<td width="40%">'.$row["floor_no"].'</td>
 			<td width="40%">'.$row["price"].'</td>
-			<td width="40%">'.$row["uid"].'</td>
 			<td width="10%">
 				<button type="button" name="edit" class="btn btn-primary btn-xs edit" id="'.$row["fid"].'">Edit</button>
 			</td>

@@ -50,11 +50,11 @@
 					<input type="text" name="price" id="price" class="form-control" />
 					<span id="error_last_name" class="text-danger"></span>
 				</div>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label>Enter Uid</label>
 					<input type="text" name="uid" id="uid" class="form-control" />
 					<span id="error_last_name" class="text-danger"></span>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<input type="hidden" name="action" id="action" value="insert" />
 					<input type="hidden" name="hidden_id" id="hidden_id" />
@@ -182,7 +182,7 @@ $(document).ready(function(){
 				$('#BHK').val(data.BHK);
 				$('#floor_no').val(data.floor_no);
 				$('#price').val(data.price);
-				$('#uid').val(data.uid);
+				// $('#uid').val(data.uid);
 				$('#user_dialog').attr('title', 'Edit Data');
 				$('#action').val('update');
 				$('#hidden_id').val(id);

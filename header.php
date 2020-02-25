@@ -224,6 +224,15 @@
               </li>
             </ul>
           </li>
+           <li class="nav-item">
+            <a href="user_reg.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                User Reg
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

@@ -72,7 +72,7 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == "insert")
 	{
 		$query = "
-		INSERT INTO flat (block,flat_num,area,BHK,floor_no,price,uid) VALUES ('".$_POST["block"]."', '".$_POST["flat_num"]."', '".$_POST["area"]."', '".$_POST["BHK"]."', '".$_POST["floor_no"]."', '".$_POST["price"]."', '".$_POST["uid"]."')
+		INSERT INTO flat (block,flat_num,area,BHK,floor_no,price) VALUES ('".$_POST["block"]."', '".$_POST["flat_num"]."', '".$_POST["area"]."', '".$_POST["BHK"]."', '".$_POST["floor_no"]."', '".$_POST["price"]."')
 		";
 		$statement = $con->prepare($query);
 		$statement->execute();
@@ -92,13 +92,13 @@ if(isset($_POST["action"]))
 			$output['BHK'] = $row['BHK'];
 			$output['floor_no'] = $row['floor_no'];
 			$output['price'] = $row['price'];
-			$output['uid'] = $row['uid'];
+
 		}
 		echo json_encode($output);
 	}
 	if($_POST["action"] == "update")
 	{
-		$query = "UPDATE flat SET block = '".$_POST["block"]."',flat_num = '".$_POST["flat_num"]."',area = '".$_POST["area"]."',BHK = '".$_POST["BHK"]."',floor_no = '".$_POST["floor_no"]."' ,	price = '".$_POST["price"]."' ,	uid = '".$_POST["uid"]."',WHERE fid = '".$_POST["hidden_id"]."'	";
+		$query = "UPDATE flat SET block = '".$_POST["block"]."',flat_num = '".$_POST["flat_num"]."',area = '".$_POST["area"]."',BHK = '".$_POST["BHK"]."',floor_no = '".$_POST["floor_no"]."' ,	price = '".$_POST["price"]."',WHERE fid = '".$_POST["hidden_id"]."'	";
 		$statement = $con->prepare($query);
 		$statement->execute();
 		echo '<p>Data Updated</p>';
@@ -109,6 +109,26 @@ if(isset($_POST["action"]))
 		$statement = $con->prepare($query);
 		$statement->execute();
 		echo '<p>Data Deleted</p>';
+	}
+}
+
+
+if(isset($_POST['insert_user_reg']))
+{
+	
+	$query="INSERT into users(fullName,userEmail,password,contactNo,type,gender) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."')";
+	$dummy=mysqli_insert_id($con);
+	echo "$dummy";
+	$query1="UPDATE flat SET uid = '".$dummy."',WHERE fid = '".$_POST["flat"]."'";
+	$row=mysqli_query($con,$query);
+	$row1=mysqli_query($con,$query1);
+	// echo "$row";
+	if(isset($row) && isset($row1))
+	{		
+		echo "<script>alert('inserted');</script>";		
+		//header('location:user_reg.php');	
+	}else{
+		die('Could not Insert: '. mysql_error());		
 	}
 }
 ?>
