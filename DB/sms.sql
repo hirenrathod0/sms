@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 25, 2020 at 01:03 PM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Generation Time: Feb 25, 2020 at 01:50 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -105,6 +105,26 @@ INSERT INTO `complaintremark` (`id`, `complaintNumber`, `status`, `remark`, `rem
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `flat`
+--
+
+DROP TABLE IF EXISTS `flat`;
+CREATE TABLE IF NOT EXISTS `flat` (
+  `fid` int(11) NOT NULL AUTO_INCREMENT,
+  `block` varchar(50) DEFAULT NULL,
+  `flat_num` int(11) NOT NULL,
+  `area` varchar(50) DEFAULT NULL,
+  `BHK` varchar(10) DEFAULT NULL,
+  `floor_no` int(11) DEFAULT NULL,
+  `price` int(11) NOT NULL,
+  `uid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`fid`),
+  KEY `wing_flat` (`block`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notice`
 --
 
@@ -181,25 +201,6 @@ INSERT INTO `tblcomplaints` (`complaintNumber`, `userId`, `category`, `subcatego
 (29, 2, 3, NULL, NULL, NULL, 'LOOP', 'ORRRR', NULL, '2020-02-24 19:12:15', NULL, NULL),
 (30, 2, 1, NULL, NULL, NULL, 'pppppp', 'lll', NULL, '2020-02-24 19:12:24', NULL, NULL),
 (31, 2, 1, NULL, NULL, NULL, 'll', 'opopopoo', NULL, '2020-02-24 19:13:41', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `pwd` varchar(50) NOT NULL,
-  `type` varchar(20) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `dob` varchar(50) NOT NULL,
-  `gender` varchar(10) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `cno` varchar(50) NOT NULL,
-  PRIMARY KEY (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
