@@ -66,4 +66,49 @@ if(isset($_POST['submit_notice']))
 
 }
 
+
+if(isset($_POST["action"]))
+{
+	if($_POST["action"] == "insert")
+	{
+		$query = "
+		INSERT INTO flat (block,flat_num,area,BHK,floor_no,price,uid) VALUES ('".$_POST["block"]."', '".$_POST["flat_num"]."', '".$_POST["area"]."', '".$_POST["BHK"]."', '".$_POST["floor_no"]."', '".$_POST["price"]."', '".$_POST["uid"]."')
+		";
+		$statement = $con->prepare($query);
+		$statement->execute();
+		echo '<p>Data Inserted...</p>';
+	}
+	if($_POST["action"] == "fetch_single")
+	{
+		$query = "SELECT * FROM flat WHERE fid = '".$_POST["id"]."'";
+		$statement = $con->prepare($query);
+		$statement->execute();
+		$result = $statement->fetchAll();
+		foreach($result as $row)
+		{
+			$output['block'] = $row['block'];
+			$output['flat_num'] = $row['flat_num'];
+			$output['area'] = $row['area'];
+			$output['BHK'] = $row['BHK'];
+			$output['floor_no'] = $row['floor_no'];
+			$output['price'] = $row['price'];
+			$output['uid'] = $row['uid'];
+		}
+		echo json_encode($output);
+	}
+	if($_POST["action"] == "update")
+	{
+		$query = "UPDATE flat SET block = '".$_POST["block"]."',flat_num = '".$_POST["flat_num"]."',area = '".$_POST["area"]."',BHK = '".$_POST["BHK"]."',floor_no = '".$_POST["floor_no"]."' ,	price = '".$_POST["price"]."' ,	uid = '".$_POST["uid"]."',WHERE fid = '".$_POST["hidden_id"]."'	";
+		$statement = $con->prepare($query);
+		$statement->execute();
+		echo '<p>Data Updated</p>';
+	}
+	if($_POST["action"] == "delete")
+	{
+		$query = "DELETE FROM flat WHERE fid = '".$_POST["id"]."'";
+		$statement = $con->prepare($query);
+		$statement->execute();
+		echo '<p>Data Deleted</p>';
+	}
+}
 ?>

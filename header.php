@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
 
 
     <!-- fullCalendar -->
@@ -224,10 +225,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                menu 2
+                Add New Flat
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
