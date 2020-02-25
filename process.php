@@ -47,4 +47,23 @@ if(isset($_POST['submit']))
 
 }
 
+if(isset($_POST['submit_notice']))
+{
+	// print_r($_POST);
+	$_SESSION['id']=2;
+	$title=$_POST['title'];
+	$descr=$_POST['descr'];
+	
+
+	$query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
+	if(isset($query1))
+	{		
+		echo "<script>alert('inserted');</script>";		
+		header('location:add_notice.php');	
+	}else{
+		die('Could not Insert: '. mysql_error());		
+	}
+
+}
+
 ?>

@@ -271,6 +271,12 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="add_notice.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Notice to All User</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="add_cate.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Category</p>

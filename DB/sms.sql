@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 24, 2020 at 07:36 PM
+-- Generation Time: Feb 25, 2020 at 01:03 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `cms`
+-- Database: `sms`
 --
 
 -- --------------------------------------------------------
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `category` (
   `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
@@ -67,7 +67,8 @@ CREATE TABLE IF NOT EXISTS `category` (
 INSERT INTO `category` (`id`, `categoryName`, `categoryDescription`, `creationDate`, `updationDate`) VALUES
 (1, 'E-commerce', 'E-commerce', '2019-07-28 06:10:55', '2019-08-06 04:49:25'),
 (2, 'general', 'dsdas', '2019-06-10 10:54:06', '2019-08-06 04:49:40'),
-(3, 'Projector', NULL, '2020-02-24 18:40:13', NULL);
+(3, 'Projector', NULL, '2020-02-24 18:40:13', NULL),
+(4, 'parth', NULL, '2020-02-25 12:46:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -104,53 +105,24 @@ INSERT INTO `complaintremark` (`id`, `complaintNumber`, `status`, `remark`, `rem
 -- --------------------------------------------------------
 
 --
--- Table structure for table `state`
+-- Table structure for table `notice`
 --
 
-DROP TABLE IF EXISTS `state`;
-CREATE TABLE IF NOT EXISTS `state` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `stateName` varchar(255) DEFAULT NULL,
-  `stateDescription` tinytext,
-  `postingDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE IF NOT EXISTS `notice` (
+  `nid` int(10) NOT NULL AUTO_INCREMENT,
+  `title` text,
+  `descr` text,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`nid`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `state`
+-- Dumping data for table `notice`
 --
 
-INSERT INTO `state` (`id`, `stateName`, `stateDescription`, `postingDate`, `updationDate`) VALUES
-(3, 'Uttar Pradesh', 'UP', '2019-07-18 11:35:02', '2019-08-06 02:58:51'),
-(4, 'Punjab', 'Punjab', '2019-07-18 11:35:58', '2019-08-06 02:59:03'),
-(5, 'Haryana', 'Haryana', '2019-03-27 21:20:36', '2019-08-06 02:59:13'),
-(6, 'Delhi', 'Delhi', '2019-07-11 06:54:12', '2019-08-06 02:59:29');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `subcategory`
---
-
-DROP TABLE IF EXISTS `subcategory`;
-CREATE TABLE IF NOT EXISTS `subcategory` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryid` int(11) DEFAULT NULL,
-  `subcategory` varchar(255) DEFAULT NULL,
-  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `subcategory`
---
-
-INSERT INTO `subcategory` (`id`, `categoryid`, `subcategory`, `creationDate`, `updationDate`) VALUES
-(1, 1, 'Online Shopping', '2019-03-28 07:11:07', '2019-08-06 04:51:21'),
-(2, 1, 'E-wllaet', '2019-03-28 07:11:20', '2019-08-06 04:51:27'),
-(3, 2, 'other', '2019-06-24 07:06:44', '2019-06-24 07:21:38');
+INSERT INTO `notice` (`nid`, `title`, `descr`, `date`) VALUES
+(2, 'this is cdemo', 'notive is', '2020-02-25 12:55:36');
 
 -- --------------------------------------------------------
 
@@ -213,28 +185,21 @@ INSERT INTO `tblcomplaints` (`complaintNumber`, `userId`, `category`, `subcatego
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userlog`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `userlog`;
-CREATE TABLE IF NOT EXISTS `userlog` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uid` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `userip` binary(16) NOT NULL,
-  `loginTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `logout` varchar(255) NOT NULL,
-  `status` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `userlog`
---
-
-INSERT INTO `userlog` (`id`, `uid`, `username`, `userip`, `loginTime`, `logout`, `status`) VALUES
-(27, 2, 'deepak@gmail.com', 0x3a3a3100000000000000000000000000, '2019-08-06 02:47:52', '', 1),
-(28, 2, 'deepak@gmail.com', 0x3a3a3100000000000000000000000000, '2019-08-06 02:54:39', '25-02-2020 12:45:11 AM', 1);
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `pwd` varchar(50) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `dob` varchar(50) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `cno` varchar(50) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -249,14 +214,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   `userEmail` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `contactNo` bigint(11) DEFAULT NULL,
-  `address` tinytext,
-  `State` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `pincode` int(6) DEFAULT NULL,
-  `userImage` varchar(255) DEFAULT NULL,
   `regDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updationDate` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `status` int(1) DEFAULT NULL,
+  `type` varchar(15) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `dob` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
@@ -264,9 +225,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `address`, `State`, `country`, `pincode`, `userImage`, `regDate`, `updationDate`, `status`) VALUES
-(1, 'Amandeep Singh', 'aman@gmail.com', 'f925916e2754e5e03f75dd58a5733251', 9874563210, 'Shakarpur', 'Uttar Pradesh', 'India', 110092, '6e8024ec26c292f258ec30f01e0392dc.png', '2017-03-28 11:44:52', '2019-08-06 02:57:08', 1),
-(2, 'Deepak', 'deepak@gmail.com', '498b5924adc469aa7b660f457e0fc7e5', 1234567890, 'Faridabad', 'Haryana', 'India', 112266, '2ec5514b65bdb23768402fdc9382e502.jpg', '2019-08-06 02:47:39', '2019-08-06 02:56:59', 1);
+INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `regDate`, `type`, `gender`, `dob`) VALUES
+(1, 'Admin', 'admin@gmail.com', 'admin', 9874563210, '2017-03-28 11:44:52', '1', NULL, NULL),
+(2, 'Deepak', 'deepak@gmail.com', 'test', 1234567890, '2019-08-06 02:47:39', '2', NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
