@@ -4,8 +4,9 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-<div class="module">
-                <div class="module-head">
+  <div class="module">
+    <div id="printableArea">
+                <div class="module-head" >
                   <h3>Bill Details</h3>
                 </div>
                 <div class="module-body table">
@@ -98,7 +99,7 @@
                     
                     <td  colspan="2"> 
                       
-                          <button type="button" class="btn btn-primary">Print</button></td>
+                          <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')">Print</button></td>
                         </a><?php } ?></td>
                            
                           </tr>
@@ -107,7 +108,21 @@
                       </table>
                     </div>
                   </div>
-                   </div><!-- /.row -->
+                  </div>
+              </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+
+    <script type="text/javascript">
+      function printDiv(divName) {
+       var printContents = document.getElementById(divName).innerHTML;
+       var originalContents = document.body.innerHTML;
+
+       document.body.innerHTML = printContents;
+
+       window.print();
+
+       document.body.innerHTML = originalContents;
+     }
+   </script>
 <?php include 'footer.php'; ?>
