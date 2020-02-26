@@ -15,7 +15,7 @@ include('header.php');
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" action="" method="POST">
+            <form role="form" id="event" action="" method="POST">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
@@ -210,7 +210,12 @@ function SubmitEvent()
            data: myobj,
            success: function(data)
            {
-               alert(data);
+               // alert(data);
+               if (data) {
+                alert("Event Booked");
+               } else {
+                alert("Not inserted");
+               }
            }
          });
         

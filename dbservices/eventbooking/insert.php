@@ -16,6 +16,7 @@ if(isset($_POST["title"]))
  ";
 
  $statement = $connect->prepare($query);
+ 
 
  $result=$statement->execute(
   array(
