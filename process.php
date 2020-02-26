@@ -113,22 +113,22 @@ if(isset($_POST["action"]))
 }
 
 
-if(isset($_POST['insert_user_reg']))
-{
+// if(isset($_POST['insert_user_reg']))
+// {
 	
-	$query="INSERT into users(fullName,userEmail,password,contactNo,type,gender) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."')";
-	$dummy=mysqli_insert_id($con);
-	echo "$dummy";
-	$query1="UPDATE flat SET uid = '".$dummy."',WHERE fid = '".$_POST["flat"]."'";
-	$row=mysqli_query($con,$query);
-	$row1=mysqli_query($con,$query1);
-	// echo "$row";
-	if(isset($row) && isset($row1))
-	{		
-		echo "<script>alert('inserted');</script>";		
-		//header('location:user_reg.php');	
-	}else{
-		die('Could not Insert: '. mysql_error());		
-	}
-}
+// 	$query="INSERT into users(fullName,userEmail,password,contactNo,type,gender) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."')";
+// 	$dummy=mysqli_insert_id($con);
+// 	echo "$dummy";
+// 	$query1="UPDATE flat SET uid = '".$dummy."',WHERE fid = '".$_POST["flat"]."'";
+// 	$row=mysqli_query($con,$query);
+// 	$row1=mysqli_query($con,$query1);
+// 	// echo "$row";
+// 	if(isset($row) && isset($row1))
+// 	{		
+// 		echo "<script>alert('inserted');</script>";		
+// 		//header('location:user_reg.php');	
+// 	}else{
+// 		die('Could not Insert: '. mysql_error());		
+// 	}
+// }
 ?>

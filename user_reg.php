@@ -1,38 +1,60 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+
+if(isset($_POST['insert_user_reg']))
+{
+	$query="INSERT into users(fullName,userEmail,password,contactNo,type,gender) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."')";
+	$row=mysqli_query($con,$query);
+	
+	$dummy=mysqli_insert_id($con);
+
+	//echo "$dummy";
+
+	$query1="UPDATE flat SET uid = '".$dummy."' WHERE fid = '".$_POST["flat"]."'";
+	$row1=mysqli_query($con,$query1);
+	// echo "$row";
+	if(isset($row) && isset($row1))
+	{		
+		echo "<script>alert($dummy);</script>";		
+		//header('location:user_reg.php');	
+	}else{
+		die('Could not Insert: '. mysql_error());		
+	}
+}
+?>
   <div class="content-wrapper">
 
 <section class="content-header">
 	<div class="container-fluid">
 
 		<CENTER><h1>User Registration</h1></CENTER>
-		<form class="form-horizontal" name="user_reg" method="post" action="process.php">
+		<form class="form-horizontal" name="user_reg" method="post" style="padding-left:5%">
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Full Name:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<input type="text" class="form-control" id="email" placeholder="Enter Ful lName" name="fullName">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Enter Email:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<input type="text" class="form-control" id="email" placeholder="Enter email" name="userEmail">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Enter Password:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<input type="text" class="form-control" id="email" placeholder="Enter Password" name="password">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Enter Contact No:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<input type="text" class="form-control" id="email" placeholder="Enter Contact no" name="contactNo">
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="email">User 	Type:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<select class="form-control" id="sel1" name="type">
 						<option>Select Option</option>
 						<option value="admin">Admin</option>						
@@ -42,17 +64,17 @@
 			</div>
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="email">Gender:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<select class="form-control" id="sel1" name="gender">
 						<option>Select Option</option>
-						<option value="male">Male</option>						
-						<option value="female">Female</option>						
+						<option value="Male">Male</option>						
+						<option value="Female">Female</option>						
 					</select>
 				</div>
 			</div>	
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="email">Select Flat:</label>
-				<div class="col-sm-9">
+				<div class="col-sm-7">
 					<select class="form-control" id="sel1" name="flat">
 						<option>Select Option</option>
 						<?php
@@ -66,9 +88,9 @@
 			</div>	
 			
 			<div class="form-group row">        
-				<div class="col-sm-offset-3 col-sm-9">
-					<button type="submit" class="dt-button buttons-copy buttons-html5 " name="insert_user_reg">Submit</button>
-					<button type="reset" class="dt-button buttons-copy buttons-html5">Reset</button>
+				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
+					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
+					<button type="reset" class="btn btn-primary">Reset</button>
 				</div>				
 			</div>
 		</form>

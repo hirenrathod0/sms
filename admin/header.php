@@ -1,3 +1,4 @@
+<?php include('../config.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,6 +27,15 @@
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
+
+
+    <!-- fullCalendar -->
+  <link rel="stylesheet" href="../plugins/fullcalendar/main.min.css">
+  <link rel="stylesheet" href="../plugins/fullcalendar-daygrid/main.min.css">
+  <link rel="stylesheet" href="../plugins/fullcalendar-timegrid/main.min.css">
+  <link rel="stylesheet" href="../plugins/fullcalendar-bootstrap/main.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -189,57 +199,122 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="#" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 1</p>
+                  <p> Form</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="complaint_admin.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Complaint Admin</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>sub menu 2</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>sub menu 3</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+           <li class="nav-item">
+            <a href="user_reg.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                menu 2
-                <span class="right badge badge-danger">New</span>
+                User Reg
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="add_flat.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add New Flat
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                form example
+                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                menu 3
+                Complaint Admin
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">6</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="add_notice.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 1</p>
+                  <p>Add Notice to All User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                <a href="add_cate.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 2</p>
+                  <p>Add Category</p>
                 </a>
               </li>
-            
+              <li class="nav-item">
+                <a href="not_pro.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Not processsing</p>
+                </a>
+              </li> 
+              <li class="nav-item">
+                <a href="pend_comp.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pending comp</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="closed_comp.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Closed comp</p>
+                </a>
+              </li>             
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Complaint User
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="cmp_reg.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Register Complaint</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="cmp_history.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Complaint History</p>
+                </a>
+              </li>            
             </ul>
           </li>
           
