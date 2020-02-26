@@ -101,7 +101,7 @@ if(isset($_POST['insert_user_reg']))
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
-                    <input type=button onClick="location.href='viewbill.php'" value='view bills'>
+                    <input type=button class="btn btn-primary" onClick="location.href='viewbill.php'" value='view bills'>
 				</div>				
 			</div>
             

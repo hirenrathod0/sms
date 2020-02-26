@@ -225,6 +225,15 @@
             </ul>
           </li>
           <li class="nav-item">
+            <a href="maintenance.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Maintenance
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="EventBooker.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
