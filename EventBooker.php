@@ -18,20 +18,6 @@ include('header.php');
             <form role="form" id="event" action="" method="POST">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="userid">Your ID</label>    
-                                <input type="text" class="form-control" id="userid" placeholder="Example AB101">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="form-group">
-                                <label for="username">Name</label>
-                                <input type="text" class="form-control" id="username" placeholder="Jon Snow">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Event Title</label>
@@ -127,14 +113,21 @@ include('header.php');
       </div>
 </section>
 </div>    
-
+       
 
 <?php
 include('footer.php');
 ?>
 
+<!-- SweetAlert2 -->
+<script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="plugins/toastr/toastr.min.js"></script>
+
+
 <script>
-    
+
+
 $(function (){
   //Date range picker
   $('#reservation').daterangepicker({
@@ -150,10 +143,59 @@ $(function (){
     $('#timepicker1').datetimepicker({
       format: 'LT'
     })
+
 })
 
+function successtoast() 
+    {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        
+        Toast.fire({
+            type: 'success',
+            title: 'Your Event Got Booked Successfully'
+        })
+    
+    }
+    function errortoast() 
+    {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        
+        Toast.fire({
+            type: 'error',
+            title: 'Something went wrong with database'
+        })
+    
+    }
+
+    function nonempty() 
+    {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+        
+        Toast.fire({
+            type: 'error',
+            title: 'All Fields are mandatory to fill'
+        })
+    
+    }
+
+
 function formatchanger(dd)
-{
+    {
     var time = dd;
     var hours = Number(time.match(/^(\d+)/)[1]);
     var minutes = Number(time.match(/:(\d+)/)[1]);
@@ -169,8 +211,6 @@ function formatchanger(dd)
 
 function SubmitEvent()
 {
-    var id = document.getElementById('userid').value;
-    var name = document.getElementById('userid').value;
     var title = document.getElementById('eventtitle').value;
     var date = document.getElementById('reservation').value;
     var starttime = document.getElementById('start').value;
@@ -179,9 +219,10 @@ function SubmitEvent()
     var place = document.getElementById('place').value;
     var status = true;
 //not null constraints
-    if(id.length == 0 || name.length == 0 || title.length == 0)
+    if(title.length == 0 || date.length == 0 || starttime.length == 0 || endtime.length == 0)
     {
-        //status=false;
+        nonempty();
+        status=false;
     }
 //fetching startdate enddate from date
     var datearr = date.split(' - ');
@@ -211,11 +252,14 @@ function SubmitEvent()
            success: function(data)
            {
                // alert(data);
-               if (data) {
-                alert("Event Booked");
-               } else {
-                alert("Not inserted");
-               }
+                if (data) 
+                {
+                    successtoast();
+                }     
+                else 
+                {
+                    errortoast();
+                }    
            },
            complete:function(){
             $('#event').each(function(){

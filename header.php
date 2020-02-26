@@ -29,7 +29,10 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">
 
-
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
     <!-- fullCalendar -->
   <link rel="stylesheet" href="plugins/fullcalendar/main.min.css">
   <link rel="stylesheet" href="plugins/fullcalendar-daygrid/main.min.css">
