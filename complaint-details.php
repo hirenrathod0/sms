@@ -62,7 +62,7 @@
                         <td><?php echo htmlentities($row['catname']);?></td>
                      
                         <td><b>Complaint Title</b></td>
-                        <td><?php echo htmlentities($row['complaintTitle']);?>
+                        <td colspan="3"><?php echo htmlentities($row['complaintTitle']);?>
                       </td>
                     </tr>
                     <tr>
@@ -91,7 +91,7 @@
                     ?>
                     <tr>
                       <td><b>Remark</b></td>
-                      <td colspan="5"><?php echo  htmlentities($rw['remark']); ?> <b>Remark Date :</b><?php echo  htmlentities($rw['rdate']); ?></td>
+                      <td colspan="5"><?php echo  htmlentities($rw['remark']); ?> <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remark Date :</b><?php echo  htmlentities($rw['rdate']); ?></td>
                     </tr>
 
                     <tr>
@@ -101,31 +101,24 @@
                   <?php }?>
 
 
-
-
-
                   <tr>
                     <td><b>Action</b></td>
                     
-                    <td> 
+                    <td colspan="5"> 
                       <?php if($row['status']=="closed"){
 
                       } else {?>
                         <a href="javascript:void(0);" onClick="popUpWindow('updatecomplaint.php?cid=<?php echo htmlentities($row['complaintNumber']);?>');" title="Update order">
                           <button type="button" class="btn btn-primary">Take Action</button></td>
                         </a><?php } ?></td>
-                        <td colspan="4"> 
-                          <a href="javascript:void(0);" onClick="popUpWindow('userprofile.php?uid=<?php echo htmlentities($row['userId']);?>');" title="Update order">
-                            <button type="button" class="btn btn-primary">View User Detials</button></a></td>
+
                             
                           </tr>
                         <?php  } ?>
                         
                       </table>
                     </div>
-                  </div
-
-
+                  </div>
 
 
       </div><!-- /.container-fluid -->
