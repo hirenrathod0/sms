@@ -28,12 +28,12 @@ if(isset($_POST['submit']))
 	$uid=$_SESSION['id'];
 	$category=$_POST['category'];
 
-	$noc=$_POST['noc'];
-	$complaintdetials=$_POST['complaindetails'];
+	$complaintitle=$_POST['complaintitle'];
+	$complaindetails=$_POST['complaindetails'];
 
 
 
-	$query=mysqli_query($con,"insert into tblcomplaints(userId,category,noc,complaintDetails) values('$uid','$category','$noc','$complaintdetials')");
+	$query=mysqli_query($con,"insert into tblcomplaints(userId,category,complaintTitle,complaintDetails) values('$uid','$category','$complaintitle','$complaindetails')");
 
 // code for show complaint number
 	$sql=mysqli_query($con,"select complaintNumber from tblcomplaints  order by complaintNumber desc limit 1");
