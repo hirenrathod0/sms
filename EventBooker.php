@@ -216,7 +216,12 @@ function SubmitEvent()
                } else {
                 alert("Not inserted");
                }
-           }
+           },
+           complete:function(){
+            $('#event').each(function(){
+                this.reset();   //Here form fields will be cleared.
+            });
+       }
          });
         
     }
