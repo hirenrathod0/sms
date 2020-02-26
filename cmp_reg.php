@@ -40,7 +40,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 col-sm-2 control-label">title of Complaint</label>
                     <div class="col-sm-4">
-                      <input type="text" name="noc" required="required" value="" required="" class="form-control">
+                      <input type="text" name="complaintitle" required="required" value="" required="" class="form-control">
                     </div>
 
                   </div>
