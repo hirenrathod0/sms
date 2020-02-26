@@ -24,7 +24,8 @@
 							// $row=$result->fetch_assoc();	
 							while($row=mysqli_fetch_assoc($result)):; 	?>
                             <tr>
-                        <td><?php printf("%s",$row['fid']);  ?>"><?php printf("%s",($row["block"]." - ".$row["flat_num"])); ?>
+                        <td><?php //printf("%s",$row['fid']);   
+                        printf("%s",($row["block"]." - ".$row["flat_num"])); ?>
                             </td>
                         <td><?php printf("%s",$row['uid']);?></td>
                                 <td><a href="maintain_details.php?uid=<?php echo $row['uid']; ?>" >bill</a></td>
@@ -36,12 +37,12 @@
 				</div>
 			</div>	
 			
-			<div class="form-group row">        
+			<!-- <div class="form-group row">        
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
 				</div>				
-			</div>
+			</div> -->
 		</form>
 
 	</div><!-- /.container-fluid -->
