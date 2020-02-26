@@ -1,20 +1,17 @@
 <?php include 'header.php'; 
 
-if(isset($_POST['insert_user_reg']))
+$query="select id,fullName from users";
+$result1=mysqli_query($con,$query);
+
+
+if(isset($_POST['insert_visitor_reg']))
 {
-	$query="INSERT into users(fullName,userEmail,password,contactNo,type,gender) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."')";
+	$query="INSERT into visitor(name,cno,email) VALUES('".$_POST["fullName"]."', '".$_POST["cno"]."', '".$_POST["visitorEmail"]."')";
 	$row=mysqli_query($con,$query);
 	
-	$dummy=mysqli_insert_id($con);
-
-	//echo "$dummy";
-
-	$query1="UPDATE flat SET uid = '".$dummy."' WHERE fid = '".$_POST["flat"]."'";
-	$row1=mysqli_query($con,$query1);
-	// echo "$row";
-	if(isset($row) && isset($row1))
+	if(isset($row))
 	{		
-		echo "<script>alert($dummy);</script>";		
+		echo "<script>alert('Visitor Entry Inserted');</script>";		
 		//header('location:user_reg.php');	
 	}else{
 		die('Could not Insert: '. mysql_error());		
@@ -26,70 +23,57 @@ if(isset($_POST['insert_user_reg']))
 <section class="content-header">
 	<div class="container-fluid">
 
-		<CENTER><h1>User Registration</h1></CENTER>
+		<CENTER><h1>Visitor Details</h1></CENTER>	
+
 		<form class="form-horizontal" name="user_reg" method="post" style="padding-left:5%">
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Full Name:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter Ful lName" name="fullName">
+					<input type="text" class="form-control" id="email" placeholder="Enter Full lName" name="fullName">
 				</div>
 			</div>
+
+
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Enter Email:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter email" name="userEmail">
+					<input type="text" class="form-control" id="email" placeholder="Enter email" name="visitorEmail">
 				</div>
 			</div>
+
 			<div class="form-group row">
-				<label class="control-label col-sm-3" for="">Enter Password:</label>
+				<label class="control-label col-sm-3" for="">Enter Contact no:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter Password" name="password">
+					<input type="text" class="form-control" id="cno" placeholder="Enter contact no" name="cno">
 				</div>
 			</div>
+						
+						
+				
 			<div class="form-group row">
-				<label class="control-label col-sm-3" for="">Enter Contact No:</label>
+				<label class="control-label col-sm-3" for="email">Select Name:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter Contact no" name="contactNo">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="control-label col-sm-3" for="email">User 	Type:</label>
-				<div class="col-sm-7">
-					<select class="form-control" id="sel1" name="type">
-						<option>Select Option</option>
-						<option value="admin">Admin</option>						
-						<option value="user">User</option>						
-					</select>
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="control-label col-sm-3" for="email">Gender:</label>
-				<div class="col-sm-7">
-					<select class="form-control" id="sel1" name="gender">
-						<option>Select Option</option>
-						<option value="Male">Male</option>						
-						<option value="Female">Female</option>						
+					<select class="form-control" id="sel1" name="name" onchange="showflat()">
+						<option > select name</option>
+						<?php while($row1=mysqli_fetch_array($result1)) :;  ?>	
+						<option value="<?php echo $row1[0]; ?>" onclick="showflat()"> <?php echo $row1[1]; ?> </option>							
+						<?php endwhile; ?>	
+
+
 					</select>
 				</div>
 			</div>	
+
 			<div class="form-group row">
-				<label class="control-label col-sm-3" for="email">Select Flat:</label>
+				<label class="control-label col-sm-3" for="">Flat NO:</label>
 				<div class="col-sm-7">
-					<select class="form-control" id="sel1" name="flat">
-						<option>Select Option</option>
-						<?php
-							$result=mysqli_query($con,"select fid,block,flat_num from flat where uid IS NULL");						
-							// $row=$result->fetch_assoc();	
-							while($row=mysqli_fetch_assoc($result)):; 	?>
-								<option value="<?php printf("%s",$row['fid']);  ?>"><?php printf("%s",($row["block"]." - ".$row["flat_num"])); ?></option>
-							<?php endwhile;?>
-					</select>
+					<input type="text" class="form-control" id="flat_no"  name="flat_no" >
 				</div>
-			</div>	
+			</div>
 			
 			<div class="form-group row">        
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
-					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
+					<button type="submit" class="btn btn-primary " name="insert_visitor_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
 				</div>				
 			</div>
@@ -99,3 +83,26 @@ if(isset($_POST['insert_user_reg']))
 </section>
 </div>
 <?php include 'footer.php'; ?>
+
+<script>
+
+	function showflat()
+	{
+		var id=document.getElementById('sel1').value;
+		//alert(id);
+		var obj  = { 
+			id: id
+		}
+		$.ajax({
+			type: "POST",
+			url: 'ajaxcode.php',
+			data: obj,
+			success:function(data)
+			{
+				//alert(data);
+				document.getElementById('flat_no').value=data;
+			}
+		})		
+	}
+
+	</script>
