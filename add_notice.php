@@ -16,8 +16,8 @@
 
 									<div class="form-group">
 										<label class="col-sm-2 col-sm-2 control-label">Description</label>
-										<div class="col-sm-4">
-											<textarea  name="descr" required="required" cols="10" rows="10" class="form-control" maxlength="2000"></textarea>
+										<div class="col-md-9">
+											<textarea name="descr" class="textarea" required="required" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 200px; border: 1px solid #dddddd; padding: 10px;">Place some text here </textarea>
 										</div>
 
 									</div>									
@@ -36,3 +36,10 @@
 
 
 <?php include('footer.php'); ?>
+
+<script>
+  $(function () {
+    // Summernote
+    $('.textarea').summernote()
+  })
+</script>
