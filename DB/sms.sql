@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 25, 2020 at 01:50 PM
+-- Generation Time: Feb 26, 2020 at 02:15 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -43,6 +43,46 @@ CREATE TABLE IF NOT EXISTS `admin` (
 
 INSERT INTO `admin` (`id`, `username`, `password`, `updationDate`) VALUES
 (1, 'admin', 'f925916e2754e5e03f75dd58a5733251', '18-07-2019 14:18:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+DROP TABLE IF EXISTS `booking`;
+CREATE TABLE IF NOT EXISTS `booking` (
+  `booking_id` int(11) NOT NULL AUTO_INCREMENT,
+  `mem_id` int(11) NOT NULL,
+  `date_of_booking` datetime NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  `place` varchar(55) DEFAULT NULL,
+  `fun_details` varchar(300) DEFAULT NULL,
+  `charges` float DEFAULT NULL,
+  PRIMARY KEY (`booking_id`),
+  UNIQUE KEY `booking_id` (`booking_id`),
+  KEY `foke` (`mem_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `mem_id`, `date_of_booking`, `start_time`, `end_time`, `place`, `fun_details`, `charges`) VALUES
+(10, 1, '2020-02-04 00:00:00', '2020-02-11 00:00:00', '2020-02-12 00:00:00', NULL, 'Ring Ceremony', 2000),
+(11, 1, '2020-02-12 00:00:00', '2020-02-12 00:00:00', '2020-02-13 00:00:00', NULL, 'Marraige', 2000),
+(12, 1, '2020-02-13 00:00:00', '2020-02-13 00:00:00', '2020-02-14 00:00:00', NULL, 'marraige', 2000),
+(13, 1, '2020-02-19 00:00:00', '2020-02-19 00:00:00', '2020-02-20 00:00:00', NULL, 'birthday', 2000),
+(14, 1, '2020-02-16 00:00:00', '2020-02-16 00:00:00', '2020-02-17 00:00:00', NULL, 'birthday', 2000),
+(15, 2, '2020-02-10 00:00:00', '2020-02-09 03:30:00', '2020-02-09 05:30:00', NULL, 'Party', 2000),
+(16, 2, '2020-02-18 00:00:00', '2020-02-20 00:00:00', '2020-02-21 00:00:00', NULL, 'Party', 2000),
+(17, 2, '2020-02-17 00:00:00', '2020-02-17 00:00:00', '2020-02-18 00:00:00', NULL, 'Party', 2000),
+(18, 2, '2020-02-10 01:30:00', '2020-02-10 15:00:00', '2020-02-10 16:30:00', NULL, 'jdbx', 2000),
+(19, 2, '2020-01-27 00:00:00', '2020-01-27 00:00:00', '2020-01-28 00:00:00', NULL, 'test', 2000),
+(20, 2, '2020-02-14 10:00:00', '2020-02-14 07:30:00', '2020-02-14 11:30:00', NULL, 'jhkjh', 2000),
+(21, 2, '2020-02-04 00:00:00', '2020-02-04 02:30:00', '2020-02-05 02:30:00', NULL, 'jkhk', 2000),
+(22, 2, '2020-01-28 00:00:00', '2020-01-27 12:30:00', '2020-01-28 12:30:00', NULL, 'hgyyjh', 2000);
 
 -- --------------------------------------------------------
 
@@ -120,7 +160,36 @@ CREATE TABLE IF NOT EXISTS `flat` (
   `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`fid`),
   KEY `wing_flat` (`block`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `flat`
+--
+
+INSERT INTO `flat` (`fid`, `block`, `flat_num`, `area`, `BHK`, `floor_no`, `price`, `uid`) VALUES
+(21, 'B', 101, '500', '3', 2, 5000, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `maintenance_bill`
+--
+
+DROP TABLE IF EXISTS `maintenance_bill`;
+CREATE TABLE IF NOT EXISTS `maintenance_bill` (
+  `bid` int(11) NOT NULL AUTO_INCREMENT,
+  `fid` int(11) NOT NULL,
+  `bill_date` date NOT NULL,
+  `water_charges` decimal(8,2) NOT NULL,
+  `property_tax` decimal(8,2) NOT NULL,
+  `elec_charges` decimal(8,2) NOT NULL,
+  `parking_charges` decimal(8,2) NOT NULL,
+  `other` decimal(8,2) NOT NULL,
+  `due_date` date NOT NULL,
+  PRIMARY KEY (`bid`),
+  UNIQUE KEY `bill_date` (`bill_date`),
+  KEY `flat_bill` (`fid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -220,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `gender` varchar(10) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -228,7 +297,26 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `regDate`, `type`, `gender`, `dob`) VALUES
 (1, 'Admin', 'admin@gmail.com', 'admin', 9874563210, '2017-03-28 11:44:52', '1', NULL, NULL),
-(2, 'Deepak', 'deepak@gmail.com', 'test', 1234567890, '2019-08-06 02:47:39', '2', NULL, NULL);
+(2, 'Deepak', 'deepak@gmail.com', 'test', 1234567890, '2019-08-06 02:47:39', '2', NULL, NULL),
+(3, NULL, NULL, NULL, NULL, '2020-02-25 18:52:19', NULL, NULL, NULL),
+(10, 'Parth Bhadreshkumar Patel', 'parthpatelvvn@gmail.com', 'test', 7567452930, '2020-02-25 20:49:32', 'admin', 'Male', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visitor`
+--
+
+DROP TABLE IF EXISTS `visitor`;
+CREATE TABLE IF NOT EXISTS `visitor` (
+  `vid` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `cno` varchar(15) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `ref` int(11) DEFAULT NULL,
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`vid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
