@@ -60,18 +60,10 @@
                       <tr>
                         <td><b>Category </b></td>
                         <td><?php echo htmlentities($row['catname']);?></td>
-                        <td><b>SubCategory</b></td>
-                        <td> <?php echo htmlentities($row['subcategory']);?></td>
-                        <td><b>Complaint Type</b></td>
-                        <td><?php echo htmlentities($row['complaintType']);?>
+                     
+                        <td><b>Complaint Title</b></td>
+                        <td><?php echo htmlentities($row['complaintTitle']);?>
                       </td>
-                    </tr>
-                    <tr>
-                      <td><b>State </b></td>
-                      <td><?php echo htmlentities($row['state']);?></td>
-                      <td ><b>Nature of Complaint</b></td>
-                      <td colspan="3"> <?php echo htmlentities($row['noc']);?></td>
-                      
                     </tr>
                     <tr>
                       <td><b>Complaint Details </b></td>
@@ -81,18 +73,6 @@
                     </tr>
 
                   </tr>
-                  <tr>
-                    <td><b>File(if any) </b></td>
-                    
-                    <td colspan="5"> <?php $cfile=$row['complaintFile'];
-                    if($cfile=="" || $cfile=="NULL")
-                    {
-                      echo "File NA";
-                    }
-                    else{?>
-                      <a href="../users/complaintdocs/<?php echo htmlentities($row['complaintFile']);?>" target="_blank"/> View File</a>
-                      <?php } ?></td>
-                    </tr>
 
                     <tr>
                       <td><b>Final Status</b></td>

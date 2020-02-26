@@ -42,8 +42,8 @@ if(isset($_POST['submit']))
 		$cmpn=$row['complaintNumber'];
 	}
 	$complainno=$cmpn;
-	echo '<script> alert("Your complain has been successfully filled and your complaintno is  "+"'.$complainno.'")</script>';
-		header('location:cmp_reg.php');	
+		
+	echo "<script> alert('Your complain has been successfully filled and your complaintno is  $complainno'); location.href='cmp_reg.php';</script>";
 
 }
 

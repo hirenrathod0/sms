@@ -224,6 +224,24 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="event_book_tbl.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Event Booking Table
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="flat_allot_tbl.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Flat Allotment Table
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
            <li class="nav-item">
             <a href="user_reg.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
