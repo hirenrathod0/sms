@@ -236,7 +236,7 @@ function SubmitEvent()
     if(status == true)
     {
         var myobj = {
-            memid: '1',
+            memid: <?php echo $_SESSION['uid'] ?>,
             dayofbooking: cd.getFullYear() + "-" + (cd.getMonth() + 1) + "-" + cd.getDate() + " " + cd.getHours() + ":" + cd.getMinutes() +":" + cd.getSeconds(),
             place: place,
             title: title,
