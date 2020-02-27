@@ -25,7 +25,7 @@ if($_POST['need'] == 'guests')
 }
 if($_POST['need'] == 'emptyflats')
 {
-    $query = "SELECT COUNT(uid) from flat where uid is null ";
+    $query = "SELECT COUNT(fid) from flat where uid is NULL ";
 }
 if($_POST['need'] == 'allocatedflats')
 {
