@@ -22,12 +22,12 @@
 			<form method="post" id="user_form">
 				<div class="form-group">
 					<label>Enter Block No.</label>
-					<input type="text" name="block" id="first_name block" class="form-control" />
+					<input type="text" name="block" id="block" class="form-control" />
 					<span id="error_first_name" class="text-danger"></span>
 				</div>
 				<div class="form-group">
 					<label>Enter Flat No.</label>
-					<input type="text" name="flat_num" id="last_name flat_num" class="form-control" />
+					<input type="text" name="flat_num" id="flat_num" class="form-control" />
 					<span id="error_last_name" class="text-danger"></span>
 				</div>
 				<div class="form-group">
@@ -151,6 +151,7 @@ $(document).ready(function(){
 				data:form_data,
 				success:function(data)
 				{
+					
 					$('#user_dialog').dialog('close');
 					$('#action_alert').html(data);
 					$('#action_alert').dialog('open');
@@ -169,25 +170,32 @@ $(document).ready(function(){
 	$(document).on('click', '.edit', function(){
 		var id = $(this).attr('id');
 		var action = 'fetch_single';
+		//alert('clicked');
 		$.ajax({
-			url:"process.php",
-			method:"POST",
-			data:{id:id, action:action},
-			dataType:"json",
-			success:function(data)
+			type: "POST",
+			url: 'process.php',			
+			data: {id:id, action:action},
+			success: function(data)
 			{
-				$('#block').val(data.block);
-				$('#flat_num').val(data.flat_num);
-				$('#area').val(data.area);
-				$('#BHK').val(data.BHK);
-				$('#floor_no').val(data.floor_no);
-				$('#price').val(data.price);
+				alert(data);
+				var arr = data.split(',');
+				alert(arr[0]+" "+arr[1]+" "+arr[2]+" "+arr[3]+" "+arr[4]+" "+arr[5]);
+ 
+	
+				
+				$('#block').val(arr[0]);
+				$('#flat_num').val(arr[1]);
+				$('#area').val(arr[2]);
+				$('#BHK').val(arr[3]);
+				$('#floor_no').val(arr[4]);
+				$('#price').val(arr[5]);				
 				// $('#uid').val(data.uid);
 				$('#user_dialog').attr('title', 'Edit Data');
 				$('#action').val('update');
 				$('#hidden_id').val(id);
 				$('#form_action').val('Update');
 				$('#user_dialog').dialog('open');
+							
 			}
 		});
 	});
@@ -196,13 +204,13 @@ $(document).ready(function(){
 		autoOpen:false,
 		modal: true,
 		buttons:{
-			Ok : function(){
+		Ok : function(){
 				var id = $(this).data('id');
 				var action = 'delete';
 				$.ajax({
 					url:"process.php",
 					method:"POST",
-					data:{id:id, action:action},
+					data: {id:id, action:action},
 					success:function(data)
 					{
 						$('#delete_confirmation').dialog('close');
