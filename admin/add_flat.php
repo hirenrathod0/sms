@@ -178,9 +178,9 @@ $(document).ready(function(){
 			data: {id:id, action:action},
 			success: function(data)
 			{
-				alert(data);
+				//alert(data);
 				var arr = data.split(',');
-				alert(arr[0]+" "+arr[1]+" "+arr[2]+" "+arr[3]+" "+arr[4]+" "+arr[5]);
+				//alert(arr[0]+" "+arr[1]+" "+arr[2]+" "+arr[3]+" "+arr[4]+" "+arr[5]);
  
 	
 				
