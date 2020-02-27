@@ -13,7 +13,7 @@
                 <th>name</th> <th>birth-date</th>  <th>gender</th> <th>edit</th></thead>
             <tbody>
                 <?php 
-                 $dog1=$_REQUEST['uid'];
+                 $dog1=$_SESSION['uid'];
 
                  $query1="select *from member_detail where uid='".$dog1."'";
         $result=mysqli_query($con,$query1);
