@@ -70,7 +70,7 @@
            style="opacity: .8">
       <span class="brand-text font-weight-light">SMS</span>
     </a>
-
+    
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
