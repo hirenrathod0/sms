@@ -34,7 +34,8 @@
   <!-- Toastr -->
   <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
   <!-- Datatable -->
-  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
     <!-- fullCalendar -->
   <link rel="stylesheet" href="plugins/fullcalendar/main.min.css">
   <link rel="stylesheet" href="plugins/fullcalendar-daygrid/main.min.css">
@@ -202,6 +203,39 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Vehical Menu
+                <i class="fas fa-angle-left right"></i>
+ 
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+               <li class="nav-item">
+            <a href="vehical_add.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Vehical
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="vehical_list.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Vehical List
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>           
+            </ul>
+          </li>
+
+          
           <!-- <li class="nav-item">
             <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
