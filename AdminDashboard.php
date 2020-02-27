@@ -156,19 +156,19 @@ include('header.php');
               <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Inventory</span>
-                <span class="info-box-number">5,200</span>
+                <span class="info-box-text">Current Users</span>
+                <span class="info-box-number" id="currentusers">5,200</span>
               </div>
               <!-- /.info-box-content -->
             </div>
           </div>
           <div class="col-md-3">
             <div class="info-box mb-3 bg-success">
-              <span class="info-box-icon"><i class="far fa-heart"></i></span>
+              <span class="info-box-icon" ><i class="far fa-heart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Mentions</span>
-                <span class="info-box-number">92,050</span>
+                <span class="info-box-text">Current Tenants</span>
+                <span class="info-box-number" id="tenants">92,050</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -179,8 +179,8 @@ include('header.php');
               <span class="info-box-icon"><i class="fas fa-cloud-download-alt"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Downloads</span>
-                <span class="info-box-number">114,381</span>
+                <span class="info-box-text">On Going Complaints</span>
+                <span class="info-box-number" id="acomp">114,381</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -191,8 +191,8 @@ include('header.php');
               <span class="info-box-icon"><i class="far fa-comment"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Direct Messages</span>
-                <span class="info-box-number">163,921</span>
+                <span class="info-box-text">Not Processed complaints</span>
+                <span class="info-box-number" id="nacomp">163,921</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -220,10 +220,75 @@ include('footer.php');
 ?>
 
 <script>
-  function tested()
-  {
-    alert('tested');
+
+$(function() {
+  var myobj1 = {
+    need: 'users'
   }
+   $.ajax({
+     type: "POST",
+     url: 'dbservices/fetchadmindashboard.php',
+     data: myobj1,
+     success: function(data)
+     {
+       //alert(data);
+       document.getElementById('currentusers').innerHTML = data;
+     }
+   })
+
+
+   var myobj2 = {
+    need: 'tenants'
+  }
+   $.ajax({
+     type: "POST",
+     url: 'dbservices/fetchadmindashboard.php',
+     data: myobj2,
+     success: function(data)
+     {
+       //alert(data);
+       document.getElementById('tenants').innerHTML = data;
+     }
+   })
+
+
+
+   var myobj3 = {
+    need: 'activecomplaints'
+  }
+   $.ajax({
+     type: "POST",
+     url: 'dbservices/fetchadmindashboard.php',
+     data: myobj3,
+     success: function(data)
+     {
+       //alert(data);
+       document.getElementById('acomp').innerHTML = data;
+     }
+   })
+
+
+
+
+   var myobj4 = {
+    need: 'nonactivecomplaints'
+  }
+   $.ajax({
+     type: "POST",
+     url: 'dbservices/fetchadmindashboard.php',
+     data: myobj4,
+     success: function(data)
+     {
+       //alert(data);
+       document.getElementById('nacomp').innerHTML = data;
+     }
+   })
+
+
+});
+
+
+
 </script>
 
 
