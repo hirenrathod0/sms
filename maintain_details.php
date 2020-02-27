@@ -4,16 +4,23 @@ if(isset($_POST['insert_user_reg']))
 	$query="INSERT into maintenance_bill(fid,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,due_date,flat_charges) VALUES('".$_REQUEST['uid']."','".$_POST["bill_date"]."', '".$_POST["water_charges"]."', '".$_POST["property_tax"]."', '".$_POST["elec_charges"]."', '".$_POST["parking_charges"]."', '".$_POST["other"]."','".$_POST["due_date"]."','".$_POST["flat_charges"]."')";
 	$row=mysqli_query($con,$query);
 	
-	$dummy=mysqli_insert_id($con);
-
-	//echo "$dummy";
+	$sql=mysqli_query($con,"select * from maintenance_bill order by bid desc limit 1");
+	while($row1=mysqli_fetch_array($sql))
+	{
+		$billid=$row1['bid'];
+		$totall=$row1['property_tax']+$row1['water_charges']+$row1['flat_charges']+$row1['parking_charges']+$row1['other']+$row1['elec_charges'];
+	}
+	
+	// echo "$dummy";
 
 	//$query1="UPDATE flat SET uid = '".$dummy."' WHERE fid = '".$_POST["flat"]."'";
 	//$row1=mysqli_query($con,$query1);
 	// echo "$row";
 	if(isset($row))
 	{		
-		echo "<script>alert($dummy);</script>";		
+		// echo "<script>alert('Bill Generated');</script>";		
+	echo "<script> alert('Bill Generated '); location.href='bill_detail.php?bill_no=".$billid."&total=".$totall."';</script>";
+
 		//header('location:user_reg.php');	
 	}else{
 		die('Could not Insert: '. mysql_error());		
@@ -101,7 +108,7 @@ if(isset($_POST['insert_user_reg']))
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
-                    <input type=button class="btn btn-primary" onClick="location.href='viewbill.php'" value='view bills'>
+                    <input type="sumit" class="btn btn-primary" name="bill_id" onClick="location.href='viewbill.php'" value='view bills'>
 				</div>				
 			</div>
             

@@ -8,31 +8,37 @@
 	<div class="container-fluid">
         
 		<CENTER><h1>maintenance</h1></CENTER>
-		<form class="form-horizontal" name="user_reg" method="post" style="padding-left:5%" action="maintain_details.php">
-            <div class="form-group row">
-				<label class="control-label col-sm-3" for="email">Select Flat:</label>
-				<div class="col-sm-7">
-					<table border="2" align="center" width="50%" >
-		<tr>
-			<th>flat no</th>
-            <th>user id</th>
-            <th>generate bill</th>
-        </tr>
+		<table class="table display" id="cattable" width="100%">
+			<thead>
+				<!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
+				<tr><th>flat no</th><th>user id</th><th>generate bill</th><th>view bill</th></tr>
+			</thead>
+			<tbody>
+				<?php 
+				$query1="select fullName,fid,block,flat_num,uid from flat,users where uid IS NOT NULL && uid=id";
+				$result=mysqli_query($con,$query1);
+
+				if($result === FALSE) { 
+				    die(mysql_error()); // TODO: better error handling
+				}
+				while($rows=$result->fetch_assoc())
+				{
+					?>
+					<tr>
+						<!-- <?php  //$id=$rows['catid']; ?> -->
+						<td><?php echo (($rows["block"]." - ".$rows["flat_num"])); ?></td>											
+						<td><?php echo $rows['fullName']; ?></td>						
+						<td><a href="maintain_details.php?uid=<?php echo $rows['uid']; ?>" >bill</a></td>
+						<td><a href="viewbill1.php?uid=<?php echo $rows['uid']; ?>" >View</a></td>
+					</tr>	
+					<?php 
+				}
+				?>
+			</tbody>
+		</table>    
+			
                         
-						<?php
-							$result=mysqli_query($con,"select fid,block,flat_num,uid from flat where uid IS NOT NULL");						
-							// $row=$result->fetch_assoc();	
-							while($row=mysqli_fetch_assoc($result)):; 	?>
-                            <tr>
-                        <td><?php //printf("%s",$row['fid']);   
-                        printf("%s",($row["block"]." - ".$row["flat_num"])); ?>
-                            </td>
-                        <td><?php printf("%s",$row['uid']);?></td>
-                                <td><a href="maintain_details.php?uid=<?php echo $row['uid']; ?>" >bill</a></td>
-                        </tr>
-							<?php endwhile;?>
-                        
-                    </table>
+					
 				
 				</div>
 			</div>	
