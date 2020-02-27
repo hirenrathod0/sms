@@ -26,8 +26,7 @@
         <?php
               // $result=mysqli_query($con,"select fid,block,flat_num,uid,fullName,contactNo from flat,users where uid IS NOT NULL and uid=id
 //"); 
-              $result=mysqli_query($con,"select flat.fid,block,flat_num,uid,fullName,contactNo,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,flat_charges,due_date,bid from users,maintenance_bill,flat where id=maintenance_bill.fid and uid=id
-"); 
+              $result=mysqli_query($con,"select flat.fid,block,flat_num,uid,fullName,contactNo,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,flat_charges,due_date,bid from users,maintenance_bill,flat where id=maintenance_bill.fid and uid=id and users.id=".$_SESSION['uid']); 
         // $result1=mysqli_query($con,"select fullName,fid,block,flat_num,uid,contactNo,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,flat_charges,due_date,bid from users,maintenance_bill where id=fid");           
               // $row=$result->fetch_assoc(); 
          // $dummy = mysqli_num_rows($result1); 

@@ -81,7 +81,7 @@ else{
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="Admindashboard.php" class="brand-link">
+    <a href="index.php" class="brand-link">
       <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">SMS</span>
@@ -353,30 +353,7 @@ else{
               </li>             
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Complaint User
-                <i class="fas fa-angle-left right"></i>
- 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="cmp_reg.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register Complaint</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="cmp_history.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Complaint History</p>
-                </a>
-              </li>            
-            </ul>
-          </li>
+
            <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

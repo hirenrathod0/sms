@@ -128,6 +128,14 @@ else{
              
             </ul>
           </li> -->
+
+               <li class="nav-item">
+            <a href="index.php" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
            <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -280,57 +288,10 @@ else{
                   <p>Maintanainace History </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="maintenance.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>User Maintainance</p>
-                </a>
-              </li>            
+                     
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Complaint Admin
-                <i class="fas fa-angle-left right"></i>
- 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_notice.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Notice to All User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="add_cate.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Category</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="not_pro.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Not Processsed</p>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a href="pend_comp.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pending Comp</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="closed_comp.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Closed Comp</p>
-                </a>
-              </li>             
-            </ul>
-          </li>
           <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
