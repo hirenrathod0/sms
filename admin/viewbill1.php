@@ -10,7 +10,7 @@
     <table class="table display" id="cattable" width="100%">
             <thead>
                 <!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
-                <th>flat no</th> <th>user name</th><th>contact no</th> <th>bill-date</th>  <th>total bill</th><th>due date</th> <th>view</th></thead>
+                <th>flat no</th> <th>user name</th><th>contact no</th> <th>bill-date</th>  <th>total bill</th><th>due date</th> <th>view</th><th>mail</th></thead>
             <tbody>
                 <?php 
                  $dog1=$_GET['uid'];
@@ -44,7 +44,8 @@
                               echo($total);?></td>
                                 <td><?php echo($row['due_date']);?></td>
                             
-                                <td><a href="bill_detail.php?bill_no=<?php echo $row['bid'];?>&total=<?php echo $total; ?>"  >Print</a></td>                                           
+                                <td><a href="bill_detail.php?bill_no=<?php echo $row['bid'];?>&total=<?php echo $total; ?>"  >Print</a></td> 
+                        <td><a href="mailusingphp.php?bill_no=<?php echo $row['bid'];?>&total=<?php echo $total; ?>"> email</a></td>
                         <!-- <td><a href="add_catspec.php?edit_cat=<?php //echo $rows['catid']; ?>" class="btn btn-info btn_space" >Edit</a><a href="add_catspec.php?delete_cat=<?php //echo $rows['catid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger" >Delete</a></td> -->
                     </tr>   
                     <?php 
