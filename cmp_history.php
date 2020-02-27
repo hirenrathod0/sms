@@ -22,7 +22,7 @@
       	<div class="col-lg-12">
 					<div class="content-panel">
 						<section id="unseen">
-							<table class="table table-bordered table-striped table-condensed">
+							<table class="table table-bordered table-striped table-condensed display" id="cmphisttable" width="100%">
 								<thead>
 									<tr style="text-align: center">
 										<th style="text-align: center">Complaint Number</th>
@@ -35,7 +35,7 @@
 								</thead>
 								<tbody>
 									<?php $_SESSION['id']=2;
-									$query=mysqli_query($con,"select * from tblcomplaints where userId='".$_SESSION['id']."'");
+									$query=mysqli_query($con,"select * from tblcomplaints where userId='".$_SESSION['id']."' ORDER BY regDate DESC");
 									while($row=mysqli_fetch_array($query))
 									{
 										?>
@@ -80,3 +80,13 @@
 
 
 <?php include('footer.php'); ?>
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#cmphisttable').DataTable({			        
+				
+			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+			dom: 'lBfrtip',
+			"lengthChange": true
+		});
+	});
+</script>

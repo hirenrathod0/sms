@@ -4,7 +4,7 @@
  <section class="content-header">
       <div class="container-fluid">
 
-    	<table class="table display" id="cattable" width="100%">
+    	<table class="table display" id="flat_allot_tbl" width="100%">
 			<thead>
 				<tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr>
 				<tr><th>User Name</th><th>Block</th><th>Floor No.</th><th>Flat No.</th><th>Action</th></tr>
@@ -60,3 +60,19 @@
 	}
 	?>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#flat_allot_tbl').DataTable({			        
+			"aoColumns": [                    
+			null,
+			null,			
+			null,			
+			null,			
+			{ "bSortable": false,"bSearchable": false}                                      
+			],	
+			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+			dom: 'lBfrtip',
+			"lengthChange": true
+		});
+	});
+</script>

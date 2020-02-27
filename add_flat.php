@@ -12,7 +12,7 @@
 			<div align="right" style="margin-bottom:5px;">
 			<button type="button" name="add" id="add" class="btn btn-success btn-xs">Add</button>
 			</div>
-			<div class="table-responsive" id="user_data">
+			<div class="table-responsive"  id="user_data">
 				
 			</div>
 			<br />
@@ -77,6 +77,7 @@
 <?php include ('footer.php'); ?>
 
 <script>  
+
 
 $(document).ready(function(){  
 

@@ -31,7 +31,7 @@ if(isset($_POST['insert_user_reg']))
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Full Name:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter Ful lName" name="fullName">
+					<input type="text" class="form-control" id="email" placeholder="Enter FullName" name="fullName">
 				</div>
 			</div>
 			<div class="form-group row">
