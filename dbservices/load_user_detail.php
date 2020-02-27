@@ -2,7 +2,7 @@
 <?php include('../config.php');
 
 $query="";
-$data = array();
+
 if($_POST["need"]=="female")
 {
     $query = "SELECT * FROM member_detail where gender like 'f'";
@@ -16,9 +16,6 @@ elseif($_POST["need"]=="child")
     $query = "SELECT * FROM member_detail ";
 
 }
-
-
-
 
 $statement = $dbh->prepare($query);
 
@@ -57,8 +54,6 @@ if($_POST["need"]=="child")
             
         
         }
-        echo $str;
-        exit();
 
         $str  = "<div class='row'> ";
         $count=0;

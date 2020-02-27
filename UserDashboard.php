@@ -28,7 +28,7 @@ include('header.php');
         <!-- Info boxes -->
         <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
-          <a href="visitor_tbl.php">
+          <a href="">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-car-side"></i></span>
               <div class="info-box-content">
@@ -42,7 +42,7 @@ include('header.php');
           </div>
           
           <div class="col-12 col-sm-6 col-md-3">
-          <a href="visitor_tbl.php">
+          <a href="memberview.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas  fa-users"></i></span>
               <div class="info-box-content">
@@ -56,7 +56,7 @@ include('header.php');
           </div>
 
       <div class="col-12 col-sm-6 col-md-3">
-          <a href="visitor_tbl.php">
+          <a href="event_book_tbl.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-warning  elevation-1"><i class="fas fa-calendar-alt"></i></span>
               <div class="info-box-content">
@@ -70,7 +70,7 @@ include('header.php');
           </div> 
           
           <div class="col-12 col-sm-6 col-md-3">
-          <a href="visitor_tbl.php">
+          <a href="maintenance_bill_history.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-receipt "></i></span>
               <div class="info-box-content">
@@ -84,7 +84,7 @@ include('header.php');
           </div>
 
           <div class="col-12 col-sm-6 col-md-3">
-          <a href="visitor_tbl.php">
+          <a href="cmp_history.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-cog"></i></span>
               <div class="info-box-content">
