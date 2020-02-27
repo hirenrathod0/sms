@@ -43,6 +43,22 @@ include('header.php');
             </a>
           </div>
           <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="pend_comp.php">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Current Complaints</span>
+                <span class="info-box-number">410</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </a>
+          </div>
+          <!-- /.col -->
+
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
 
@@ -67,25 +83,8 @@ include('header.php');
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Add New Members</span>
+                <span class="info-box-text">New Members</span>
                 <span class="info-box-number">+1</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </a>
-          </div>
-          <!-- /.col -->
-
-
-          <div class="col-12 col-sm-6 col-md-3">
-          <a href=""> 
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">All Members</span>
-                <span class="info-box-number">current members</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -101,7 +100,7 @@ include('header.php');
 
         <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
-            <a href="maintenance.php" >
+            <a href="maintainance.php" >
               <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
               <div class="info-box-content">  
@@ -123,7 +122,7 @@ include('header.php');
 
               <div class="info-box-content">
                 <span class="info-box-text">Past Guests</span>
-                <span class="info-box-number" id="guests"></span>
+                <span class="info-box-number">41</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -132,21 +131,6 @@ include('header.php');
           </div>
           <!-- /.col -->
 
-          
-          <div class="col-12 col-sm-6 col-md-3">
-          <a href="flat_allot_tbl.php" >
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Allocated Flats</span>
-                <span class="info-box-number" id="allocatedflats"></span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-          </a>
-            <!-- /.info-box -->
-          </div>
 
 
           <div class="col-12 col-sm-6 col-md-3">
@@ -155,8 +139,8 @@ include('header.php');
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Empty Flats</span>
-                <span class="info-box-number" id="emptyflats"></span>
+                <span class="info-box-text">Current Flat allotments</span>
+                <span class="info-box-number"></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -173,7 +157,7 @@ include('header.php');
 
               <div class="info-box-content">
                 <span class="info-box-text">Current Users</span>
-                <span class="info-box-number" id="currentusers"></span>
+                <span class="info-box-number" id="currentusers">5,200</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -184,7 +168,7 @@ include('header.php');
 
               <div class="info-box-content">
                 <span class="info-box-text">Current Tenants</span>
-                <span class="info-box-number" id="tenants"></span>
+                <span class="info-box-number" id="tenants">92,050</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -196,7 +180,7 @@ include('header.php');
 
               <div class="info-box-content">
                 <span class="info-box-text">On Going Complaints</span>
-                <span class="info-box-number" id="acomp"></span>
+                <span class="info-box-number" id="acomp">114,381</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -208,16 +192,28 @@ include('header.php');
 
               <div class="info-box-content">
                 <span class="info-box-text">Not Processed complaints</span>
-                <span class="info-box-number" id="nacomp"></span>
+                <span class="info-box-number" id="nacomp">163,921</span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
             </div>
+          
         </div>
+
+
       </div>
     </section>
   </div>
+  
+
+
+
+
+
+
+
+
 
 <?php
 include('footer.php');
@@ -288,63 +284,10 @@ $(function() {
      }
    })
 
-   var myobj5 = {
-    need: 'currcomp'
-  }
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchadmindashboard.php',
-     data: myobj5,
-     success: function(data)
-     {
-       //alert(data);
-       document.getElementById('currcomp').innerHTML = data;
-     }
-   })
-
-   var myobj6 = {
-    need: 'guests'
-  }
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchadmindashboard.php',
-     data: myobj6,
-     success: function(data)
-     {
-       //alert(data);
-       document.getElementById('guests').innerHTML = data;
-     }
-   })
-
-   var myobj7 = {
-    need: 'emptyflats'
-  }
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchadmindashboard.php',
-     data: myobj7,
-     success: function(data)
-     {
-       //alert(data);
-       document.getElementById('emptyflats').innerHTML = data;
-     }
-   })
-
-   var myobj8 = {
-    need: 'allocatedflats'
-  }
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchadmindashboard.php',
-     data: myobj8,
-     success: function(data)
-     {
-       //alert(data);
-       document.getElementById('allocatedflats').innerHTML = data;
-     }
-   })
 
 });
+
+
 
 </script>
 
