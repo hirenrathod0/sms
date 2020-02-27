@@ -1,4 +1,27 @@
-<?php include('config.php');?>
+<?php include('config.php');
+
+if(isset($_POST['insert_user_buffer']))
+{
+
+  $query="INSERT into user_buffer(fullName,userEmail,password,contactNo,type,gender,dob,fid) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."', '".$_POST["dob"]."', '".$_POST["fid"]."')";
+  $row=mysqli_query($con,$query);
+  
+  //$dummy=mysqli_insert_id($con);
+
+  //echo "$dummy";
+
+ // $query1="UPDATE flat SET uid = '".$dummy."' WHERE fid = '".$_POST["flat"]."'";
+  //$row1=mysqli_query($con,$query1);
+  // echo "$row";
+  if(isset($row) )
+  {   
+    echo "<script>alert('Reques is Send to Admin'); location.href='signup.php';</script>";   
+    //header('location:user_reg.php');  
+  }else{
+    die('Could not Insert: '. mysql_error());   
+  }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +51,11 @@
   <div class="card">
     <div class="card-body register-card-body">
       
-
       <form class="form-horizontal" name="user_reg" method="post" style="padding-left:5%">
       <div class="form-group row">
         <label class="control-label col-sm-3" for="">Full Name:</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="email" placeholder="Enter Ful lName" name="fullName">
+          <input type="text" class="form-control" id="email" placeholder="Enter Full Name" name="fullName">
         </div>
       </div>
       <div class="form-group row">
@@ -45,7 +67,7 @@
       <div class="form-group row">
         <label class="control-label col-sm-3" for="">Enter Password:</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="email" placeholder="Enter Password" name="password">
+          <input type="password" class="form-control" id="email" placeholder="Enter Password" name="password">
         </div>
       </div>
       <div class="form-group row">
@@ -75,6 +97,12 @@
         </div>
       </div>  
       <div class="form-group row">
+        <label class="control-label col-sm-3" for="">birth date:</label>
+        <div class="col-sm-7">
+          <input type="date" class="form-control" id="email" placeholder="Enter birth date" name="dob">
+        </div>
+      </div>
+      <div class="form-group row">
         <label class="control-label col-sm-3" for="email">Select Flat:</label>
         <div class="col-sm-7">
           <select class="form-control" id="sel1" name="flat">
@@ -94,7 +122,7 @@
          
                     <?php $sql=mysqli_query($con,"select id from users order by id desc limit 1");
   while($row1=mysqli_fetch_array($sql)){?>
-                    <a href="addmember.php?uid=<?php echo $row1['id'];?>" class="btn btn-primary" name="insert_user_reg" >submit</a>
+                    <a href="addmember.php?uid=<?php echo $row1['id'];?>" class="btn btn-primary" name="insert_user_buffer" >submit</a>
                     <?php 
         }
         ?> <button type="reset" class="btn btn-primary">Reset</button>
