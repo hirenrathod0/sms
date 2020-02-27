@@ -14,7 +14,7 @@
 				$result=mysqli_query($con,$query1);
 
 				if($result === FALSE) { 
-				    die(mysql_error()); // TODO: better error handling
+				    die(mysqli_error()); // TODO: better error handling
 				}
 				while($rows=$result->fetch_assoc())
 				{
