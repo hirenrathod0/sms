@@ -252,15 +252,15 @@
           </li>           
             </ul>
           </li>
-          <li class="nav-item">
+         <!--  <li class="nav-item">
             <a href="maintenance.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Maintenance
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span> 
               </p>
             </a>
-          </li>
+          </li> -->
           <!-- <li class="nav-item">
             <a href="EventBooker.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -364,6 +364,32 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Maintainance Menu
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="maintenance_bill_history.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Maintanainace History </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="maintenance.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User Maintainance</p>
+                </a>
+              </li>            
+            </ul>
+          </li>
+
           <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

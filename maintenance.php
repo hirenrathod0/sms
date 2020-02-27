@@ -15,7 +15,7 @@
 			</thead>
 			<tbody>
 				<?php 
-				$query1="select fid,block,flat_num,uid from flat where uid IS NOT NULL";
+				$query1="select fullName,fid,block,flat_num,uid from flat,users where uid IS NOT NULL && uid=id";
 				$result=mysqli_query($con,$query1);
 
 				if($result === FALSE) { 
@@ -26,12 +26,9 @@
 					?>
 					<tr>
 						<!-- <?php  //$id=$rows['catid']; ?> -->
-						<td><?php echo $rows['name']; ?></td>						
-						<td><?php echo $rows['cno']; ?></td>						
-						<td><?php echo $rows['email']; ?></td>						
+						<td><?php echo (($rows["block"]." - ".$rows["flat_num"])); ?></td>											
 						<td><?php echo $rows['fullName']; ?></td>						
-						<td><?php echo $rows['time']; ?></td>												
-						<!-- <td><a href="add_catspec.php?edit_cat=<?php //echo $rows['catid']; ?>" class="btn btn-info btn_space" >Edit</a><a href="add_catspec.php?delete_cat=<?php //echo $rows['catid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger" >Delete</a></td> -->
+						<td><a href="maintain_details.php?uid=<?php echo $rows['uid']; ?>" >bill</a></td>
 					</tr>	
 					<?php 
 				}
@@ -40,20 +37,7 @@
 		</table>    
 			
                         
-						<?php
-							$result=mysqli_query($con,"select fid,block,flat_num,uid from flat where uid IS NOT NULL");						
-							// $row=$result->fetch_assoc();	
-							while($row=mysqli_fetch_assoc($result)):; 	?>
-                            <tr>
-                        <td><?php //printf("%s",$row['fid']);   
-                        printf("%s",($row["block"]." - ".$row["flat_num"])); ?>
-                            </td>
-                        <td><?php printf("%s",$row['uid']);?></td>
-                                <td><a href="maintain_details.php?uid=<?php echo $row['uid']; ?>" >bill</a></td>
-                        </tr>
-							<?php endwhile;?>
-                        
-                    </table>
+					
 				
 				</div>
 			</div>	
