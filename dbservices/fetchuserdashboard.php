@@ -149,8 +149,7 @@ if($_POST['need'] == 'compstatus')
         $str = $str.'<div class="col-md-3">
         <div class="info-box mb-3 bg-warning">
           <div class="info-box-content">
-          <span class="info-box-text">Events</span>
-            <span class="info-box-text">'.$row['fun_title'].'</span>
+            <span class="info-box-text">'.$row['complaintTitle'].'</span>
           </div>
         </div>
         </div>';
