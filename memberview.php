@@ -33,7 +33,7 @@
                         <td><?php echo($row['birthdate']);?></td>
                         <td><?php echo($row['gender']);?></td>
                         
-                                <td><a href="bill_detail.php?bill_no=<?php echo $row['bid'];?>&total=<?php echo $total; ?>"  >Print</a></td>                                           
+                                <td><a href="editmember.php?mid=<?php echo $row['mid'];?>"  >edit</a></td>                                           
                         <!-- <td><a href="add_catspec.php?edit_cat=<?php //echo $rows['catid']; ?>" class="btn btn-info btn_space" >Edit</a><a href="add_catspec.php?delete_cat=<?php //echo $rows['catid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger" >Delete</a></td> -->
                     </tr>   
                     <?php 
