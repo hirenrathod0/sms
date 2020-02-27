@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <?php 
-        $query1="select fullName,id,number,v.type,uid from vehicle_detail v,users where uid=id ORDER BY uid DESC ";
+        $query1="select fullName,id,number,v.type,uid from vehicle_detail v,users where uid=id and id=".$_SESSION['uid']." ORDER BY uid DESC ";
         $result=mysqli_query($con,$query1);
 
         if($result === FALSE) { 
