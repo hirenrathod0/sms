@@ -2,7 +2,7 @@
 if(isset($_POST['insert_vehical']))
 {
   // echo("alert('$_POST['uid'].$_POST['number'].$_POST['type']');");
-  $query="INSERT into vehicle_detail(uid,number,type) VALUES('".$_SESSION["uid"]."', '".$_POST["number"]."', '".$_POST["type"]."')";
+  $query="INSERT into vehicle_detail(uid,number,type) VALUES('".$_POST["uid"]."', '".$_POST["number"]."', '".$_POST["type"]."')";
   $row=mysqli_query($con,$query);
     
 
@@ -40,19 +40,24 @@ if(isset($_POST['insert_vehical']))
 
         <form class="form-horizontal" name="vehical_add" method="post" style="padding-left:5%">
      <div class="form-group row">
-        <label class="control-label col-sm-3" for="email">User Name:</label>
+        <label class="control-label col-sm-3" for="email">Select User Name:</label>
         <div class="col-sm-7">
-
-          <input type="text" class="form-control" id="sel1" name="uid" value="<?php echo  $_SESSION['fullName'];?>" readonly>
-
-
+          <select class="form-control" id="sel1" name="uid">
+            <option>Select Option</option>
+            <?php
+              $result=mysqli_query($con,"select * from users ");           
+              // $row=$result->fetch_assoc(); 
+              while($row=mysqli_fetch_assoc($result)):;   ?>
+                <option value="<?php echo($row['id']);  ?>"><?php echo($row["fullName"]); ?></option>
+              <?php endwhile;?>
+          </select>
         </div>
       </div>
 
       <div class="form-group row">
         <label class="control-label col-sm-3" for="">Enter Vehical No:</label>
         <div class="col-sm-7">
-          <input type="text" class="form-control" id="email" placeholder="Enter Vehical No" name="number" >
+          <input type="text" class="form-control" id="email" placeholder="Enter Vehical No" name="number">
         </div>
       </div>
       

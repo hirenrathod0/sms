@@ -1,5 +1,5 @@
 <?php 
-include('../config.php');
+include('../../config.php');
 //$connect = new PDO('mysql:host=localhost;dbname=sms', 'root', '');
 
 $query = "";
