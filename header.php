@@ -33,6 +33,8 @@
   <link rel="stylesheet" href="plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Toastr -->
   <link rel="stylesheet" href="plugins/toastr/toastr.min.css">
+  <!-- Datatable -->
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <!-- fullCalendar -->
   <link rel="stylesheet" href="plugins/fullcalendar/main.min.css">
   <link rel="stylesheet" href="plugins/fullcalendar-daygrid/main.min.css">

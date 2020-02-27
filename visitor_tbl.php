@@ -16,7 +16,7 @@
     <section class="content-header">
       <div class="container-fluid">
 
-        <table class="table display" id="cattable" width="100%">
+        <table class="table display" id="visitortable" width="100%">
 			<thead>
 				<!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
 				<tr><th>Visitor Name</th><th>Visitor Contact No.</th><th>Visitor Email</th><th>House Owner Name</th><th>Time</th></tr>
@@ -53,3 +53,13 @@
     <!-- /.content -->
   </div>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#visitortable').DataTable({			        
+				
+			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+			dom: 'lBfrtip',
+			"lengthChange": true
+		});
+	});
+</script>
