@@ -80,28 +80,39 @@ if(isset($_POST["action"]))
 	}
 	if($_POST["action"] == "fetch_single")
 	{
-		$query = "SELECT * FROM flat WHERE fid = '".$_POST["id"]."'";
-		$statement = $con->prepare($query);
-		$statement->execute();
+		
+		$query = "SELECT * FROM flat WHERE fid =:fid ";
+
+		$statement = $dbh->prepare($query);
+		
+		$statement->execute(  
+			array(
+            ':fid' => $_POST['id']
+			)
+		);
 		$result = $statement->fetchAll();
+		$data = "";
 		foreach($result as $row)
 		{
-			$output['block'] = $row['block'];
-			$output['flat_num'] = $row['flat_num'];
-			$output['area'] = $row['area'];
-			$output['BHK'] = $row['BHK'];
-			$output['floor_no'] = $row['floor_no'];
-			$output['price'] = $row['price'];
-
+			$data = $row['block'].",".$row['flat_num'].",".$row['area'].",".$row['BHK'].",".$row['floor_no'].",".$row['price'];
 		}
-		echo json_encode($output);
+		echo $data;
 	}
 	if($_POST["action"] == "update")
 	{
-		$query = "UPDATE flat SET block = '".$_POST["block"]."',flat_num = '".$_POST["flat_num"]."',area = '".$_POST["area"]."',BHK = '".$_POST["BHK"]."',floor_no = '".$_POST["floor_no"]."' ,	price = '".$_POST["price"]."',WHERE fid = '".$_POST["hidden_id"]."'	";
-		$statement = $con->prepare($query);
-		$statement->execute();
-		echo '<p>Data Updated</p>';
+		$query = "UPDATE flat SET area=:area, BHK=:bhk, floor_no=:floor_no, price=:price where fid=:fid";
+		$statement = $dbh->prepare($query);
+		$result=$statement->execute(
+			array(
+				'area' =>$_POST['area'],
+				'bhk' =>$_POST['BHK'],
+				'floor_no' =>$_POST['floor_no'],
+				'price' =>$_POST['price'],
+				'fid' =>$_POST['hidden_id'],
+			)
+		);
+		echo $result.'  Data Updated';
+
 	}
 	if($_POST["action"] == "delete")
 	{
