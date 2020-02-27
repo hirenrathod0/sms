@@ -5,7 +5,13 @@ if(isset($_POST['insert_user_reg']))
 	$query="INSERT into users(fullName,userEmail,password,contactNo,type,gender) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."')";
 	$row=mysqli_query($con,$query);
 	
-	$dummy=mysqli_insert_id($con);
+	//$dummy=mysqli_insert_id($con);
+	$sql=mysqli_query($con,"select id from users  order by id desc limit 1");
+	while($row=mysqli_fetch_array($sql))
+	{
+		$cmpn=$row['id'];
+	}
+	$dummy=$cmpn;
 
 	//echo "$dummy";
 
@@ -17,7 +23,7 @@ if(isset($_POST['insert_user_reg']))
 		echo "<script>alert($dummy);</script>";		
 		//header('location:user_reg.php');	
 	}else{
-		die('Could not Insert: '. mysql_error());		
+		//die('Could not Insert: '. mysql_error());		
 	}
 }
 ?>
@@ -31,7 +37,7 @@ if(isset($_POST['insert_user_reg']))
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Full Name:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter Ful lName" name="fullName">
+					<input type="text" class="form-control" id="email" placeholder="Enter FullName" name="fullName">
 				</div>
 			</div>
 			<div class="form-group row">
@@ -90,9 +96,11 @@ if(isset($_POST['insert_user_reg']))
 			<div class="form-group row">        
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="reset" class="btn btn-primary">Reset</button>
+					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
+
                     <?php $sql=mysqli_query($con,"select id from users order by id desc limit 1");
 	while($row1=mysqli_fetch_array($sql)){?>
-                    <a href="addmember.php?uid=<?php echo $row1['id'];?>" class="btn btn-primary" name="insert_user_reg" >submit</a>
+                    <!-- <a href="addmember.php?uid=<?php //echo $row1['id'];?>" class="btn btn-primary" name="insert_user_reg" >submit</a> -->
                     <?php 
 				}
 				?>

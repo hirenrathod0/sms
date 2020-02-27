@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <?php 
-        $query1="select fullName,id,number,v.type,uid from vehicle_detail v,users where uid=id ORDER BY uid DESC ";
+        $query1="select fullName,id,number,v.type,uid from vehicle_detail v,users where uid=id and id=".$_SESSION['uid']." ORDER BY uid DESC ";
         $result=mysqli_query($con,$query1);
 
         if($result === FALSE) { 
@@ -37,7 +37,7 @@
             <!-- <?php  //$id=$rows['catid']; ?> -->
             <td><?php echo $rows['fullName']; ?></td>           
             <td><?php echo $rows['number']; ?></td>            
-            <td><?php echo ($rows['type']."wheel"); ?></td>                        
+            <td><?php echo ($rows['type']." Wheeler"); ?></td>                        
             <!-- <td><a href="add_catspec.php?edit_cat=<?php //echo $rows['catid']; ?>" class="btn btn-info btn_space" >Edit</a><a href="add_catspec.php?delete_cat=<?php //echo $rows['catid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger" >Delete</a></td> -->
           </tr> 
           <?php 

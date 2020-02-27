@@ -1,7 +1,7 @@
 <?php include 'header.php';
 if(isset($_POST['insert_user_reg']))
 {
-	$query="INSERT into member_detail(Name,birthdate,gender,uid) VALUES('".$_POST["fullName"]."', '".$_POST["bdate"]."', '".$_POST["gender"]."','".$_REQUEST['uid']."')";
+	$query="INSERT into member_detail(name,birthdate,gender,uid) VALUES('".$_POST["fullName"]."', '".$_POST["bdate"]."', '".$_POST["gender"]."',".$_SESSION['uid'].")";
 	$row=mysqli_query($con,$query);
 	
 	if(isset($row))
@@ -9,7 +9,7 @@ if(isset($_POST['insert_user_reg']))
 		echo "<script>alert($query);</script>";		
 		//header('location:user_reg.php');	
 	}else{
-		die('Could not Insert: '. mysql_error());		
+		//die('Could not Insert: '. mysql_error());		
 	}
 }
 
@@ -51,7 +51,7 @@ if(isset($_POST['insert_user_reg']))
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
-                    <a href="memberview.php?uid=<?php echo $_REQUEST['uid']?>" class="btn btn-primary" name="bill_id" >complete</a>
+
                     
 				</div>				
 			</div>
