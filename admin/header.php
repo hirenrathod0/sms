@@ -284,16 +284,7 @@ else{
               </li>
             </ul>
           </li>
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                form example
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+
 
           <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
