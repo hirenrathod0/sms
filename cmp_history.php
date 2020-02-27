@@ -34,7 +34,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php $_SESSION['id']=2;
+									<?php
 									$query=mysqli_query($con,"select * from tblcomplaints where userId='".$_SESSION['uid']."' ORDER BY regDate DESC");
 									while($row=mysqli_fetch_array($query))
 									{
