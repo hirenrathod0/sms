@@ -14,7 +14,8 @@ if(isset($_POST['insert_visitor_reg']))
 
     <button class="btn btn-primary" type="button" onclick="showfemale()">Female   </button>
     <button  class="btn btn-primary" type="button" onclick="showmale()">Male   </button>
-    
+    <button  class="btn btn-primary" type="button" onclick="showchild()">children   </button>
+    <button  class="btn btn-primary" type="button" onclick="showsenior()">senior ciitizon   </button>
 
     <br> <br>
     <div id="usercard">
@@ -163,6 +164,73 @@ function showfemale()
          });
         
     }
+
+    function showchild()
+{
+    alert('called');    
+    var myobj = {
+        need: 'child'
+    }
+    
+    $.ajax({
+           type: "POST",
+           url: 'dbservices/load_user_detail.php',
+           data: myobj,
+           success: function(data)
+           {
+               // alert(data);
+                if (data) 
+                {
+                   alert(data);
+                   document.getElementById('usercard').innerHTML = data;
+                }     
+                else 
+                {
+                    
+                }    
+           },
+           complete:function(){
+            $('#event').each(function(){
+                this.reset();   //Here form fields will be cleared.
+            });
+       }
+         });
+        
+    }
+
+    function showsenior()
+{
+    alert('called');    
+    var myobj = {
+        need: 'senior'
+    }
+    
+    $.ajax({
+           type: "POST",
+           url: 'dbservices/load_user_detail.php',
+           data: myobj,
+           success: function(data)
+           {
+               // alert(data);
+                if (data) 
+                {
+                   alert(data);
+                   document.getElementById('usercard').innerHTML = data;
+                }     
+                else 
+                {
+                    
+                }    
+           },
+           complete:function(){
+            $('#event').each(function(){
+                this.reset();   //Here form fields will be cleared.
+            });
+       }
+         });
+        
+    }
+
 
 
     
