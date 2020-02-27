@@ -23,7 +23,7 @@ if(isset($_POST['insert_user_reg']))
 
 		//header('location:user_reg.php');	
 	}else{
-		die('Could not Insert: '. mysql_error());		
+		//die('Could not Insert: '. mysql_error());		
 	}
 }
 
