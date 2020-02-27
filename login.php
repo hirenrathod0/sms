@@ -16,7 +16,7 @@ if (isset($_POST['sign'])) {
   {   
 
    
-    echo "<script> alert('Login Successfully '); location.href='index.php';</script>";
+    echo "<script> alert('Login Successfully ');</script>";
 
     if($_SESSION['type']=='admin')
     {
