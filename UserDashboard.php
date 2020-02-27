@@ -126,6 +126,15 @@ include('header.php');
 
             <p><?php echo ($rows['descr']); ?></p>
             <p><?php echo ($rows['date']); ?></p>
+            <span>
+            <i class="fa fa-thumbs-up" onclick="vote('y',<?php echo ($rows['nid']);?>, this)" ></i>
+            <span>Yes </span>
+            </span>
+            <span>
+            <i class="fa fa-thumbs-down" onclick="vote('n',<?php echo ($rows['nid']);?>, this)"></i>
+            <span>No</span>
+            </span>
+
           </div>
         <?php } ?>
       </div>
@@ -254,12 +263,52 @@ $(function() {
        document.getElementById('compstatus').innerHTML = data;
      }
    })
-
-
-
-
-
 });
+
+function vote(d1, nid, ele)
+{
+    var txt = "";
+    if(d1 === 'y')
+    {
+        txt = "Clicked Thumbs UP";
+    }
+    if(d1 === 'n')
+    {
+        txt = "Clicked Thumbs DOWN";
+    }
+    
+    var myobj6 = {
+      nid: nid,
+      usrid: <?php echo ($_SESSION['uid']); ?>,
+      ans: d1
+    }
+    
+    $.ajax({
+      type: "POST",
+      url: 'dbservices/noticevote.php',
+      data: myobj6,
+      success: function(data)
+      {
+        
+            if(data === '1')
+            {
+              alert(txt);
+              if(d1 === 'y' )
+              {
+                ele.classList.toggle("fa-thumbs-o-up");
+              }
+
+              if(d1 === 'n' )
+              {
+                ele.classList.toggle("fa-thumbs-o-down");
+              }
+
+            }
+      }
+    });
+
+}
+
 </script>
 
 
