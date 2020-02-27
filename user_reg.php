@@ -31,7 +31,7 @@ if(isset($_POST['insert_user_reg']))
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Full Name:</label>
 				<div class="col-sm-7">
-					<input type="text" class="form-control" id="email" placeholder="Enter FullName" name="fullName">
+					<input type="text" class="form-control" id="email" placeholder="Enter Ful lName" name="fullName">
 				</div>
 			</div>
 			<div class="form-group row">
@@ -89,8 +89,13 @@ if(isset($_POST['insert_user_reg']))
 			
 			<div class="form-group row">        
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
-					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
+                    <?php $sql=mysqli_query($con,"select id from users order by id desc limit 1");
+	while($row1=mysqli_fetch_array($sql)){?>
+                    <a href="addmember.php?uid=<?php echo $row1['id'];?>" class="btn btn-primary" name="insert_user_reg" >submit</a>
+                    <?php 
+				}
+				?>
 				</div>				
 			</div>
 		</form>
