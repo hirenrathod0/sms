@@ -1,15 +1,19 @@
 <?php 
+include('../config.php');
 
-session_start();
 
-if(isset($_SESSION['type']) && $_SESSION['type']=='admin')  
+    // echo "<script> alert('".$_SESSION['type']."'); </script>";
+
+if(isset($_SESSION['type']) && $_SESSION['type']=="admin")  
 {
+
 }
 else{
-  header('location:../login.php');
+
+   header('location:../login.php');
   
 }
-include('../config.php'); ?>
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -15,13 +15,13 @@ if (isset($_POST['sign'])) {
   if(isset($result))
   {   
     // echo "<script> alert('Login Successfully '); location.href='index.php';</script>";
-    if($_SESSION['type']=='admin')
+    if($_SESSION['type']=="admin")
     {
       echo "<script> alert('Login Successfully ".$_SESSION['uid'].$_SESSION['type']."'); location.href='admin/index.php'; </script>";
       //header('location:admin/index.php');
     }
     else
-      echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); location.href='index.php';</script>";
+      echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); </script>";
 
 
     //header('location:user_reg.php');  
