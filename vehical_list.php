@@ -37,7 +37,7 @@
             <!-- <?php  //$id=$rows['catid']; ?> -->
             <td><?php echo $rows['fullName']; ?></td>           
             <td><?php echo $rows['number']; ?></td>            
-            <td><?php echo ($rows['type']." wheel"); ?></td>                        
+            <td><?php echo ($rows['type']."wheel"); ?></td>                        
             <!-- <td><a href="add_catspec.php?edit_cat=<?php //echo $rows['catid']; ?>" class="btn btn-info btn_space" >Edit</a><a href="add_catspec.php?delete_cat=<?php //echo $rows['catid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger" >Delete</a></td> -->
           </tr> 
           <?php 
