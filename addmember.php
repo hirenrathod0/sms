@@ -1,6 +1,7 @@
 <?php include 'header.php';
 if(isset($_POST['insert_user_reg']))
 {
+	echo ($_POST['fullName'].$_POST['bdate'].$_POST['gender'].$_SESSION['uid']);
 	$query="INSERT into member_detail(name,birthdate,gender,uid) VALUES('".$_POST["fullName"]."', '".$_POST["bdate"]."', '".$_POST["gender"]."',".$_SESSION['uid'].")";
 	$row=mysqli_query($con,$query);
 	

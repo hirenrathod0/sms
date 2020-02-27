@@ -9,7 +9,7 @@ include('header.php');
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard v2</h1>
+            <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -26,24 +26,149 @@ include('header.php');
     <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
-        <div><h2>Your vehicles </h2></div>
-        <div id="vehicles"></div>
+        <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+          <a href="visitor_tbl.php">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-car-side"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Your vehicles </span>
+                <span class="info-box-number" id="vehicles"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </a>
+          </div>
+          
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="visitor_tbl.php">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas  fa-users"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">family members  </span>
+                <span class="info-box-number" id="memberdetails"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </a>
+          </div>
 
-        <div><h2>family members </h2></div>
-        <div id="memberdetails"></div>
+      <div class="col-12 col-sm-6 col-md-3">
+          <a href="visitor_tbl.php">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning  elevation-1"><i class="fas fa-calendar-alt"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Your registered events  </span>
+                <span class="info-box-number" id="ownevents"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </a>
+          </div> 
+          
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="visitor_tbl.php">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-receipt "></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Bills  </span>
+                <span class="info-box-number" id="billcount"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </a>
+          </div>
 
-        <div><h2>Your registered events </h2></div>
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="visitor_tbl.php">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-cog"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text">Complaint Status  </span>
+                <span class="info-box-number" id="compstatus"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </a>
+          </div>    
+          </div>     
+
+           <section class="content-header">
+      <div class="container-fluid">
+          <div class="col-md-6">
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="fas fa-bullhorn"></i>
+              Notice Board
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+              <?php 
+              $query1="select * from notice order by nid desc";
+              $result=mysqli_query($con,$query1);
+              // print_r($result);l
+              if($result === FALSE) { 
+            die(mysql_error()); // TODO: better error handling
+          }
+          while($rows=$result->fetch_assoc())
+          {
+            ?>
+            <div class="callout callout-info">
+            
+            <h5><?php echo ($rows['title']); ?></h5>
+
+            <p><?php echo ($rows['descr']); ?></p>
+            <p><?php echo ($rows['date']); ?></p>
+            <span>
+            <i class="fa fa-thumbs-up" onclick="vote('y',<?php echo ($rows['nid']);?>, this)" ></i>
+            <span>Yes </span>
+            </span>
+            <span>
+            <i class="fa fa-thumbs-down" onclick="vote('n',<?php echo ($rows['nid']);?>, this)"></i>
+            <span>No</span>
+            </span>
+
+          </div>
+        <?php } ?>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+        
+        
+
+      </div><!-- /.container-fluid -->
+    </section>
+        <!-- <div><h2></h2></div>
+        <div id="vehicles"></div> -->
+
+        <!-- <div><h2>family members </h2></div>
+        <div id="memberdetails"></div> -->
+
+       <!--  <div><h2>Your registered events </h2></div>
         <div id="ownevents"></div>
 
         <div><h2>Bills </h2></div>
         <div id="billcount"></div>
 
         <div><h2>Complaint Status </h2></div>
-        <div id="compstatus"></div>
+        <div id="compstatus"></div> -->
+
+
 
       </div>
     </section>
   </div>
+
+
 <?php
 include('footer.php');
 ?>
@@ -138,12 +263,52 @@ $(function() {
        document.getElementById('compstatus').innerHTML = data;
      }
    })
-
-
-
-
-
 });
+
+function vote(d1, nid, ele)
+{
+    var txt = "";
+    if(d1 === 'y')
+    {
+        txt = "Clicked Thumbs UP";
+    }
+    if(d1 === 'n')
+    {
+        txt = "Clicked Thumbs DOWN";
+    }
+    
+    var myobj6 = {
+      nid: nid,
+      usrid: <?php echo ($_SESSION['uid']); ?>,
+      ans: d1
+    }
+    
+    $.ajax({
+      type: "POST",
+      url: 'dbservices/noticevote.php',
+      data: myobj6,
+      success: function(data)
+      {
+        
+            if(data === '1')
+            {
+              alert(txt);
+              if(d1 === 'y' )
+              {
+                ele.classList.toggle("fa-thumbs-o-up");
+              }
+
+              if(d1 === 'n' )
+              {
+                ele.classList.toggle("fa-thumbs-o-down");
+              }
+
+            }
+      }
+    });
+
+}
+
 </script>
 
 

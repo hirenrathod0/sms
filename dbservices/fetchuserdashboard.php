@@ -21,12 +21,13 @@ $result = $statement->fetchAll();
 
 foreach($result as $row)
 {
-    $str = $str.'<div class="col-md-3">
-    <div class="info-box mb-3 bg-danger">
-      <div class="info-box-content">
-        <span class="info-box-text">'.$row['number'].'</span>
-      </div>
-    </div>';
+    $str=$row['number'];
+    // $str = $str.'<div class="col-md-3">
+    // <div class="info-box mb-3 bg-danger">
+    //   <div class="info-box-content">
+    //     <span class="info-box-text">'.$row['number'].'</span>
+    //   </div>
+    // </div>';
 }
 
 echo $str;
@@ -50,13 +51,14 @@ if($_POST['need'] == 'members')
     $str="<div class='row'>";
     foreach($result as $row)
     {
-        $str = $str.'<div class="col-md-3">
-        <div class="info-box mb-3 bg-info">
-          <div class="info-box-content">
-            <span class="info-box-text">'.$row['name'].'</span>
-          </div>
-        </div>
-        </div>';
+        $str=$row['name'];
+        // $str = $str.'<div class="col-md-3">
+        // <div class="info-box mb-3 bg-info">
+        //   <div class="info-box-content">
+        //     <span class="info-box-text">'.$row['name'].'</span>
+        //   </div>
+        // </div>
+        // </div>';
     }
     $str=$str."</div>";
     echo $str;
@@ -85,15 +87,16 @@ if($_POST['need'] == 'billcount')
     $result = $statement->fetch();
     $count = $result[0];
 
-    $str="<div class='row'>";
-    $str = $str.'<div class="col-md-3">
-        <div class="info-box mb-3 bg-info">
-          <div class="info-box-content">
-          <span class="info-box-text">Current Bills</span>
-            <span class="info-box-text">'.$count.'</span>
-          </div>
-        </div>
-        </div>';
+    $str=$count;
+    // $str="<div class='row'>";
+    // $str = $str.'<div class="col-md-3">
+    //     <div class="info-box mb-3 bg-info">
+    //       <div class="info-box-content">
+    //       <span class="info-box-text">Current Bills</span>
+    //         <span class="info-box-text">'.$count.'</span>
+    //       </div>
+    //     </div>
+    //     </div>';
 
     $str=$str."</div>";
     echo $str;
@@ -115,14 +118,15 @@ if($_POST['need'] == 'myevents')
     $str="<div class='row'>";
     foreach($result as $row)
     {
-        $str = $str.'<div class="col-md-3">
-        <div class="info-box mb-3 bg-warning">
-          <div class="info-box-content">
-          <span class="info-box-text">Events</span>
-            <span class="info-box-text">'.$row['fun_title'].'</span>
-          </div>
-        </div>
-        </div>';
+        $str=$row['fun_title'];
+        // $str = $str.'<div class="col-md-3">
+        // <div class="info-box mb-3 bg-warning">
+        //   <div class="info-box-content">
+        //   <span class="info-box-text">Events</span>
+        //     <span class="info-box-text">'.$row['fun_title'].'</span>
+        //   </div>
+        // </div>
+        // </div>';
     }
 
     $str=$str."</div>";
@@ -146,14 +150,14 @@ if($_POST['need'] == 'compstatus')
     $str="<div class='row'>";
     foreach($result as $row)
     {
-        $str = $str.'<div class="col-md-3">
-        <div class="info-box mb-3 bg-warning">
-          <div class="info-box-content">
-          <span class="info-box-text">Events</span>
-            <span class="info-box-text">'.$row['fun_title'].'</span>
-          </div>
-        </div>
-        </div>';
+        $str=$row['complaintTitle'];
+        // $str = $str.'<div class="col-md-3">
+        // <div class="info-box mb-3 bg-warning">
+        //   <div class="info-box-content">
+        //     <span class="info-box-text">'.$row['complaintTitle'].'</span>
+        //   </div>
+        // </div>
+        // </div>';
     }
 
     $str=$str."</div>";

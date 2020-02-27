@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 27, 2020 at 09:44 AM
--- Server version: 5.7.26
--- PHP Version: 7.3.5
+-- Generation Time: Feb 27, 2020 at 06:18 PM
+-- Server version: 5.7.19
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,12 +30,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `member_detail`;
 CREATE TABLE IF NOT EXISTS `member_detail` (
-  `mid` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
   `birthdate` date NOT NULL,
-  `gender` char(1) NOT NULL,
-  PRIMARY KEY (`mid`)
+  `gender` char(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 COMMIT;
 
