@@ -353,30 +353,7 @@ else{
               </li>             
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Complaint User
-                <i class="fas fa-angle-left right"></i>
- 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="cmp_reg.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Register Complaint</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="cmp_history.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Complaint History</p>
-                </a>
-              </li>            
-            </ul>
-          </li>
+
            <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
