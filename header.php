@@ -1,4 +1,19 @@
-<?php include('config.php'); ?>
+<?php 
+include('config.php');
+
+
+    // echo "<script> alert('".$_SESSION['type']."'); </script>";
+
+if(isset($_SESSION['type']) && ($_SESSION['type']=="user" || $_SESSION['type']=="tantent"))  
+{
+
+}
+else{
+
+   header('location:login.php');
+  
+}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

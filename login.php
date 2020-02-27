@@ -21,7 +21,7 @@ if (isset($_POST['sign'])) {
       //header('location:admin/index.php');
     }
     else
-      echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); </script>";
+      echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); location.href='index.php'; </script>";
 
 
     //header('location:user_reg.php');  
