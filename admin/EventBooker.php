@@ -15,7 +15,7 @@ include('header.php');
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form role="form" id="event" action="" method="POST">
+            <form role="form" id="event" method="POST">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-5">
@@ -59,7 +59,7 @@ include('header.php');
                                                 <i class="far fa-calendar-alt"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control float-right" id="reservation" placeholder="new date">
+                                        <input type="text" class="form-control float-right" id="reservation" name="reservation" onblur="checkAvailabilityDate()" placeholder="new date" required>
                                     </div>
                   <!-- /.input group -->
                                 </div>
@@ -70,7 +70,7 @@ include('header.php');
                                 <div class="form-group">
                                     <label>Start Time</label>
                                     <div class="input-group date" id="timepicker" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker"  id="start" />
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker" onblur="checkAvailabilityDate()" id="start" name="start" required>
                                         <div class="input-group-append" data-target="#timepicker" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="far fa-clock"></i></div>
                                         </div>
@@ -86,7 +86,7 @@ include('header.php');
                                 <div class="form-group">
                                     <label>End Time:</label>
                                     <div class="input-group date" id="timepicker1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker1" id="end"  />
+                                        <input type="text" class="form-control datetimepicker-input" data-target="#timepicker1" onblur="checkAvailabilityDate()" id="end" name="end"  required>
                                         <div class="input-group-append" data-target="#timepicker1" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="far fa-clock"></i></div>
                                         </div>
@@ -96,9 +96,48 @@ include('header.php');
                                     <!-- /.form group -->
                             </div>
                         </div>
+
+                        <script>
+                            function checkAvailabilityDate() {
+
+                                var date = document.getElementById('reservation').value;
+                                var starttime = document.getElementById('start').value;
+                                var endtime = document.getElementById('end').value;
+
+                                var datearr = date.split(' - ');
+                                var startdate = new Date(datearr[0].trim());
+                                var enddate = new Date(datearr[1].trim());
+                                var cd = new Date();
+
+                                starttime = formatchanger(starttime);
+                                endtime = formatchanger(endtime);
+
+                                starttime=startdate.getFullYear() + "-" + (startdate.getMonth() + 1) + "-" + startdate.getDate() + " " + starttime + ":00";
+                                endtime=enddate.getFullYear() + "-" + (enddate.getMonth() + 1) + "-" + enddate.getDate() + " " + endtime + ":00"
+
+                                //alert(new Date(starttime));
+
+                                $("#loaderIcon").show();
+                                jQuery.ajax({
+                                    url: "check_availability.php",
+                                    data: {'starttime':starttime, 'endtime':endtime},
+                                    type: "POST",
+                                    success: function (data) {
+                                        $("#date-availability").html(data);
+                                        $("#loaderIcon").hide();
+                                    },
+                                    error: function () {
+                                    }
+                                });
+
+                            }
+                        </script>
+
+                        <span id="date-availability" style="font-size:14px;"></span>
+
                         <div class="row">
                             <div class="card-footer">
-                                <button type="button" class="btn btn-primary" onclick="SubmitEvent()">Submit</button>
+                                <button type="button" id="apply" class="btn btn-primary" onclick="SubmitEvent()">Submit</button>
                             </div>
                             <div class="card-footer">
                                 <button type="Reset" class="btn btn-primary">Reset</button>
