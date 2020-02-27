@@ -1,4 +1,17 @@
 <?php include 'header.php';
+
+
+if(isset($_POST['insert_user_reg']))
+{
+	$tn = $_POST['fullName'];
+	$plc = $_POST['bdate'];
+	$nos = $_POST['gender'];
+		$qur=mysqli_query($con,"update member_detail set name='".$tn."',birthdate='".$plc."',gender='".$nos."' where mid='".$_REQUEST['mid']."'");
+        //header("location:home.php");
+    
+	//header('location:memberview.php');
+}
+	
 	$query="select * from member_detail where mid='".$_REQUEST['mid']."'";
 	$r=mysqli_query($con,$query);
 	$row = mysqli_fetch_array($r);	
@@ -43,7 +56,7 @@
 			<div class="form-group row">        
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
-                    <a href="user_reg.php" class="btn btn-primary " name="bill_id" >complete</a>
+                    
                     
 				</div>				
 			</div>
@@ -52,16 +65,7 @@
 	</div><!-- /.container-fluid -->
 </section>
 </div>
-<?php 
-if(isset($_POST['insert_user_reg']))
-{
-	$tn = $_POST['fullName'];
-	$plc = $_POST['bdate'];
-	$nos = $_POST['gender'];
-		$qur=mysqli_query($con,"update member_detail set name='".$tn."',birthdate='".$plc."',gender='".$nos."' where mid='".$_REQUEST['mid']."'");
-        //header("location:home.php");
-    
-	//header('location:memberview.php');
-}
-	
+
+
+	<?php
               include 'footer.php'; ?>

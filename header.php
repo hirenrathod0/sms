@@ -136,6 +136,23 @@ else{
                 Dashboard
               </p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="addmember.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Add Member
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="memberview.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                View Members
+              </p>
+            </a>
+          </li>
            <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
