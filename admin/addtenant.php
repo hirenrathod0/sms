@@ -76,7 +76,7 @@ if(isset($_POST['insert_user_reg']))
 					<select class="form-control" id="sel1" name="flat">
 						<option>Select Option</option>
 						<?php
-							$result=mysqli_query($con,"select fid,block,flat_num from flat where uid=1");						
+							$result=mysqli_query($con,"select fid,block,flat_num from flat where uid=".$_SESSION['uid']."");						
 							// $row=$result->fetch_assoc();	
 							while($row=mysqli_fetch_assoc($result)):; 	?>
 								<option value="<?php printf("%s",$row['fid']);  ?>"><?php printf("%s",($row["block"]." - ".$row["flat_num"])); ?></option>
