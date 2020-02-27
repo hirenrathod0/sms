@@ -13,7 +13,7 @@ if(isset($_POST['insert_user_reg']))
 	// echo "$row";
 	if(isset($row))
 	{		
-		echo "<script>alert($dummy);</script>";		
+		echo "<script>alert('Bill Generated');</script>";		
 		//header('location:user_reg.php');	
 	}else{
 		die('Could not Insert: '. mysql_error());		
@@ -101,7 +101,7 @@ if(isset($_POST['insert_user_reg']))
 				<div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
 					<button type="submit" class="btn btn-primary " name="insert_user_reg">Submit</button>
 					<button type="reset" class="btn btn-primary">Reset</button>
-                    <input type=button class="btn btn-primary" onClick="location.href='viewbill.php'" value='view bills'>
+                    <input type="sumit" class="btn btn-primary" name="bill_id" onClick="location.href='viewbill.php'" value='view bills'>
 				</div>				
 			</div>
             

@@ -11,7 +11,7 @@
 		<table class="table display" id="cattable" width="100%">
 			<thead>
 				<!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
-				<tr><th>flat no</th><th>user id</th><th>generate bill</th></tr>
+				<tr><th>flat no</th><th>user id</th><th>generate bill</th><th>view bill</th></tr>
 			</thead>
 			<tbody>
 				<?php 
@@ -29,6 +29,7 @@
 						<td><?php echo (($rows["block"]." - ".$rows["flat_num"])); ?></td>											
 						<td><?php echo $rows['fullName']; ?></td>						
 						<td><a href="maintain_details.php?uid=<?php echo $rows['uid']; ?>" >bill</a></td>
+						<td><a href="viewbill1.php?uid=<?php echo $rows['uid']; ?>" >View</a></td>
 					</tr>	
 					<?php 
 				}

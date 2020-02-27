@@ -22,8 +22,7 @@
         <!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
         <tr><th>flat no</th><th>user name</th><th>contact no</th><th>bill-date</th><th>total bill</th><th>due date</th><th>view</th></tr>
       </thead>
-      <tbody>
-        <?php 
+      <tbody>      
         <?php
               $result=mysqli_query($con,"select fid,block,flat_num,uid,fullName,contactNo from flat,users where uid IS NOT NULL and uid=id
 "); 
@@ -35,11 +34,6 @@
                               
         
 
-        if($result === FALSE) { 
-            die(mysql_error()); // TODO: better error handling
-        }
-        while($rows=$result->fetch_assoc())
-        {
           ?>
           <td rowspan="<?php echo($dummy);  ?>"><?php //printf("%s",$row['fid']); 
                          echo(($row["block"]." - ".$row["flat_num"])); ?>
@@ -60,8 +54,7 @@
                          <td><?php echo($row['bill_date']);?></td>
                              <td><?php $total=$row['property_tax']+$row['water_charges']+$row['flat_charges']+$row['parking_charges']+$row['other']+$row['elec_charges'];
                               echo($total);?></td>
-                                <td><?php echo($row['due_date']);?></td>
-                            
+                                <td><?php echo($row['due_date']);?></td>                            
                                 <td><a href="bill_detail.php?bill_no=<?php echo $row['bid'];?>&total=<?php echo $total; ?>"  >Print</a></td>
                         </tr>
             <!-- <td></td> -->

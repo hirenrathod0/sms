@@ -6,6 +6,8 @@
 	<div class="container-fluid">
 
 		<CENTER><h1>Maintenance bills</h1></CENTER>
+          
+
 		<table border="2" id="example1" align="center" width="50%" >
 		<tr>
 			<th>flat no</th>
