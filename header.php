@@ -192,11 +192,11 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <!-- <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Menu 1
+                Event Menu
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -213,35 +213,60 @@
                   <p>Complaint Admin</p>
                 </a>
               </li>
+             
+            </ul>
+          </li> -->
+           <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Event Menu
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="EventBooker.php.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 2</p>
+                  <p> Add Event Booking</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>sub menu 3</p>
-                </a>
-              </li>
+               <li class="nav-item">
+            <a href="BookedEventDetails.php" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Upcoming Events
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a href="event_book_tbl.php" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>
+                Event Booking Table
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>           
             </ul>
           </li>
           <li class="nav-item">
             <a href="maintenance.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-copy"></i>
               <p>
                 Maintenance
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="EventBooker.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add Event Booking
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span> 
               </p>
             </a>
           </li>
@@ -250,7 +275,7 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Upcoming Events
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
@@ -259,19 +284,19 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Event Booking Table
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li> 
           <li class="nav-item">
             <a href="flat_allot_tbl.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Flat Allotment Table
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li>-->
            <li class="nav-item">
             <a href="user_reg.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -281,15 +306,55 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Add New Flat
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span>
               </p>
             </a>
+          </li> -->
+
+         
+
+          <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Flat
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="add_flat.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Flat </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="addflat.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Flat 1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="flat_allot_tbl.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Flat Allotment List</p>
+                </a>
+              </li>            
+              <li class="nav-item">
+                <a href="flatdesc.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Flat Deallotment List</p>
+                </a>
+              </li>
+            </ul>
           </li>
+          
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -361,6 +426,30 @@
                 <a href="cmp_history.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Complaint History</p>
+                </a>
+              </li>            
+            </ul>
+          </li>
+           <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Visitor Menu
+                <i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="visitor.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Visitor </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="visitor_tbl.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Visitor History</p>
                 </a>
               </li>            
             </ul>
