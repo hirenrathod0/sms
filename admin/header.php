@@ -203,26 +203,7 @@ else{
               </p>
             </a>
           </li>
-
-          <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Vehicle Menu
-                <i class="fas fa-angle-left right"></i>
- 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-               <li class="nav-item">
-            <a href="vehical_add.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Add Vehical
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+        
           <li class="nav-item">
             <a href="vehical_list.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -232,10 +213,7 @@ else{
               </p>
             </a>
           </li>           
-            </ul>
-          </li>
 
-          
           <!-- <li class="nav-item">
             <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -271,13 +249,13 @@ else{
                 </a>
               </li>
               <li class="nav-item">
-                <a href="flat_allot_tbl.php" class="nav-link">
+                <a href="flatdesc.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Flat Allotment List</p>
                 </a>
               </li>            
               <li class="nav-item">
-                <a href="flatdesc.php" class="nav-link">
+                <a href="flat_allot_tbl.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Flat Deallotment List</p>
                 </a>
