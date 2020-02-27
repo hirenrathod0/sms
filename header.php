@@ -65,7 +65,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index.php" class="brand-link">
+    <a href="Admindashboard.php" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">SMS</span>
@@ -202,6 +202,39 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="complaint.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Vehical Menu
+                <i class="fas fa-angle-left right"></i>
+ 
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+               <li class="nav-item">
+            <a href="vehical_add.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Vehical
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="vehical_list.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Vehical List
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>           
+            </ul>
+          </li>
+
+          
           <!-- <li class="nav-item">
             <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
