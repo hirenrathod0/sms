@@ -6,7 +6,7 @@ $result1=mysqli_query($con,$query);
 
 if(isset($_POST['insert_visitor_reg']))
 {
-	$query="INSERT into visitor(name,cno,email) VALUES('".$_POST["fullName"]."', '".$_POST["cno"]."', '".$_POST["visitorEmail"]."')";
+	$query="INSERT into visitor(name,cno,ref,email) VALUES('".$_POST["fullName"]."', '".$_POST["cno"]."', '".$_POST["name"]."', '".$_POST["visitorEmail"]."')";
 	$row=mysqli_query($con,$query);
 	
 	if(isset($row))
