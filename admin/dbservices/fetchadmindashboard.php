@@ -1,5 +1,5 @@
 <?php 
-include('../../config.php');
+include('../config.php');
 //$connect = new PDO('mysql:host=localhost;dbname=sms', 'root', '');
 
 $query = "";
@@ -9,7 +9,7 @@ if($_POST['need'] == 'users')
 }
 if($_POST['need'] == 'tenants')
 {
-    $query = " SELECT COUNT(id) from users where type like 'tenent";
+    $query = " SELECT COUNT(id) from users where type like 'tenent'";
 }
 if($_POST['need'] == 'activecomplaints')
 {
@@ -18,6 +18,18 @@ if($_POST['need'] == 'activecomplaints')
 if($_POST['need'] == 'nonactivecomplaints')
 {
     $query = "SELECT COUNT(complaintNumber) FROM `tblcomplaints` WHERE status is null ";
+}
+if($_POST['need'] == 'guests')
+{
+    $query = "SELECT COUNT(vid) from visitor";
+}
+if($_POST['need'] == 'emptyflats')
+{
+    $query = "SELECT COUNT(uid) from flat where uid is null ";
+}
+if($_POST['need'] == 'allocatedflats')
+{
+    $query = "SELECT COUNT(uid) from flat where uid is NOT null" ;
 }
 
 
