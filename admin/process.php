@@ -53,6 +53,41 @@ if(isset($_POST['submit_notice']))
 	$_SESSION['id']=2;
 	$title=$_POST['title'];
 	$descr=$_POST['descr'];
+	$query="select userEmail from users";
+	$r=mysqli_query($con,$query);
+	
+$subject = $title;
+$from = 'bhaktisanjaybhai@gmail.com';
+ 
+// To send HTML mail, the Content-type header must be set
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+ 
+// Create email headers
+$headers .= 'From: '.$from."\r\n".+
+    'Reply-To: '.$from."\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+ 
+// Compose a simple HTML email message
+$message = '<html><body>';
+$message .= '<h1 style="color:#f40;">'.$descr.'</h1>';
+//$message .= '<p style="color:#080;font-size:18px;">Will you marry me?</p>';
+//$message .= 
+
+$message .= '</body></html>';
+ while($row=mysqli_fetch_array($r))
+ {
+
+$to = $row['userEmail'];
+ 
+//$to = 'bhaktisanjaybhai@gmail.com';
+// Sending email
+mail($to, $subject, $message, $headers);
+}
+}	
+	
+	//}
+	
 	
 
 	$query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
@@ -64,7 +99,7 @@ if(isset($_POST['submit_notice']))
 		die('Could not Insert: '. mysql_error());		
 	}
 
-}
+
 
 
 if(isset($_POST["action"]))
