@@ -1,7 +1,7 @@
 <?php 
 include 'config.php';
 if (isset($_POST['sign'])) {
-    echo "<script> alert('".$_POST['email'].$_POST['password']."');</script>";
+    // echo "<script> alert('".$_POST['email'].$_POST['password']."');</script>";
 
   $query="select * from users where userEmail='".$_POST['email']."' and password='".$_POST['password']."'";
   $result=mysqli_query($con,$query);
@@ -15,7 +15,7 @@ if (isset($_POST['sign'])) {
   if(isset($result))
   {   
    
-    echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); location.href='index.php';</script>";
+    echo "<script> alert('Login Successfully '); location.href='index.php';</script>";
     //header('location:user_reg.php');  
   }else{
     echo "<script> alert('Login Unsuccessfully'); location.href='login.php';</script>";
