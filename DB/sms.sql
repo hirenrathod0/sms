@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 26, 2020 at 02:15 AM
+-- Generation Time: Feb 27, 2020 at 08:01 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -60,29 +60,32 @@ CREATE TABLE IF NOT EXISTS `booking` (
   `place` varchar(55) DEFAULT NULL,
   `fun_details` varchar(300) DEFAULT NULL,
   `charges` float DEFAULT NULL,
+  `fun_title` varchar(200) NOT NULL,
   PRIMARY KEY (`booking_id`),
   UNIQUE KEY `booking_id` (`booking_id`),
   KEY `foke` (`mem_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`booking_id`, `mem_id`, `date_of_booking`, `start_time`, `end_time`, `place`, `fun_details`, `charges`) VALUES
-(10, 1, '2020-02-04 00:00:00', '2020-02-11 00:00:00', '2020-02-12 00:00:00', NULL, 'Ring Ceremony', 2000),
-(11, 1, '2020-02-12 00:00:00', '2020-02-12 00:00:00', '2020-02-13 00:00:00', NULL, 'Marraige', 2000),
-(12, 1, '2020-02-13 00:00:00', '2020-02-13 00:00:00', '2020-02-14 00:00:00', NULL, 'marraige', 2000),
-(13, 1, '2020-02-19 00:00:00', '2020-02-19 00:00:00', '2020-02-20 00:00:00', NULL, 'birthday', 2000),
-(14, 1, '2020-02-16 00:00:00', '2020-02-16 00:00:00', '2020-02-17 00:00:00', NULL, 'birthday', 2000),
-(15, 2, '2020-02-10 00:00:00', '2020-02-09 03:30:00', '2020-02-09 05:30:00', NULL, 'Party', 2000),
-(16, 2, '2020-02-18 00:00:00', '2020-02-20 00:00:00', '2020-02-21 00:00:00', NULL, 'Party', 2000),
-(17, 2, '2020-02-17 00:00:00', '2020-02-17 00:00:00', '2020-02-18 00:00:00', NULL, 'Party', 2000),
-(18, 2, '2020-02-10 01:30:00', '2020-02-10 15:00:00', '2020-02-10 16:30:00', NULL, 'jdbx', 2000),
-(19, 2, '2020-01-27 00:00:00', '2020-01-27 00:00:00', '2020-01-28 00:00:00', NULL, 'test', 2000),
-(20, 2, '2020-02-14 10:00:00', '2020-02-14 07:30:00', '2020-02-14 11:30:00', NULL, 'jhkjh', 2000),
-(21, 2, '2020-02-04 00:00:00', '2020-02-04 02:30:00', '2020-02-05 02:30:00', NULL, 'jkhk', 2000),
-(22, 2, '2020-01-28 00:00:00', '2020-01-27 12:30:00', '2020-01-28 12:30:00', NULL, 'hgyyjh', 2000);
+INSERT INTO `booking` (`booking_id`, `mem_id`, `date_of_booking`, `start_time`, `end_time`, `place`, `fun_details`, `charges`, `fun_title`) VALUES
+(10, 1, '2020-02-04 00:00:00', '2020-02-11 00:00:00', '2020-02-12 00:00:00', NULL, 'Ring Ceremony', 2000, ''),
+(12, 1, '2020-02-13 00:00:00', '2020-02-13 00:00:00', '2020-02-14 00:00:00', NULL, 'marraige', 2000, ''),
+(14, 1, '2020-02-16 00:00:00', '2020-02-16 00:00:00', '2020-02-17 00:00:00', NULL, 'birthday', 2000, ''),
+(15, 2, '2020-02-10 00:00:00', '2020-02-09 03:30:00', '2020-02-09 05:30:00', NULL, 'Party', 2000, ''),
+(16, 2, '2020-02-18 00:00:00', '2020-02-20 00:00:00', '2020-02-21 00:00:00', NULL, 'Party', 2000, ''),
+(17, 2, '2020-02-17 00:00:00', '2020-02-17 00:00:00', '2020-02-18 00:00:00', NULL, 'Party', 2000, ''),
+(18, 2, '2020-02-10 01:30:00', '2020-02-10 15:00:00', '2020-02-10 16:30:00', NULL, 'jdbx', 2000, ''),
+(19, 2, '2020-01-27 00:00:00', '2020-01-27 00:00:00', '2020-01-28 00:00:00', NULL, 'test', 2000, ''),
+(20, 2, '2020-02-14 10:00:00', '2020-02-14 07:30:00', '2020-02-14 11:30:00', NULL, 'jhkjh', 2000, ''),
+(21, 2, '2020-02-04 00:00:00', '2020-02-04 02:30:00', '2020-02-05 02:30:00', NULL, 'jkhk', 2000, ''),
+(23, 1, '2020-02-26 16:21:08', '2020-02-26 16:21:00', '2020-02-26 16:55:00', 'Large Hall', 'nbjbjj ', NULL, 'jxxhbh'),
+(24, 1, '2020-02-26 16:25:10', '2020-02-26 16:25:00', '2020-02-26 17:25:00', 'Club House', 'evnbe iss', NULL, 'birthh'),
+(25, 1, '2020-02-26 16:25:32', '2020-02-26 16:25:00', '2020-02-26 17:25:00', 'Club House', 'evnbe iss', NULL, 'birthh'),
+(26, 1, '2020-02-26 16:31:02', '2020-02-26 16:30:00', '2020-02-26 16:50:00', 'Garden', 'nbbb', NULL, 'll'),
+(27, 1, '2020-02-27 12:43:42', '2020-02-27 00:43:00', '2020-02-27 12:43:00', 'Small Hall', 'test', NULL, 'test');
 
 -- --------------------------------------------------------
 
@@ -124,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `complaintremark` (
   `remark` mediumtext NOT NULL,
   `remarkDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `complaintremark`
@@ -140,7 +143,13 @@ INSERT INTO `complaintremark` (`id`, `complaintNumber`, `status`, `remark`, `rem
 (7, 23, 'in process', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2019-06-24 10:34:47'),
 (8, 23, 'closed', 'Issue resolved ', '2019-06-24 10:37:08'),
 (9, 2, 'closed', 'dfsfsf', '2019-08-06 02:37:57'),
-(10, 25, 'closed', 'done', '2020-02-24 16:56:26');
+(10, 25, 'closed', 'done', '2020-02-24 16:56:26'),
+(11, 3, 'in process', 'dfdfsf', '2020-02-26 18:48:04'),
+(12, 3, 'closed', 'dssd', '2020-02-26 18:48:13'),
+(13, 7, 'in process', 'fewfwf', '2020-02-26 19:08:49'),
+(14, 6, 'in process', 'hghhgjhg', '2020-02-27 07:50:46'),
+(15, 6, 'in process', 'hghjgj', '2020-02-27 07:50:56'),
+(16, 6, 'closed', 'closed', '2020-02-27 07:51:05');
 
 -- --------------------------------------------------------
 
@@ -160,14 +169,15 @@ CREATE TABLE IF NOT EXISTS `flat` (
   `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`fid`),
   KEY `wing_flat` (`block`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `flat`
 --
 
 INSERT INTO `flat` (`fid`, `block`, `flat_num`, `area`, `BHK`, `floor_no`, `price`, `uid`) VALUES
-(21, 'B', 101, '500', '3', 2, 5000, 10);
+(21, 'B', 101, '500', '3', 2, 5000, 10),
+(22, 'F', 105, '700', '4', 1, 7000, 11);
 
 -- --------------------------------------------------------
 
@@ -182,6 +192,7 @@ CREATE TABLE IF NOT EXISTS `maintenance_bill` (
   `bill_date` date NOT NULL,
   `water_charges` decimal(8,2) NOT NULL,
   `property_tax` decimal(8,2) NOT NULL,
+  `flat_charges` decimal(10,0) NOT NULL,
   `elec_charges` decimal(8,2) NOT NULL,
   `parking_charges` decimal(8,2) NOT NULL,
   `other` decimal(8,2) NOT NULL,
@@ -189,7 +200,17 @@ CREATE TABLE IF NOT EXISTS `maintenance_bill` (
   PRIMARY KEY (`bid`),
   UNIQUE KEY `bill_date` (`bill_date`),
   KEY `flat_bill` (`fid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `maintenance_bill`
+--
+
+INSERT INTO `maintenance_bill` (`bid`, `fid`, `bill_date`, `water_charges`, `property_tax`, `flat_charges`, `elec_charges`, `parking_charges`, `other`, `due_date`) VALUES
+(18, 1, '0000-00-00', '12.00', '12.00', '7', '16.00', '96.00', '33.00', '2020-02-13'),
+(36, 1, '2020-02-08', '12.00', '12.00', '98', '16.00', '25.00', '33.00', '2020-02-28'),
+(37, 11, '2020-02-13', '500.00', '500.00', '1300', '1200.00', '100.00', '0.00', '2020-02-28'),
+(38, 10, '2020-02-11', '500.00', '500.00', '1300', '1200.00', '100.00', '0.00', '2020-02-29');
 
 -- --------------------------------------------------------
 
@@ -204,14 +225,16 @@ CREATE TABLE IF NOT EXISTS `notice` (
   `descr` text,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`nid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notice`
 --
 
 INSERT INTO `notice` (`nid`, `title`, `descr`, `date`) VALUES
-(2, 'this is cdemo', 'notive is', '2020-02-25 12:55:36');
+(2, 'this is cdemo', 'notive is', '2020-02-25 12:55:36'),
+(3, 'Test', '<p><b>kvjhf</b></p><p><span style=\"background-color: rgb(255, 255, 0);\">hyhiyi</span></p>', '2020-02-26 17:09:53'),
+(4, 'Event Reminder', '<p><br></p><blockquote class=\"blockquote\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</blockquote><h2>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</h2><p>quis nostrud exercitation ullamco laboris nisi <u>ut </u>aliquip ex ea commodo</p><p><span style=\"font-family: Impact;\">consequat</span>. Duis aute irure dolor in reprehenderit in voluptate velit esse</p><p>cillum dolore eu fugiat nulla <b>pariatur</b>. Excepteur <span style=\"font-family: Helvetica;\">sint occaecat cupidatat</span> non</p><p>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p> </p>', '2020-02-27 07:41:37');
 
 -- --------------------------------------------------------
 
@@ -224,52 +247,44 @@ CREATE TABLE IF NOT EXISTS `tblcomplaints` (
   `complaintNumber` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
-  `subcategory` varchar(255) DEFAULT NULL,
-  `complaintType` varchar(255) DEFAULT NULL,
-  `state` varchar(255) DEFAULT NULL,
-  `noc` varchar(255) DEFAULT NULL,
-  `complaintDetails` mediumtext,
-  `complaintFile` varchar(255) DEFAULT NULL,
+  `complaintTitle` varchar(50) NOT NULL,
+  `complaintDetails` varchar(250) DEFAULT NULL,
   `regDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(50) DEFAULT NULL,
   `lastUpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`complaintNumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblcomplaints`
 --
 
-INSERT INTO `tblcomplaints` (`complaintNumber`, `userId`, `category`, `subcategory`, `complaintType`, `state`, `noc`, `complaintDetails`, `complaintFile`, `regDate`, `status`, `lastUpdationDate`) VALUES
-(1, 1, 1, 'E-wllaet', 'General Query', 'Punjab', 'test demo', 'test demo test demo test demotest demotest demotest demotest demotest demotest demotest demotest demo', '', '2017-03-30 16:52:40', 'closed', '2019-06-24 10:29:37'),
-(2, 1, 1, 'Online SHopping', 'General Query', 'Punjab', 'testing', 'sample text for demo', '', '2017-03-30 17:05:56', 'closed', '2019-08-06 02:37:57'),
-(3, 1, 1, 'Online SHopping', ' Complaint', 'Punjab', 'ferwekt lwentgwewt', 'wetwetwe', '', '2017-03-30 17:07:51', 'in process', '2017-05-02 15:57:43'),
-(4, 1, 1, 'E-wllaet', 'General Query', 'Haryana', 'lkdlsfklsdf', 'fdsf,msd,f  f f', '', '2017-03-30 17:13:14', 'closed', '2019-06-24 10:29:37'),
-(5, 1, 1, 'E-wllaet', ' Complaint', 'Punjab', 'bgfhfgh', 'hfghfgh', '', '2017-03-30 17:14:55', 'in process', '2019-06-24 10:29:37'),
-(6, 1, 1, 'E-wllaet', ' Complaint', 'Punjab', 'bgfhfgh', 'hfghfgh', '', '2017-03-30 17:20:16', NULL, '2019-06-24 10:29:37'),
-(7, 1, 1, 'E-wllaet', ' Complaint', 'Punjab', 'bgfhfgh', 'hfghfgh', '', '2017-03-30 17:20:56', NULL, '2019-06-24 10:29:37'),
-(8, 1, 1, 'E-wllaet', ' Complaint', 'Punjab', 'bgfhfgh', 'hfghfgh', '', '2017-03-30 17:23:05', NULL, '2019-06-24 10:29:37'),
-(9, 1, 1, 'E-wllaet', ' Complaint', 'Punjab', 'bgfhfgh', 'hfghfgh', '', '2017-03-30 17:25:09', 'in process', '2019-06-24 10:29:37'),
-(10, 1, 1, 'E-wllaet', ' Complaint', 'Punjab', 'bgfhfgh', 'hfghfgh', '', '2017-03-30 17:27:24', NULL, '2019-06-24 10:29:37'),
-(11, 1, 1, 'Online SHopping', 'General Query', 'Haryana', 'dsflsdlflsdf', 'fsdfsdfsdf', '', '2017-03-30 17:36:32', NULL, '2019-06-24 10:29:37'),
-(12, 1, 1, 'Online SHopping', 'General Query', 'Haryana', 'dsflsdlflsdf', 'fsdfsdfsdf', '', '2017-03-30 17:37:09', NULL, '2019-06-24 10:29:37'),
-(13, 1, 1, 'Online SHopping', 'General Query', 'Haryana', 'dsflsdlflsdf', 'fsdfsdfsdf', '', '2017-03-30 17:39:57', NULL, '2019-06-24 10:29:37'),
-(14, 1, 1, 'Online SHopping', ' Complaint', 'Haryana', 'vcxvxcvxcv', 'cvcx', '', '2017-03-30 17:41:19', NULL, '2019-06-24 10:29:37'),
-(15, 1, 1, 'E-wllaet', 'General Query', 'Punjab', 'dsfsd', 'fsdfsdf', '', '2017-03-30 17:42:38', NULL, '0000-00-00 00:00:00'),
-(16, 1, 1, 'E-wllaet', 'General Query', 'Punjab', 'dsfsd', 'fsdfsdf', '', '2017-03-31 01:54:07', NULL, '0000-00-00 00:00:00'),
-(17, 5, 1, 'E-wllaet', ' Complaint', 'fsdfs', 'regarding refund', 'test test', '', '2017-06-11 10:57:49', NULL, '0000-00-00 00:00:00'),
-(18, 5, 1, 'Online SHopping', ' Complaint', 'Uttar Pradesh', 'yhytr', 'rtytry', '', '2017-06-11 11:08:47', NULL, '2019-06-24 10:29:37'),
-(19, 6, 1, 'Online SHopping', ' Complaint', 'Uttar Pradesh', 'regarding refund', 'Test@123 dfds fsd fs gs gsd g sg g g sgstwerwe ewtw tw', '', '2017-06-11 11:15:24', 'closed', '2019-06-24 10:29:37'),
-(20, 1, 1, 'E-wllaet', 'General Query', 'fsdfs', 'sdgsdg', 'gdgsdgsd', '', '2018-05-24 18:26:23', NULL, '0000-00-00 00:00:00'),
-(21, 1, 1, 'Online SHopping', 'General Query', 'Uttar Pradesh', 'csdf', 'fsdfs', '', '2018-05-24 18:26:55', NULL, '0000-00-00 00:00:00'),
-(22, 1, 1, 'Online SHopping', 'General Query', 'Uttar Pradesh', 'csdf', 'fsdfs', '', '2018-05-24 18:27:02', NULL, '0000-00-00 00:00:00'),
-(23, 1, 1, 'E-wllaet', ' Complaint', 'Delhi', 'This is sample text for testing.', 'This is sample text for testing.', '2a09969b-c3d5-467b-82b0-2cf5aeb903eb_200x200.png', '2019-06-24 10:31:19', 'closed', '2019-06-24 10:37:09'),
-(24, 2, 1, 'Online Shopping', 'General Query', 'Haryana', 'fdgd', 'fgdfgdgd', '', '2019-08-06 02:48:57', NULL, NULL),
-(25, 2, 2, '', 'General Query', '', 'Hiren Rathod', 'lloopop', '', '2020-02-24 16:55:21', 'closed', '2020-02-24 16:56:26'),
-(28, 2, 3, NULL, NULL, NULL, 'LOOP', 'ORRRR', NULL, '2020-02-24 19:10:45', NULL, NULL),
-(29, 2, 3, NULL, NULL, NULL, 'LOOP', 'ORRRR', NULL, '2020-02-24 19:12:15', NULL, NULL),
-(30, 2, 1, NULL, NULL, NULL, 'pppppp', 'lll', NULL, '2020-02-24 19:12:24', NULL, NULL),
-(31, 2, 1, NULL, NULL, NULL, 'll', 'opopopoo', NULL, '2020-02-24 19:13:41', NULL, NULL);
+INSERT INTO `tblcomplaints` (`complaintNumber`, `userId`, `category`, `complaintTitle`, `complaintDetails`, `regDate`, `status`, `lastUpdationDate`) VALUES
+(1, 1, 1, '', 'test demo test demo test demotest demotest demotest demotest demotest demotest demotest demotest demo', '2017-03-30 16:52:40', 'closed', '2019-06-24 10:29:37'),
+(2, 1, 1, '', 'sample text for demo', '2017-03-30 17:05:56', 'closed', '2019-08-06 02:37:57'),
+(3, 1, 1, '', 'wetwetwe', '2017-03-30 17:07:51', 'closed', '2020-02-26 18:48:14'),
+(4, 1, 1, '', 'fdsf,msd,f  f f', '2017-03-30 17:13:14', 'closed', '2019-06-24 10:29:37'),
+(5, 1, 1, '', 'hfghfgh', '2017-03-30 17:14:55', 'in process', '2019-06-24 10:29:37'),
+(6, 1, 1, '', 'hfghfgh', '2017-03-30 17:20:16', 'closed', '2020-02-27 07:51:05'),
+(7, 1, 1, '', 'hfghfgh', '2017-03-30 17:20:56', 'in process', '2020-02-26 19:08:49'),
+(8, 1, 1, '', 'hfghfgh', '2017-03-30 17:23:05', NULL, '2019-06-24 10:29:37'),
+(9, 1, 1, '', 'hfghfgh', '2017-03-30 17:25:09', 'in process', '2019-06-24 10:29:37'),
+(10, 1, 1, '', 'hfghfgh', '2017-03-30 17:27:24', NULL, '2019-06-24 10:29:37'),
+(11, 1, 1, '', 'fsdfsdfsdf', '2017-03-30 17:36:32', NULL, '2019-06-24 10:29:37'),
+(12, 1, 1, '', 'fsdfsdfsdf', '2017-03-30 17:37:09', NULL, '2019-06-24 10:29:37'),
+(13, 1, 1, '', 'fsdfsdfsdf', '2017-03-30 17:39:57', NULL, '2019-06-24 10:29:37'),
+(14, 1, 1, '', 'cvcx', '2017-03-30 17:41:19', NULL, '2019-06-24 10:29:37'),
+(18, 5, 1, '', 'rtytry', '2017-06-11 11:08:47', NULL, '2019-06-24 10:29:37'),
+(19, 6, 1, '', 'Test@123 dfds fsd fs gs gsd g sg g g sgstwerwe ewtw tw', '2017-06-11 11:15:24', 'closed', '2019-06-24 10:29:37'),
+(23, 1, 1, '', 'This is sample text for testing.', '2019-06-24 10:31:19', 'closed', '2019-06-24 10:37:09'),
+(24, 2, 1, '', 'fgdfgdgd', '2019-08-06 02:48:57', NULL, NULL),
+(25, 2, 2, '', 'lloopop', '2020-02-24 16:55:21', 'closed', '2020-02-24 16:56:26'),
+(28, 2, 3, '', 'ORRRR', '2020-02-24 19:10:45', NULL, NULL),
+(29, 2, 3, '', 'ORRRR', '2020-02-24 19:12:15', NULL, NULL),
+(30, 2, 1, '', 'lll', '2020-02-24 19:12:24', NULL, NULL),
+(31, 2, 1, '', 'opopopoo', '2020-02-24 19:13:41', NULL, NULL),
+(32, 2, 3, 'fe', 'regr', '2020-02-26 07:28:18', NULL, NULL),
+(33, 2, 1, 'egreh', 'trhrth', '2020-02-26 07:29:08', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -289,17 +304,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `gender` varchar(10) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `regDate`, `type`, `gender`, `dob`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'admin', 9874563210, '2017-03-28 11:44:52', '1', NULL, NULL),
-(2, 'Deepak', 'deepak@gmail.com', 'test', 1234567890, '2019-08-06 02:47:39', '2', NULL, NULL),
-(3, NULL, NULL, NULL, NULL, '2020-02-25 18:52:19', NULL, NULL, NULL),
-(10, 'Parth Bhadreshkumar Patel', 'parthpatelvvn@gmail.com', 'test', 7567452930, '2020-02-25 20:49:32', 'admin', 'Male', NULL);
+(1, 'Deepak', 'deepak@gmail.com', 'test', 1234567890, '2019-08-06 02:47:39', 'user', NULL, NULL),
+(10, 'Parth Bhadreshkumar Patel', 'parthpatelvvn@gmail.com', 'test', 7567452930, '2020-02-25 20:49:32', 'admin', 'Male', NULL),
+(11, 'XYZ', 'xyz@gmail.com', 'test', 54545456456, '2020-02-26 17:00:52', 'user', 'Male', NULL);
 
 -- --------------------------------------------------------
 
@@ -316,7 +330,14 @@ CREATE TABLE IF NOT EXISTS `visitor` (
   `ref` int(11) DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`vid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `visitor`
+--
+
+INSERT INTO `visitor` (`vid`, `name`, `cno`, `email`, `ref`, `time`) VALUES
+(1, 'Parth Bhadreshkumar Patel', 'huyi', 'parthpatelvvn@gmail.com', NULL, '2020-02-27 07:28:03');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
