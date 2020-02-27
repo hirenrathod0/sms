@@ -227,7 +227,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="EventBooker.php.php" class="nav-link">
+                <a href="EventBooker.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Add Event Booking</p>
                 </a>
