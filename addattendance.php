@@ -1,4 +1,19 @@
 <?php include 'header.php';
+if(isset($_POST['submit']))
+{
+    for ($x = 0; $x <=$num_of_rows ; $x++) {
+	$query="INSERT into meeting_attendance(uid,mid,pa) VALUES(1, '".$_REQUEST['mid']."','".$_POST['att0']."' )";
+	$row=mysqli_query($con,$query);
+
+	if(isset($row) )
+	{		
+		echo "<script>alert($query);</script>";		
+		//header('location:user_reg.php');	
+	}else{
+		die('Could not Insert: '. mysql_error());		
+	}
+       }
+}
 
 ?>
   <div class="content-wrapper">
@@ -17,13 +32,16 @@
         
 
                  $query1="select id,fullName from users";
+                 
         $result=mysqli_query($con,$query1);
+                $num_of_rows=mysqli_num_rows($result);
         
         // echo "$dummy1";
 
         if($result === FALSE) { 
             die(mysql_error()); // TODO: better error handling
         }
+                
         while($row=$result->fetch_assoc())
         {
             $counter=0;
@@ -33,7 +51,7 @@
                <td><?php echo $row['fullName']; ?></td>
                                 
                         
-                         <td><select class="form-control" id="sel1" name="att".<?php echo "$counter";?>  >
+                         <td><select class="form-control" id="sel1" name="att<?php echo "$counter";?>"  >
 						<option value="p">present</option>						
 						<option value="a">abesent</option>						
 					</select></td>
