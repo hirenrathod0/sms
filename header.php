@@ -63,7 +63,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="index.php" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">SMS</span>
@@ -116,7 +116,7 @@
               <p>
                 Event Menu
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+ 
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -218,7 +218,7 @@
               <p>
                 Flat
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+ 
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -265,7 +265,7 @@
               <p>
                 Maintainance Menu
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+ 
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -290,7 +290,7 @@
               <p>
                 Complaint Admin
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+ 
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -332,7 +332,7 @@
               <p>
                 Complaint User
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+ 
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -356,7 +356,7 @@
               <p>
                 Visitor Menu
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">6</span>
+ 
               </p>
             </a>
             <ul class="nav nav-treeview">
