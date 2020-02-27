@@ -311,19 +311,19 @@
               <li class="nav-item">
                 <a href="not_pro.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Not processsing</p>
+                  <p>Not Processsed</p>
                 </a>
               </li> 
               <li class="nav-item">
                 <a href="pend_comp.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pending comp</p>
+                  <p>Pending Comp</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="closed_comp.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Closed comp</p>
+                  <p>Closed Comp</p>
                 </a>
               </li>             
             </ul>
