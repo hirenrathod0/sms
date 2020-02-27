@@ -19,7 +19,7 @@ if(isset($_POST['insert_user_reg']))
 	if(isset($row))
 	{		
 		// echo "<script>alert('Bill Generated');</script>";		
-	echo "<script> alert('Bill Generated '); location.href='bill_detail.php?bill_no=".$billid."&total=".$totall."';</script>";
+	echo "<script> alert('Bill Generated Total Charges ".$totall." Rs.'); location.href='bill_detail.php?bill_no=".$billid."&total=".$totall."';</script>";
 
 		//header('location:user_reg.php');	
 	}else{
