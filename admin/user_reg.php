@@ -56,7 +56,9 @@ if(isset($_POST['insert_user_reg']))
 				<label class="control-label col-sm-3" for="email">User 	Type:</label>
 				<div class="col-sm-7">
 					<select class="form-control" id="sel1" name="type">
-						<option value="tenant" selected>tenant</option>						
+						<option>Select Option</option>
+						<option value="admin">Admin</option>						
+						<option value="user">User</option>						
 					</select>
 				</div>
 			</div>
@@ -76,7 +78,7 @@ if(isset($_POST['insert_user_reg']))
 					<select class="form-control" id="sel1" name="flat">
 						<option>Select Option</option>
 						<?php
-							$result=mysqli_query($con,"select fid,block,flat_num from flat where uid=".$_SESSION['uid']."");						
+							$result=mysqli_query($con,"select fid,block,flat_num from flat where uid IS NULL");						
 							// $row=$result->fetch_assoc();	
 							while($row=mysqli_fetch_assoc($result)):; 	?>
 								<option value="<?php printf("%s",$row['fid']);  ?>"><?php printf("%s",($row["block"]." - ".$row["flat_num"])); ?></option>

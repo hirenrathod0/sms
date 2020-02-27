@@ -1,4 +1,19 @@
-<?php include('config.php'); ?>
+<?php 
+include('config.php');
+
+
+    // echo "<script> alert('".$_SESSION['type']."'); </script>";
+
+if(isset($_SESSION['type']) && ($_SESSION['type']=="user" || $_SESSION['type']=="tantent"))  
+{
+
+}
+else{
+
+   header('location:login.php');
+  
+}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -113,6 +128,14 @@
              
             </ul>
           </li> -->
+
+               <li class="nav-item">
+            <a href="index.php" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
+            </a>
            <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -194,27 +217,26 @@
               </p>
             </a>
           </li>-->
-           <li class="nav-item">
+<!--            <li class="nav-item">
             <a href="user_reg.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                User Reg
-                <!-- <span class="right badge badge-danger">New</span> -->
+                User Registration
               </p>
             </a>
-          </li>
+          </li> -->
 
           <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Vehical Menu
+                Vehicle Menu
                 <i class="fas fa-angle-left right"></i>
  
               </p>
             </a>
             <ul class="nav nav-treeview">
-               <li class="nav-item">
+            <li class="nav-item">
             <a href="vehical_add.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -248,52 +270,7 @@
 
          
 
-          <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Flat
-                <i class="fas fa-angle-left right"></i>
- 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_flat.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Flat </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="addflat.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Flat 1</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="flat_allot_tbl.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flat Allotment List</p>
-                </a>
-              </li>            
-              <li class="nav-item">
-                <a href="flatdesc.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flat Deallotment List</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                form example
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+
 
           <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
@@ -311,57 +288,10 @@
                   <p>Maintanainace History </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="maintenance.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>User Maintainance</p>
-                </a>
-              </li>            
+                     
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Complaint Admin
-                <i class="fas fa-angle-left right"></i>
- 
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_notice.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Notice to All User</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="add_cate.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Category</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="not_pro.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Not Processsed</p>
-                </a>
-              </li> 
-              <li class="nav-item">
-                <a href="pend_comp.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pending Comp</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="closed_comp.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Closed Comp</p>
-                </a>
-              </li>             
-            </ul>
-          </li>
           <li class="nav-item has-treeview">
             <a href="complaint.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -409,6 +339,16 @@
                 </a>
               </li>            
             </ul>
+          </li>
+           <li class="nav-item has-treeview">
+            <a href="logout.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Logout
+                <i class="fas fa-angle-left right"></i>
+ 
+              </p>
+            </a>
           </li>
           
       </nav>

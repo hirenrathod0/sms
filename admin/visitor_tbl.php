@@ -23,7 +23,7 @@
 			</thead>
 			<tbody>
 				<?php 
-				$query1="select fullName,id,vid,name,cno,email,ref,time from users,visitor where id=ref and id=".$_SESSION['uid']." ORDER BY time DESC ";
+				$query1="select fullName,id,vid,name,cno,email,ref,time from users,visitor where id=ref ORDER BY time DESC ";
 				$result=mysqli_query($con,$query1);
 
 				if($result === FALSE) { 
