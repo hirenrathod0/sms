@@ -55,7 +55,7 @@ if (isset($_POST['sign'])) {
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index2.html"><b>Login</b></a>
+    <a href="login.html"><b>Login</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -83,9 +83,7 @@ if (isset($_POST['sign'])) {
           <div class="col-8">
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
+             
             </div>
           </div>
           <!-- /.col -->
@@ -97,15 +95,7 @@ if (isset($_POST['sign'])) {
       </form>
 
       
-      <!-- /.social-auth-links -->
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">Register a new membership</a>
-      </p>
-    </div>
     <!-- /.login-card-body -->
   </div>
 </div>
