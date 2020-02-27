@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 27, 2020 at 08:01 AM
+-- Generation Time: Feb 27, 2020 at 02:09 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.3.5
 
@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `flat` (
   `uid` int(11) DEFAULT NULL,
   PRIMARY KEY (`fid`),
   KEY `wing_flat` (`block`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `flat`
@@ -177,7 +177,8 @@ CREATE TABLE IF NOT EXISTS `flat` (
 
 INSERT INTO `flat` (`fid`, `block`, `flat_num`, `area`, `BHK`, `floor_no`, `price`, `uid`) VALUES
 (21, 'B', 101, '500', '3', 2, 5000, 10),
-(22, 'F', 105, '700', '4', 1, 7000, 11);
+(22, 'F', 105, '700', '4', 1, 7000, 11),
+(23, 'T', 777, '777', '7', 2, 200, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `maintenance_bill` (
   PRIMARY KEY (`bid`),
   UNIQUE KEY `bill_date` (`bill_date`),
   KEY `flat_bill` (`fid`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `maintenance_bill`
@@ -215,6 +216,22 @@ INSERT INTO `maintenance_bill` (`bid`, `fid`, `bill_date`, `water_charges`, `pro
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `member_detail`
+--
+
+DROP TABLE IF EXISTS `member_detail`;
+CREATE TABLE IF NOT EXISTS `member_detail` (
+  `mid` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `birthdate` date NOT NULL,
+  `gender` char(1) NOT NULL,
+  PRIMARY KEY (`mid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `notice`
 --
 
@@ -225,7 +242,7 @@ CREATE TABLE IF NOT EXISTS `notice` (
   `descr` text,
   `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`nid`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notice`
@@ -234,7 +251,8 @@ CREATE TABLE IF NOT EXISTS `notice` (
 INSERT INTO `notice` (`nid`, `title`, `descr`, `date`) VALUES
 (2, 'this is cdemo', 'notive is', '2020-02-25 12:55:36'),
 (3, 'Test', '<p><b>kvjhf</b></p><p><span style=\"background-color: rgb(255, 255, 0);\">hyhiyi</span></p>', '2020-02-26 17:09:53'),
-(4, 'Event Reminder', '<p><br></p><blockquote class=\"blockquote\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</blockquote><h2>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</h2><p>quis nostrud exercitation ullamco laboris nisi <u>ut </u>aliquip ex ea commodo</p><p><span style=\"font-family: Impact;\">consequat</span>. Duis aute irure dolor in reprehenderit in voluptate velit esse</p><p>cillum dolore eu fugiat nulla <b>pariatur</b>. Excepteur <span style=\"font-family: Helvetica;\">sint occaecat cupidatat</span> non</p><p>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p> </p>', '2020-02-27 07:41:37');
+(4, 'Event Reminder', '<p><br></p><blockquote class=\"blockquote\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</blockquote><h2>tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</h2><p>quis nostrud exercitation ullamco laboris nisi <u>ut </u>aliquip ex ea commodo</p><p><span style=\"font-family: Impact;\">consequat</span>. Duis aute irure dolor in reprehenderit in voluptate velit esse</p><p>cillum dolore eu fugiat nulla <b>pariatur</b>. Excepteur <span style=\"font-family: Helvetica;\">sint occaecat cupidatat</span> non</p><p>proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p> </p>', '2020-02-27 07:41:37'),
+(5, 'test', 'Place some text here ', '2020-02-27 08:11:27');
 
 -- --------------------------------------------------------
 
@@ -314,6 +332,20 @@ INSERT INTO `users` (`id`, `fullName`, `userEmail`, `password`, `contactNo`, `re
 (1, 'Deepak', 'deepak@gmail.com', 'test', 1234567890, '2019-08-06 02:47:39', 'user', NULL, NULL),
 (10, 'Parth Bhadreshkumar Patel', 'parthpatelvvn@gmail.com', 'test', 7567452930, '2020-02-25 20:49:32', 'admin', 'Male', NULL),
 (11, 'XYZ', 'xyz@gmail.com', 'test', 54545456456, '2020-02-26 17:00:52', 'user', 'Male', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle_detail`
+--
+
+DROP TABLE IF EXISTS `vehicle_detail`;
+CREATE TABLE IF NOT EXISTS `vehicle_detail` (
+  `uid` int(11) NOT NULL,
+  `number` varchar(15) NOT NULL,
+  `type` int(11) NOT NULL,
+  PRIMARY KEY (`number`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
