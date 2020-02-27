@@ -202,6 +202,24 @@
               </p>
             </a>
           </li>
+           <li class="nav-item">
+            <a href="vehical_add.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Vehical
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="vehical_list.php" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Vehical List
+                <!-- <span class="right badge badge-danger">New</span> -->
+              </p>
+            </a>
+          </li>
           <!-- <li class="nav-item">
             <a href="add_flat.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
