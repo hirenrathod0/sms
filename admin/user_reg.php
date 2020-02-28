@@ -42,7 +42,7 @@ if (isset($_REQUEST['insert_users'])) {
 					$dumm1gender=$rows['gender'];
 					$dumm1dob=$rows['dob'];
 				}
-		echo "<script>alert('".$dumm1fullName.	$dumm1userEmail.$dumm1contactNo.$dumm1password.$dumm1type.$dumm1gender.$dumm1dob."'); </script>";		
+		// echo "<script>alert('".$dumm1fullName.	$dumm1userEmail.$dumm1contactNo.$dumm1password.$dumm1type.$dumm1gender.$dumm1dob."'); </script>";		
 
 	$query="update flat set uid =".$dumm1id." where fid=".$dumm1fid."";
 	$row=mysqli_query($con,$query);

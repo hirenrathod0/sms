@@ -152,7 +152,7 @@ else{
 
           <li class="nav-item has-treeview">
             <a href="" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-handshake"></i>
               <p>
                 Meeting Menu
                 <i class="fas fa-angle-left right"></i> 
@@ -248,7 +248,7 @@ else{
         
           <li class="nav-item">
             <a href="vehical_list.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-car-side"></i>
               <p>
                 Vehicle List
                 <!-- <span class="right badge badge-danger">New</span> -->
@@ -407,7 +407,7 @@ else{
 
            <li class="nav-item has-treeview">
             <a href="../logout.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
                 <!-- <i class="fas fa-angle-left right"></i> -->
