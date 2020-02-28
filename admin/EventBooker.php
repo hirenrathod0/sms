@@ -29,11 +29,7 @@ include('header.php');
                                     <label for="exampleInputPassword1">Place</label>
                                     <select class="form-control select2"  style="width: 100%;"  id="place">
                                         <option selected="selected">Large Hall</option>
-                                        <option>Small Hall</option>
-                                        <option>Club House</option>
-                                        <option>Common Plot</option>
-                                        <option>Garden</option>
-                                        <option>Terrace</option>
+                              
                                     </select>
                                 </div>
                             </div>
