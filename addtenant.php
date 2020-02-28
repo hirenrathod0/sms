@@ -90,7 +90,7 @@ if(isset($_POST['insert_user_reg']))
 					<button type="reset" class="btn btn-primary">Reset</button>
                     <?php $sql=mysqli_query($con,"select id from users order by id desc limit 1");
 	while($row1=mysqli_fetch_array($sql)){?>
-                    <a href="addmember.php?uid=<?php echo $row1['id'];?>" class="btn btn-primary" name="insert_user_reg" >submit</a>
+                    <button type="submit" class="btn btn-primary" name="insert_user_reg" >submit</button>
                     <?php 
 				}
 				?>
