@@ -19,7 +19,11 @@ if (isset($_POST['insert_btn'])) {
     
        $query="update meeting_detail set presentstatus=1 where meet_id='".$_REQUEST['mid']."'";
 	     $row=mysqli_query($con,$query); 
- 
+        if (isset($row)) {
+            echo "<script> alert('Attandence is Uploaded'); location.href='addattendance.php';</script>";
+        }else{
+
+        }
 }
 ?>
   <div class="content-wrapper">
