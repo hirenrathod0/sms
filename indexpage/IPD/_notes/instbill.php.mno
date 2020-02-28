@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_billid" value="name:id;datatype:int,name:total;datatype:int,name:pid;datatype:int,name:bdate;datatype:timestamp,name:type;datatype:string,name:status;datatype:string" />
+	<infoitem key="UD_tempbill" value="name:id;datatype:int,name:name;datatype:string,name:price;datatype:int,name:numofd;datatype:int,name:total;datatype:int,name:pid;datatype:int,name:dtofbill;datatype:timestamp" />
+</info>

@@ -3,9 +3,9 @@
 $query="select userEmail from users where id=".$_SESSION['uid']."";
 $r=mysqli_query($con,$query);
 $row = mysqli_fetch_array($r);
-$to ='patelpriyanshi0807@gmail.com';
+$to = $row['userEmail'];
 $subject = 'maintenance bill';
-$from = 'ompriyanshipatel@gmail.com';
+$from = 'bhaktisanjaybhai@gmail.com';
  
 // To send HTML mail, the Content-type header must be set
 $headers  = 'MIME-Version: 1.0' . "\r\n";

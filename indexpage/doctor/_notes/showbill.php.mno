@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_bill" value="name:id;datatype:int,name:total;datatype:int,name:pid;datatype:int,name:bdate;datatype:timestamp,name:type;datatype:string,name:status;datatype:string" />
+</info>

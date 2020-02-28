@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_getdoctor" value="name:uid;datatype:int,name:fullname;datatype:string,name:gender;datatype:string,name:birthdate;datatype:string,name:address;datatype:blob,name:city;datatype:string,name:contact;datatype:string,name:email;datatype:string,name:img;datatype:string,name:type;datatype:string" />
+</info>

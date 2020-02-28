@@ -28,18 +28,29 @@ include('header.php');
       <!-- Info boxes -->
       <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
-          <a href="">
+          <a href="vehical_list.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-car-side"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Your vehicles </span>
+                <span class="info-box-text">
+                    <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from vehicle_detail where uid=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn=$row['COUNT'];
+                  }
+                  echo $cmpn;
+                  ?>
+                  </span>              
                 <span class="info-box-number" id="vehicles"></span>
               </div>
+              </div>
               <!-- /.info-box-content -->
+          </a>
             </div>
             <!-- /.info-box -->
-          </a>
-        </div>
+        <!-- </div> -->
 
         <div class="col-12 col-sm-6 col-md-3">
           <a href="memberview.php">
@@ -47,6 +58,16 @@ include('header.php');
               <span class="info-box-icon bg-success elevation-1"><i class="fas  fa-users"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">family members  </span>
+                <span class="info-box-text">
+                    <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from member_detail where uid=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn1=$row['COUNT'];
+                  }
+                  echo $cmpn1;
+                  ?>
+                  </span>
                 <span class="info-box-number" id="memberdetails"></span>
               </div>
               <!-- /.info-box-content -->
@@ -61,6 +82,17 @@ include('header.php');
               <span class="info-box-icon bg-warning  elevation-1"><i class="fas fa-calendar-alt"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Your registered events  </span>
+                <span class="info-box-text">
+                    <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from booking where mem_id=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn2=$row['COUNT'];
+                  }
+                  echo $cmpn2;
+                  ?>
+                  </span>
+
                 <span class="info-box-number" id="ownevents"></span>
               </div>
               <!-- /.info-box-content -->
