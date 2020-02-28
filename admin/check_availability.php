@@ -17,13 +17,13 @@ if(!empty($_POST['starttime']) && !empty($_POST['endtime'])) {
 		$results = $query -> fetchALL(PDO::FETCH_OBJ);
 		if($query->rowCount() > 0)
 		{
-			 // foreach ($results as $key) 
-    //    		{
-    //    			$pla=$key->place;
-    //    			$cno=$key->contactNo;
-    //    			$uname=$key->fullName;
+			  foreach ($results as $key) 
+        		{
+        			$pla=$key->place;
+        			$cno=$key->contactNo;
+        			$uname=$key->fullName;
 
-    //    		}
+        		}
    //     			if($place==$pla)
    //     			{
 			
