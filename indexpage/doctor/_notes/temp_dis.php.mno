@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:int,name:pid;datatype:int,name:date;datatype:timestamp,name:otdate;datatype:string,name:observation;datatype:blob,name:symptoms;datatype:string,name:blood;datatype:string,name:stool;datatype:string,name:spec_invest;datatype:string,name:biopsy;datatype:string,name:operation;datatype:string,name:anesthesia;datatype:string,name:urine;datatype:string,name:x_ray;datatype:string,name:pro_diag;datatype:string,name:final_diag;datatype:string,name:treat_given;datatype:string,name:treat_adv;datatype:string,name:adv_af_day;datatype:string" />
+</info>

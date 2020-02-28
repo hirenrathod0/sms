@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:pid;datatype:int,name:fname;datatype:string,name:mname;datatype:string,name:lname;datatype:string,name:bdate;datatype:string,name:city;datatype:string,name:contactno1;datatype:string,name:contactno2;datatype:string,name:emailid;datatype:string,name:gender;datatype:string,name:dtofadd;datatype:timestamp,name:bgroup;datatype:string" />
+	<infoitem key="UD_Recordset2" value="name:name;datatype:string" />
+	<infoitem key="UD_padmit" value="name:aid;datatype:int,name:bedno;datatype:int,name:fname;datatype:string,name:mname;datatype:string,name:lname;datatype:string,name:pid;datatype:int,name:gender;datatype:string,name:drname;datatype:string,name:dofadmit;datatype:timestamp,name:dofdischarge;datatype:date,name:rtype;datatype:string" />
+	<infoitem key="UD_Recordset22" value="name:name;datatype:string" />
+	<infoitem key="UD_Recordset5" value="name:id;datatype:int,name:mid;datatype:string,name:status;datatype:string" />
+	<infoitem key="UD_Recordset51" value="name:id;datatype:int,name:mid;datatype:string,name:status;datatype:string" />
+	<infoitem key="UD_Recordset52" value="name:id;datatype:int,name:mid;datatype:string,name:status;datatype:string" />
+	<infoitem key="UD_Recordset53" value="name:id;datatype:int,name:mid;datatype:string,name:status;datatype:string" />
+	<infoitem key="UD_Recordset54" value="name:id;datatype:int,name:mid;datatype:string,name:status;datatype:string" />
+	<infoitem key="UD_Recordset11" value="name:bid;datatype:int,name:docid;datatype:int,name:pid;datatype:int,name:status;datatype:string,name:bdt;datatype:datetime" />
+</info>

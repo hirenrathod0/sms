@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:int,name:pid;datatype:int,name:date;datatype:string,name:fbs;datatype:string,name:pre_lanch;datatype:string,name:lab_pp2bs;datatype:string,name:inward_pp2bs;datatype:string,name:pre_dinner;datatype:string,name:post_dinner;datatype:string" />
+	<infoitem key="UD_Recordset2" value="name:pid;datatype:int" />
+</info>
