@@ -64,7 +64,7 @@ $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
  
 // Create email headers
-$headers .= 'From: '.$from."\r\n".+
+$headers .= 'From: '.$from."\r\n".
     'Reply-To: '.$from."\r\n" .
     'X-Mailer: PHP/' . phpversion();
  
@@ -88,19 +88,14 @@ mail($to, $subject, $message, $headers);
 	
 	//}
 	
-	
-
-	$query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
-	if(isset($query1))
-	{		
-		echo "<script>alert('inserted');</script>";		
-		header('location:add_notice.php');	
-	}else{
-		die('Could not Insert: '. mysql_error());		
-	}
-
-
-
+	// $query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
+	// if(isset($query1))
+	// {		
+	// 	echo "<script>alert('inserted');</script>";		
+	// 	header('location:add_notice.php');	
+	// }else{
+	// 	die('Could not Insert: '. mysql_error());		
+	// }
 
 if(isset($_POST["action"]))
 {
