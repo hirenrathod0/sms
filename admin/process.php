@@ -88,7 +88,6 @@ mail($to, $subject, $message, $headers);
 	
 	//}
 	
-
 	// $query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
 	// if(isset($query1))
 	// {		
