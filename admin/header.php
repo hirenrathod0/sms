@@ -168,14 +168,14 @@ else{
               <li class="nav-item">
                 <a href="meetingattend.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Meeting History</p>
+                  <p> Meeting History (Meeting Done)</p>
                 </a>
               </li>
                
          <li class="nav-item">
                 <a href="showmeeting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Show Meeting </p>
+                  <p> Show Upcoming Meeting</p>
                 </a>
               </li>
             </ul>
