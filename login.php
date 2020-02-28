@@ -1,44 +1,37 @@
 <?php 
 include 'config.php';
-if (isset($_POST['sign'])) 
-{
+if (isset($_POST['sign'])) {
     // echo "<script> alert('".$_POST['email'].$_POST['password']."');</script>";
 
   $query="select * from users where userEmail='".$_POST['email']."' and password='".$_POST['password']."'";
   $result=mysqli_query($con,$query);
-  if(mysqli_num_rows($result)>1)
+  while($row=mysqli_fetch_array($result))
   {
-    while($row=mysqli_fetch_array($result))
-    {
-      $_SESSION['uid']=$row['id'];
-      $_SESSION['fullName']=$row['fullName'];
-      $_SESSION['type']=$row['type'];
-    }  
+    $_SESSION['uid']=$row['id'];
+    $_SESSION['fullName']=$row['fullName'];
+    $_SESSION['type']=$row['type'];
+  }  
 
-    if(isset($result))
-    {   
+  if(isset($result))
+  {   
     // echo "<script> alert('Login Successfully '); location.href='index.php';</script>";
-      if($_SESSION['type']=="admin")
-      {
-        echo "<script> alert('Login Successfully ".$_SESSION['uid'].$_SESSION['type']."'); location.href='admin/index.php'; </script>";
+    if($_SESSION['type']=="admin")
+    {
+      echo "<script> alert('Login Successfully ".$_SESSION['uid'].$_SESSION['type']."'); location.href='admin/index.php'; </script>";
       //header('location:admin/index.php');
-      }
-      else
-        echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); location.href='UserDashboard.php'; </script>";
-      }
-
     }
-  
+    else
+      echo "<script> alert('Login Successfully ".$_SESSION['uid']."'); location.href='UserDashboard.php'; </script>";
+
 
     //header('location:user_reg.php');  
-  else{
-  echo "<script> alert('Login Unsuccessfully'); location.href='login.php';</script>";
-
+  }else{
+    echo "<script> alert('Login Unsuccessfully'); location.href='login.php';</script>";
+    
     //die('Could not Insert: '. mysql_error());   
-  
+  }
 }
-}
-?>
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,63 +53,63 @@ if (isset($_POST['sign']))
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="login.html"><b>Login</b></a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="card">
-      <div class="card-body login-card-body">
-        <p class="login-box-msg">Sign in to start your session</p>
+<div class="login-box">
+  <div class="login-logo">
+    <a href="login.html"><b>Login</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
 
-        <form  method="post">
-          <div class="input-group mb-3">
-            <input type="email" class="form-control" name="email" placeholder="Email">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-envelope"></span>
-              </div>
+      <form  method="post">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" name="email" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
-          <div class="input-group mb-3">
-            <input type="password" class="form-control" name="password" placeholder="Password">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" name="password" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
             </div>
           </div>
-          <div class="row">
-            <div class="col-8">
-              <div class="icheck-primary">
-                <input type="checkbox" id="remember">
-
-              </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+             
             </div>
-            <!-- /.col -->
-            <div class="col-4">
-              <button type="submit" class="btn btn-primary btn-block" name="sign">Sign In</button>
-            </div>
-            <p class="mb-1">
-              <a href="signup.php">Register User</a>
-            </p>
-            <!-- /.col -->
           </div>
-        </form>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block" name="sign">Sign In</button>
+          </div>
+           <p class="mb-1">
+        <a href="signup.php">Register User</a>
+      </p>
+          <!-- /.col -->
+        </div>
+      </form>
 
+      
 
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 
-        <!-- /.login-card-body -->
-      </div>
-    </div>
-    <!-- /.login-box -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.min.js"></script>
-
-  </body>
-  </html>
+</body>
+</html>
