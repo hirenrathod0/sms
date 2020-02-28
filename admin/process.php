@@ -88,19 +88,15 @@ mail($to, $subject, $message, $headers);
 	
 	//}
 	
-	
 
-	$query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
-	if(isset($query1))
-	{		
-		echo "<script>alert('inserted');</script>";		
-		header('location:add_notice.php');	
-	}else{
-		die('Could not Insert: '. mysql_error());		
-	}
-
-
-
+	// $query1=mysqli_query($con,"insert into notice(title,descr) values('$title','$descr')");
+	// if(isset($query1))
+	// {		
+	// 	echo "<script>alert('inserted');</script>";		
+	// 	header('location:add_notice.php');	
+	// }else{
+	// 	die('Could not Insert: '. mysql_error());		
+	// }
 
 if(isset($_POST["action"]))
 {
