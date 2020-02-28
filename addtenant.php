@@ -14,7 +14,7 @@ if(isset($_POST['insert_user_reg']))
 	// echo "$row";
 	if(isset($row) && isset($row1))
 	{		
-		echo "<script>alert($dummy);</script>";		
+		echo "<script>alert($row);</script>";		
 		//header('location:user_reg.php');	
 	}else{
 		die('Could not Insert: '. mysql_error());		
