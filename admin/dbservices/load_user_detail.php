@@ -5,11 +5,11 @@ $query="";
 
 if($_POST["need"]=="female")
 {
-    $query = "SELECT * FROM member_detail where gender like 'f'";
+    $query = "SELECT * FROM member_detail where gender like 'Female'";
 }
 elseif($_POST["need"]=="male")
 {
-    $query = "SELECT * FROM member_detail where gender like 'm'";
+    $query = "SELECT * FROM member_detail where gender like 'Male'";
 }
 elseif($_POST["need"]=="child")
 {
