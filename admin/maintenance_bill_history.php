@@ -1,4 +1,18 @@
-<?php include('header.php') ?>
+<?php include('header.php');
+if (isset($_GET['bid'])) {
+  
+  $query="update maintenance_bill set ispaid =1 where bid=".$_GET['bid']."";
+  $row=mysqli_query($con,$query);
+  // echo "$row";
+  if( isset($row))
+  {   
+    echo "<script>alert('Payment is Done'); </script>";    
+    //header('location:user_reg.php');  
+  }else{
+    die('Could not Insert: '. mysql_error());   
+  } 
+}
+ ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -20,13 +34,13 @@
          <table class="table display" id="main_tbl" width="100%">
       <thead>
         <!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
-        <tr><th>flat no</th><th>user name</th><th>contact no</th><th>bill-date</th><th>total bill</th><th>due date</th><th>view</th></tr>
+        <tr><th>flat no</th><th>user name</th><th>contact no</th><th>bill-date</th><th>total bill</th><th>is paid</th><th>due date</th><th>view</th></tr>
       </thead>
       <tbody>      
         <?php
               // $result=mysqli_query($con,"select fid,block,flat_num,uid,fullName,contactNo from flat,users where uid IS NOT NULL and uid=id
 //"); 
-              $result=mysqli_query($con,"select flat.fid,block,flat_num,uid,fullName,contactNo,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,flat_charges,due_date,bid from users,maintenance_bill,flat where id=maintenance_bill.fid and uid=id
+              $result=mysqli_query($con,"select flat.fid,ispaid,block,flat_num,uid,fullName,contactNo,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,flat_charges,due_date,bid from users,maintenance_bill,flat where id=maintenance_bill.fid and uid=id
 "); 
         // $result1=mysqli_query($con,"select fullName,fid,block,flat_num,uid,contactNo,bill_date,water_charges,property_tax,elec_charges,parking_charges,other,flat_charges,due_date,bid from users,maintenance_bill where id=fid");           
               // $row=$result->fetch_assoc(); 
@@ -55,6 +69,15 @@
                          <td><?php echo($row['bill_date']);?></td>
                              <td><?php $total=$row['property_tax']+$row['water_charges']+$row['flat_charges']+$row['parking_charges']+$row['other']+$row['elec_charges'];
                               echo($total);?></td>
+                              <td><?php if($row['ispaid']==1)
+                              {
+                                echo "Paid";
+                              }else
+                              { 
+                                echo ("<a href='maintenance_bill_history.php?bid=".$row['bid']."'  >Payment Done</a>");
+                              }
+
+                               ?></td>
                                 <td><?php echo($row['due_date']);?></td>                            
                                 <td><a href="bill_detail.php?bill_no=<?php echo $row['bid'];?>&total=<?php echo $total; ?>"  >Print</a></td>
                         </tr>
