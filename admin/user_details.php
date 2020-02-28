@@ -15,7 +15,8 @@ if(isset($_POST['insert_visitor_reg']))
     <button class="btn btn-primary" type="button" onclick="showfemale()">Female   </button>
     <button  class="btn btn-primary" type="button" onclick="showmale()">Male   </button>
     <button  class="btn btn-primary" type="button" onclick="showchild()">children   </button>
-    <button  class="btn btn-primary" type="button" onclick="showsenior()">senior ciitizon   </button>
+    <button  class="btn btn-primary" type="button" onclick="showsenior()">senior citizen   </button>
+    <button  class="btn btn-primary" type="button" onclick="showtenant()">Tenants</button>
 
     <br> <br>
     <div id="usercard">
@@ -85,13 +86,6 @@ if(isset($_POST['insert_visitor_reg']))
           </div>
           <!-- /.col -->
           <?php endwhile; ?>
-        
-
-
-        
-
-               
-          
         </div>
 	</div><!-- /.container-fluid -->
 </section>
@@ -122,18 +116,13 @@ function showfemale()
                 {
                     
                 }    
-           },
-           complete:function(){
-            $('#event').each(function(){
-                this.reset();   //Here form fields will be cleared.
-            });
-       }
+           }
          });
         
     }
 
     function showmale()
-{
+  {
     alert('called');    
     var myobj = {
         need: 'male'
@@ -155,18 +144,13 @@ function showfemale()
                 {
                     
                 }    
-           },
-           complete:function(){
-            $('#event').each(function(){
-                this.reset();   //Here form fields will be cleared.
-            });
-       }
+           }
          });
         
     }
 
     function showchild()
-{
+    {
     alert('called');    
     var myobj = {
         need: 'child'
@@ -188,19 +172,14 @@ function showfemale()
                 {
                     
                 }    
-           },
-           complete:function(){
-            $('#event').each(function(){
-                this.reset();   //Here form fields will be cleared.
-            });
-       }
+           }
          });
         
     }
 
-    function showsenior()
-{
-    alert('called');    
+  function showsenior()
+  {
+  //  alert('called');    
     var myobj = {
         need: 'senior'
     }
@@ -219,20 +198,39 @@ function showfemale()
                 }     
                 else 
                 {
-                    
+
                 }    
-           },
-           complete:function(){
-            $('#event').each(function(){
-                this.reset();   //Here form fields will be cleared.
-            });
-       }
+           }
          });
         
     }
 
 
-
+  function showtenant()
+  {
+  
+    var myobj = {
+        need: 'tenant'
+    }
     
+    $.ajax({
+           type: "POST",
+           url: 'dbservices/load_user_detail.php',
+           data: myobj,
+           success: function(data)
+           {
+               // alert(data);
+                if (data) 
+                {
+                   alert(data);
+                   document.getElementById('usercard').innerHTML = data;
+                }     
+                else 
+                {
 
+                }    
+           }
+         });
+        
+    }
 </script>
