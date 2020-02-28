@@ -1,0 +1,8 @@
+<!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+
+
+				   ^
+replace above one  |    downside written if kasu pan direct w2schhol par thi uthayu hoi then
+					
+
+<link rel="stylesheet" href="w3school.css">

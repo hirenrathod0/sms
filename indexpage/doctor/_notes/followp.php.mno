@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:int,name:fid;datatype:int,name:add_date;datatype:string,name:day;datatype:int,name:noday;datatype:int" />
+	<infoitem key="UD_Recordset2" value="name:id;datatype:int,name:fid;datatype:int,name:pid;datatype:int,name:add_date;datatype:string,name:days;datatype:string" />
+	<infoitem key="UD_Recordset10" value="name:id;datatype:int,name:fid;datatype:int,name:add_date;datatype:string,name:day;datatype:int,name:noday;datatype:int" />
+</info>
