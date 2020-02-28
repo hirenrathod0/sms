@@ -1,20 +1,26 @@
-;<?php include 'header.php';
+<?php include 'header.php';
+
+if (isset($_POST['insert_btn'])) {
+  
+
   $query1="select id,fullName from users";
                  
         $result=mysqli_query($con,$query1);
                 $num_of_rows=mysqli_num_rows($result);
-    
-  
-    for ($x = 1; $x <=$num_of_rows; $x++) { 
-	$query="INSERT into meeting_attendance(uid,mid,pa)VALUES(1,'".$_REQUEST['mid']."','".$_POST['att'.$x]."')";
-	$row=mysqli_query($con,$query);
+        
+
+      $x=1;
+      echo "<script>alert(".$_POST['att1'].");</script>";                
+      while($rows=mysqli_fetch_array($result)){
+      	$query="INSERT into meeting_attendance(uid,mid,pa)VALUES('".$rows['id']."','".$_REQUEST['mid']."','".$_POST['att'.$x]."')";
+        $x++;
+      	$data=mysqli_query($con,$query);
+}
     
        $query="update meeting_details set presentstatus=1 where mid='".$_REQUEST['mid']."'";
-	$row=mysqli_query($con,$query); 
-    
-    }
-    
-
+	     $row=mysqli_query($con,$query); 
+ 
+}
 ?>
   <div class="content-wrapper">
 
@@ -33,21 +39,19 @@
 
                
         // echo "$dummy1";
-
-        if($result === FALSE) { 
-            die(mysql_error()); // TODO: better error handling
-        }
+      $query1="select id,fullName from users";
+                 
+        $result=mysqli_query($con,$query1);
+       
         $counter=1;        
         while($row=$result->fetch_assoc())
-        {
-            
+        {          
                  ?>
                     <tr>
                         
                <td><?php echo $row['fullName']; ?></td>
-                                
-                        
-                         <td><select class="form-control" id="sel1" name="att<?php echo $counter;?>"  >
+                                                    
+          <td><select class="form-control"  name="att<?php echo $counter;?>"  >
 						<option value="p">present</option>						
 						<option value="a">abesent</option>						
 					</select></td>
@@ -64,7 +68,7 @@
         </table>    
 
 <br/>
-     <td><a href="meetingattend.php" name="submit"  >mark attendance</a></td> 
+     <button type="submit" name="insert_btn" >Make Attandence</button>
         </form>
 				
 

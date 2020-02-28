@@ -160,20 +160,18 @@ else{
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="addmeeting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Add Meeting Details</p>
                 </a>
               </li>
-               <li class="nav-item">
-            <a href="meetingattend.php" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>
-                View Meeting History
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
+              <li class="nav-item">
+                <a href="meetingattend.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Meeting History</p>
+                </a>
+              </li>
+               
          <li class="nav-item">
                 <a href="showmeeting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

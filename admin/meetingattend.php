@@ -38,14 +38,12 @@
                         <?php 
         
 
-                 $query1="select count(mid)as p from meeting_attendance where pa='p'group by uid";
+                 $query1="select count(mid) p from meeting_attendance where pa='p' group by uid";
         $result=mysqli_query($con,$query1);
         
         // echo "$dummy1";
 
-        if($result === FALSE) { 
-            die(mysql_error()); // TODO: better error handling
-        }
+       
         while($row=$result->fetch_assoc())
         {
             
@@ -55,14 +53,12 @@
                         <?php 
         
 
-                 $query1="select count(mid)as p from meeting_attendance where pa='a'group by uid";
+                 $query1="select count(mid) p from meeting_attendance where pa='a' group by uid";
         $result=mysqli_query($con,$query1);
         
         // echo "$dummy1";
 
-        if($result === FALSE) { 
-            die(mysql_error()); // TODO: better error handling
-        }
+        
         while($row=$result->fetch_assoc())
         {
             
