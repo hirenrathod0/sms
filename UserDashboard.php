@@ -43,7 +43,7 @@ include('header.php');
                   echo $cmpn;
                   ?>
                   </span>              
-                <span class="info-box-number" id="vehicles"></span>
+                <!-- <span class="info-box-number" id="vehicles"></span> -->
               </div>
               </div>
               <!-- /.info-box-content -->
@@ -57,7 +57,7 @@ include('header.php');
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas  fa-users"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">family members  </span>
+                <span class="info-box-text">Family Members  </span>
                 <span class="info-box-text">
                     <?php 
                   $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from member_detail where uid=".$_SESSION['uid']."");
@@ -68,7 +68,7 @@ include('header.php');
                   echo $cmpn1;
                   ?>
                   </span>
-                <span class="info-box-number" id="memberdetails"></span>
+                <!-- <span class="info-box-number" id="memberdetails"></span> -->
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -93,7 +93,7 @@ include('header.php');
                   ?>
                   </span>
 
-                <span class="info-box-number" id="ownevents"></span>
+                <!-- <span class="info-box-number" id="ownevents"></span> -->
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -109,7 +109,7 @@ include('header.php');
                 <span class="info-box-text">Bills</span>
                 <span class="info-box-number" id="">
                   <?php 
-                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from maintenance_bill where fid=".$_SESSION['uid']."");
+                  $sql=mysqli_query($con,"SELECT count(*) COUNT from maintenance_bill where fid=".$_SESSION['uid']."");
                   while($row=mysqli_fetch_array($sql))
                   {
                     $cmpn=$row['COUNT'];
