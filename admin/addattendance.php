@@ -17,9 +17,13 @@ if (isset($_POST['insert_btn'])) {
       	$data=mysqli_query($con,$query);
 }
     
-       $query="update meeting_details set presentstatus=1 where mid='".$_REQUEST['mid']."'";
+       $query="update meeting_detail set presentstatus=1 where meet_id='".$_REQUEST['mid']."'";
 	     $row=mysqli_query($con,$query); 
- 
+        if (isset($row)) {
+            echo "<script> alert('Attandence is Uploaded'); location.href='addattendance.php';</script>";
+        }else{
+
+        }
 }
 ?>
   <div class="content-wrapper">

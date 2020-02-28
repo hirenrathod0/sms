@@ -240,7 +240,7 @@ else{
             <a href="user_reg.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                User Registration
+                User Registration List
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
@@ -398,17 +398,30 @@ else{
               </li>            
             </ul>
           </li>
+
+          <li class="nav-item has-treeview">
+            <a href="add_notice.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>Add Notice to All User
+                
+                <!-- <i class="fas fa-angle-left right"></i> -->
+ 
+              </p>
+            </a>
+          </li>         
+
            <li class="nav-item has-treeview">
             <a href="../logout.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Logout
-                <i class="fas fa-angle-left right"></i>
+                <!-- <i class="fas fa-angle-left right"></i> -->
  
               </p>
             </a>
           </li>
           
+
       </nav>
       <!-- /.sidebar-menu -->
     </div>
