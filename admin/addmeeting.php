@@ -20,7 +20,7 @@ include('header.php');
                     <div class="row">
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Event Title</label>
+                                <label for="exampleInputEmail1">Meeting Title</label>
                                 <input type="text" class="form-control" id="eventtitle" placeholder="meeting title">
                             </div>
                         </div>
@@ -49,7 +49,7 @@ include('header.php');
                         <div class="col-md-6">
                             <!-- Date range -->
                                 <div class="form-group">
-                                    <label>Date range:</label>
+                                    <label>Date of event:</label>
 
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -118,9 +118,9 @@ include('footer.php');
 ?>
 
 <!-- SweetAlert2 -->
-<script src="plugins/sweetalert2/sweetalert2.min.js"></script>
+<script src="../plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- Toastr -->
-<script src="plugins/toastr/toastr.min.js"></script>
+<script src="../plugins/toastr/toastr.min.js"></script>
 
 
 <script>
