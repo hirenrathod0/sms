@@ -19,7 +19,7 @@
     <table class="table display" id="meetattend" width="100%">
             <thead>
                 <!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
-                 <th>title</th><th>agenda</th><th>date</th><th>present</th><th>abesent</th></thead>
+                 <th>title</th><th>agenda</th><th>date</th><th>present</th><th>abesent</th><th>show attendance</th></thead>
             <tbody>
                 <?php 
                 $query1="select meet_id,title,date,details from meeting_detail where presentstatus=1";
@@ -53,7 +53,7 @@
                   ?>
                             <td><?php echo($row3['a']);?></td>
         <?php }?>
-                                                                    
+                            <td><a href="attendancesheet.php?mid=<?php echo $row['meet_id'];?>">show attendance</a></td>                                          
                         <!-- <td><a href="add_catspec.php?edit_cat=<?php //echo $rows['catid']; ?>" class="btn btn-info btn_space" >Edit</a><a href="add_catspec.php?delete_cat=<?php //echo $rows['catid']; ?>" onclick="return confirm('Are you sure?')" class="btn btn-danger" >Delete</a></td> -->
                     </tr>   
                     <?php 
