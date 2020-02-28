@@ -217,3 +217,23 @@ if (isset($_REQUEST['insert_users'])) {
 </section>
 </div>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#usertable').DataTable({			        
+			"aoColumns": [                    
+			null,
+			null,			
+			null,			
+			null,
+			null,
+			null,			
+			null,			
+			null,									
+			{ "bSortable": false,"bSearchable": false}                                      
+			],	
+			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+			dom: 'lBfrtip',
+			"lengthChange": true
+		});
+	});
+</script>
