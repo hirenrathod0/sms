@@ -152,7 +152,7 @@ else{
 
           <li class="nav-item has-treeview">
             <a href="" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-handshake"></i>
               <p>
                 Meeting Menu
                 <i class="fas fa-angle-left right"></i> 
@@ -168,14 +168,14 @@ else{
               <li class="nav-item">
                 <a href="meetingattend.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Meeting History</p>
+                  <p> Meeting History (Meeting Done)</p>
                 </a>
               </li>
                
          <li class="nav-item">
                 <a href="showmeeting.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p> Show Meeting </p>
+                  <p> Show Upcoming Meeting</p>
                 </a>
               </li>
             </ul>
@@ -248,7 +248,7 @@ else{
         
           <li class="nav-item">
             <a href="vehical_list.php" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-car-side"></i>
               <p>
                 Vehicle List
                 <!-- <span class="right badge badge-danger">New</span> -->
@@ -284,12 +284,7 @@ else{
                   <p>Add Flat </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="addflat.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Flat 1</p>
-                </a>
-              </li>
+        
               <li class="nav-item">
                 <a href="flatdesc.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -412,7 +407,7 @@ else{
 
            <li class="nav-item has-treeview">
             <a href="../logout.php" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>
                 Logout
                 <!-- <i class="fas fa-angle-left right"></i> -->

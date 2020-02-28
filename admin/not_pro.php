@@ -46,10 +46,12 @@
 
 
               
-              <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped  display" >
+              <table cellpadding="0" cellspacing="0" id="notpro" border="0" class="datatable-1 table table-bordered table-striped  display" >
                 <thead>
                   <tr>
                     <th>Complaint No</th>
+                    <th>Complaint Title</th>
+                    <th>Complaint Details</th>
                     <th> complainant Name</th>
                     <th>Reg Date</th>
                     <th>Status</th>
@@ -68,6 +70,8 @@
                     ?>                    
                     <tr>
                       <td><?php echo htmlentities($row['complaintNumber']);?></td>
+                      <td><?php echo htmlentities($row['complaintTitle']);?></td>
+                      <td><?php echo htmlentities($row['complaintDetails']);?></td>
                       <td><?php echo htmlentities($row['name']);?></td>
                       <td><?php echo htmlentities($row['regDate']);?></td>
                       
@@ -98,4 +102,13 @@
   <!-- /.content-wrapper -->
 
 <?php include('footer.php') ?>
-
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#notpro').DataTable({              
+        
+      buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+      dom: 'lBfrtip',
+      "lengthChange": true
+    });
+  });
+</script>

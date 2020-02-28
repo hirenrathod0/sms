@@ -5,11 +5,11 @@ $query="";
 
 if($_POST["need"]=="female")
 {
-    $query = "SELECT * FROM member_detail where gender like 'f'";
+    $query = "SELECT * FROM member_detail where gender like 'Female'";
 }
 elseif($_POST["need"]=="male")
 {
-    $query = "SELECT * FROM member_detail where gender like 'm'";
+    $query = "SELECT * FROM member_detail where gender like 'Male'";
 }
 elseif($_POST["need"]=="child")
 {
@@ -19,6 +19,75 @@ elseif($_POST["need"]=="child")
 elseif($_POST["need"]=="senior")
 {
     $query = "SELECT * FROM member_detail ";
+
+}
+elseif($_POST['need'] == 'tenant')
+{
+    $query = "SELECT * FROM users where type like 'tenant'";
+
+    $statement = $dbh->prepare($query);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    $data = array();
+    $count = 0;
+    $str = "<div class='row'>";
+    foreach($result as $row)
+    {
+        if( $count % 3 == 0 && $count != 0 )
+        {
+            $str = $str."</div><div class='row'>";
+        }
+        $str = $str.'<div class="col-md-4">
+        <!-- Widget: user widget style 1 -->
+        <div class="card card-widget widget-user">
+        <!-- Add the bg color to the header using any of the bg-* classes -->
+        <div class="widget-user-header bg-info">
+            <h3 class="widget-user-username">'.$row['fullName'].'</h3>
+            
+        </div>
+        <div class="widget-user-image">
+            <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
+        </div>
+        <div class="card-footer">
+            <div class="row">
+            <div class="col-sm-4">
+                <div class="description-block">
+                <h5 class="description-header">A101</h5>
+                <span class="description-text">FlatId</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 border-right">
+                <div class="description-block">
+                <h5 class="description-header">'.$row['userEmail'].'</h5>
+                <span class="description-text">UserEmail</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 border-right">
+                <div class="description-block">
+                <h5 class="description-header">'.$row['contactNo'].'</h5>
+                <span class="description-text">Mobile NO</span>
+                </div>
+                <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        </div>
+        <!-- /.widget-user -->
+    </div>
+    <!-- /.col -->';
+        $count++;
+    }
+    echo $str;
+    exit();
+     
+
+
 
 }
 
@@ -75,7 +144,7 @@ if($_POST["need"]=="child")
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header bg-info">
                         <h3 class="widget-user-username">'.$d['name'].'</h3>
-                        <h5 class="widget-user-desc">Member Name</h5>
+                        <h5 class="widget-user-desc">ber Name</h5>
                     </div>
                     <div class="widget-user-image">
                         <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
