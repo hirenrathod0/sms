@@ -19,7 +19,7 @@ $result=$statement->execute(
 if($_POST['need']  == 'votingstatus')
 {
 
-  $query = "SELECT COUNT(mid) yes, COUNT(mid) total from notice_votes where nid=:nid and ans like 'y'";
+  $query = "SELECT COUNT(mid) yes from notice_votes where nid=:nid and ans like 'y'";
   $statement = $dbh->prepare($query);
   $statement->execute(
     array(
@@ -28,7 +28,18 @@ if($_POST['need']  == 'votingstatus')
   );
 
   $result = $statement->fetch();
-  $str = $result['yes'].",".$result['total'];
+  $str = $result['yes'];
+
+  $query = "SELECT COUNT(mid) total from notice_votes where nid=:nid";
+  $statement = $dbh->prepare($query);
+  $statement->execute(
+    array(
+     ':nid'  => $_POST['nid']
+     )
+  );
+
+  $result = $statement->fetch();
+  $str = $str.",".$result['total'];
   
 
   echo $str;
