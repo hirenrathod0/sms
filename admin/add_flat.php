@@ -249,11 +249,8 @@ $(document).ready(function(){
 		var id = $(this).attr("id");
 		$('#delete_confirmation').data('id', id).dialog('open');
 	});
-	
-});  
 
-$(document).ready( function () {
-		$('#tbl_flat').DataTable({			        
+	$('#tbl_flat').DataTable({			        
 			"aoColumns": [                    
 			null,
 			null,			
@@ -263,13 +260,17 @@ $(document).ready( function () {
 			null,			
 			null,			
 			null,					
-			null,			
-			null,			
-			{ "bSortable": false,"bSearchable": false}                                      
-			],	
+			null,									
+			{ "bSortable": false,"bSearchable": false},
+			{ "bSortable": false,"bSearchable": false}                                                                         
+			],
+
 			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
 			dom: 'lBfrtip',
 			"lengthChange": true
 		});
-	});
+	
+});  
+
+
 </script>
