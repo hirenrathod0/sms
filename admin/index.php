@@ -7,6 +7,7 @@ include('header.php');
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
+
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0 text-dark">Dashboard</h1>
@@ -81,7 +82,7 @@ include('header.php');
           <div class="col-12 col-sm-6 col-md-3">
           <a href="user_details.php"> 
             <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">All Members</span>
@@ -157,6 +158,30 @@ include('header.php');
               <div class="info-box-content">
                 <span class="info-box-text">Empty Flats</span>
                 <span class="info-box-number" id="emptyflats"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </a>
+            <!-- /.info-box -->
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+          <a href="maintenance_bill_history.php" >
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Due Payments</span>
+                <span class="info-box-number" id="">
+                  <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from maintenance_bill where ispaid = 0");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn=$row['COUNT'];
+                  }
+                  echo $cmpn;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
