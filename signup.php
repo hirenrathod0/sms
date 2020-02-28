@@ -45,7 +45,7 @@ if(isset($_POST['insert_user_buffer']))
 <body class="hold-transition register-page">
 <div class="register-box" style="    width: 55%;">
   <div class="register-logo">
-    <a href="#"><b>Signup</b>LTE</a>
+    <a href="#"><b>Signup</b></a>
   </div>
 
   <div class="card">
