@@ -50,6 +50,21 @@
 					<input type="text" name="price" id="price" class="form-control" />
 					<span id="error_last_name" class="text-danger"></span>
 				</div>
+				<div class="form-group">
+					<label>Enter Owner Name</label>
+					<input type="text" name="owner" id="owner" class="form-control" />
+					<span id="error_last_name" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label>Enter Owner Contact No.</label>
+					<input type="text" name="ownercno" id="ownercno" class="form-control" />
+					<span id="error_last_name" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label>Enter Email</label>
+					<input type="text" name="owneremail" id="owneremail" class="form-control" />
+					<span id="error_last_name" class="text-danger"></span>
+				</div>
 				<!-- <div class="form-group">
 					<label>Enter Uid</label>
 					<input type="text" name="uid" id="uid" class="form-control" />
@@ -190,6 +205,9 @@ $(document).ready(function(){
 				$('#BHK').val(arr[3]);
 				$('#floor_no').val(arr[4]);
 				$('#price').val(arr[5]);				
+				$('#owner').val(arr[6]);				
+				$('#ownercno').val(arr[7]);				
+				$('#owneremail').val(arr[8]);				
 				// $('#uid').val(data.uid);
 				$('#user_dialog').attr('title', 'Edit Data');
 				$('#action').val('update');
@@ -231,6 +249,28 @@ $(document).ready(function(){
 		var id = $(this).attr("id");
 		$('#delete_confirmation').data('id', id).dialog('open');
 	});
+
+	$('#tbl_flat').DataTable({			        
+			"aoColumns": [                    
+			null,
+			null,			
+			null,			
+			null,
+			null,
+			null,			
+			null,			
+			null,					
+			null,									
+			{ "bSortable": false,"bSearchable": false},
+			{ "bSortable": false,"bSearchable": false}                                                                         
+			],
+
+			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+			dom: 'lBfrtip',
+			"lengthChange": true
+		});
 	
 });  
+
+
 </script>

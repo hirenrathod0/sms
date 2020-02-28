@@ -102,7 +102,7 @@ if(isset($_POST["action"]))
 	if($_POST["action"] == "insert")
 	{
 		$query = "
-		INSERT INTO flat (block,flat_num,area,BHK,floor_no,price) VALUES ('".$_POST["block"]."', '".$_POST["flat_num"]."', '".$_POST["area"]."', '".$_POST["BHK"]."', '".$_POST["floor_no"]."', '".$_POST["price"]."')
+		INSERT INTO flat (block,flat_num,area,BHK,floor_no,price,owner,ownercno,owneremail) VALUES ('".$_POST["block"]."', '".$_POST["flat_num"]."', '".$_POST["area"]."', '".$_POST["BHK"]."', '".$_POST["floor_no"]."', '".$_POST["price"]."', '".$_POST["owner"]."', '".$_POST["ownercno"]."', '".$_POST["owneremail"]."')
 		";
 		$statement = $con->prepare($query);
 		$statement->execute();
@@ -124,7 +124,7 @@ if(isset($_POST["action"]))
 		$data = "";
 		foreach($result as $row)
 		{
-			$data = $row['block'].",".$row['flat_num'].",".$row['area'].",".$row['BHK'].",".$row['floor_no'].",".$row['price'];
+			$data = $row['block'].",".$row['flat_num'].",".$row['area'].",".$row['BHK'].",".$row['floor_no'].",".$row['price'].",".$row['owner'].",".$row['ownercno'].",".$row['owneremail'];
 		}
 		echo $data;
 	}
@@ -138,6 +138,9 @@ if(isset($_POST["action"]))
 				'bhk' =>$_POST['BHK'],
 				'floor_no' =>$_POST['floor_no'],
 				'price' =>$_POST['price'],
+				'owner' =>$_POST['owner'],
+				'ownercno' =>$_POST['ownercno'],
+				'owneremail' =>$_POST['owneremail'],
 				'fid' =>$_POST['hidden_id'],
 			)
 		);

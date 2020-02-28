@@ -9,7 +9,7 @@ if($_POST['need'] == 'users')
 }
 if($_POST['need'] == 'tenants')
 {
-    $query = " SELECT COUNT(id) from users where type like 'tenent'";
+    $query = " SELECT COUNT(id) from users where type='tenant'";
 }
 if($_POST['need'] == 'activecomplaints')
 {
