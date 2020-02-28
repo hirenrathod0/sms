@@ -26,7 +26,7 @@ if(isset($_POST['insert_user_reg']))
 <section class="content-header">
 	<div class="container-fluid">
 
-		<CENTER><h1>User Registration</h1></CENTER>
+		<CENTER><h1>Tenant Registration</h1></CENTER>
 		<form class="form-horizontal" name="user_reg" method="post" style="padding-left:5%">
 			<div class="form-group row">
 				<label class="control-label col-sm-3" for="">Full Name:</label>

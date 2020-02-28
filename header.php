@@ -138,6 +138,14 @@ else{
             </a>
           </li>
           <li class="nav-item">
+            <a href="addtenant.php" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Add Tenant
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="addmember.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
