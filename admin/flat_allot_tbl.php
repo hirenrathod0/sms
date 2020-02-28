@@ -6,12 +6,12 @@
 
     	<table class="table display" id="flat_allot_tbl" width="100%">
 			<thead>
-				<tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr>
-				<tr><th>User Name</th><th>Block</th><th>Floor No.</th><th>Flat No.</th><th>Action</th></tr>
+				<tr style="text-align: center;"><th colspan="11"><h2>Flat Allotment List</h2></th></tr>
+				<tr><th>User Name</th><th>Contact No</th><th>Gender</th><th>DOB</th><th>Area</th><th>BHK</th><th>price</th><th>Block</th><th>Floor No.</th><th>Flat No.</th><th>Action</th></tr>
 			</thead>
 			<tbody>
 				<?php 
-				$query1="select fullName,id,fid,block,flat_num,floor_no,uid from users u,flat f where id=uid ";
+				$query1="select fullName,id,contactNo,gender,dob,fid,area,BHK,price,block,flat_num,floor_no,uid from users u,flat f where id=uid ";
 				$result=mysqli_query($con,$query1);
 
 				if($result === FALSE) { 
@@ -23,6 +23,13 @@
 					<tr>
 						<!-- <?php  //$id=$rows['catid']; ?> -->
 						<td><?php echo $rows['fullName']; ?></td>						
+						<td><?php echo $rows['contactNo']; ?></td>						
+						<td><?php echo $rows['gender']; ?></td>						
+						<td><?php echo $rows['dob']; ?></td>						
+						<td><?php echo $rows['area']; ?></td>						
+						<td><?php echo $rows['BHK']; ?></td>						
+						<td><?php echo $rows['price']; ?></td>						
+
 						<td><?php echo $rows['block']; ?></td>						
 						<td><?php echo $rows['floor_no']; ?></td>						
 						<td><?php echo $rows['flat_num']; ?></td>						
