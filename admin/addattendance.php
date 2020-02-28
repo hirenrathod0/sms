@@ -17,7 +17,7 @@ if (isset($_POST['insert_btn'])) {
       	$data=mysqli_query($con,$query);
 }
     
-       $query="update meeting_details set presentstatus=1 where mid='".$_REQUEST['mid']."'";
+       $query="update meeting_detail set presentstatus=1 where meet_id='".$_REQUEST['mid']."'";
 	     $row=mysqli_query($con,$query); 
  
 }
