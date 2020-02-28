@@ -24,8 +24,8 @@ if(isset($_POST['insert_category']))
 if(isset($_POST['submit']))
 {
 	// print_r($_POST);
-	$_SESSION['id']=2;
-	$uid=$_SESSION['id'];
+	//$_SESSION['id']=2;
+	$uid=$_SESSION['uid'];
 	$category=$_POST['category'];
 
 	$complaintitle=$_POST['complaintitle'];
