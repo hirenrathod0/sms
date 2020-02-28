@@ -5,7 +5,7 @@ include('../config.php');
 $query = "";
 if($_POST['need'] == 'users')
 {
-    $query = "SELECT COUNT(id) from users";
+    $query = "SELECT COUNT(id) from users where type like 'user'";
 }
 if($_POST['need'] == 'tenants')
 {
