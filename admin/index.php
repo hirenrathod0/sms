@@ -123,7 +123,7 @@ include('header.php');
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Past Guests</span>
+                <span class="info-box-text">Past Visitors</span>
                 <span class="info-box-number" id="guests"></span>
               </div>
               <!-- /.info-box-content -->
@@ -151,7 +151,7 @@ include('header.php');
 
 
           <div class="col-12 col-sm-6 col-md-3">
-          <a href="flat_allot_tbl.php" >
+          <a href="flatdesc.php" >
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
