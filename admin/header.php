@@ -250,7 +250,7 @@ else{
             <a href="vehical_list.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Vehical List
+                Vehicle List
                 <!-- <span class="right badge badge-danger">New</span> -->
               </p>
             </a>
