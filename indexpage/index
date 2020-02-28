@@ -1,0 +1,234 @@
+<!--    session_start();
+    include_once('connect.php');
+	
+	if(isset($_POST["btn"]))
+	{
+		$user_name=$_POST["user_name"];
+		$password=$_POST["password"];
+	   $query="select * from  login where user_name='".$user_name."' and password='".$password."'";	
+	   $res=mysql_query($query);
+	   
+	   if($row=mysql_fetch_array($res))
+	   {
+		   $_SESSION["user"]=$user_name;
+		 echo "<script>alert('Login Succesfully');window.location='admin_home.php';</script>";
+	   }
+	   else
+	   {
+		   echo "<script>alert('Invalid Login');</script>";
+	   }
+	}
+?>-->
+
+<html>
+<head>
+
+
+
+
+
+
+<style>
+		*
+		{
+			padding:0;
+			margin:0;
+		}
+.clear{
+	clear:both;
+}
+
+
+.header{
+			height:10%;
+			
+				
+				//  background-image:url("college-detail2.jpg");
+				  background-size:cover;
+				background-position:bottom center;
+			background-attachment:scroll;
+				background-repeat:no-repeat;
+				
+		
+		}
+		
+.hd_up
+		{
+			height:4%;
+			background-color:#ED7134;
+		}
+.hd_down
+		{
+			height:4%;
+			background-color:#ED7134;
+		}
+
+.headin
+	{
+	overflow:hidden;
+	margin:0 auto;
+	}
+.hd_text
+	{
+		padding-left:32%;
+		font-family:calibri;
+	}
+	
+.logo
+	{
+	font-size:40px;
+	color:white;
+	
+	
+	}
+	
+	.rightJS { background: #ffa900; }
+
+
+.li {
+    height: 5px;
+	box-shadow: 0 0.1em 0.5em;
+}
+
+
+
+
+body{
+	background-color:brown;
+	}
+
+
+.leftside{
+		
+		width:100%;
+		color:blue;
+		}
+
+		
+			
+.leftside2{
+	padding-top:10px;
+	position:relative;
+display:block;
+	}
+	
+
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+</style>
+
+<title>NMC's Login</title>
+</head>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="shortcut icon" type="image/x-icon" href="images/1.png" />
+
+<!--<script type="text/javascript">
+
+ function Validate()
+ {
+	 var username=document.getElementById("user_name").value;
+	 var password=document.getElementById("password").value;
+	 
+	 if(username="" && password="")
+	 {
+		 return true;
+	 }
+	 else
+	 {
+		 alert("Some Inforamation is Left");
+		 return false;
+	 }
+ }
+</script>
+
+<script>
+function myFunction(){
+	
+		document.getElementById("form1").reset();
+</script>-->
+
+
+<body>
+
+   
+  
+<div class="hd_up"></div>
+	<div class="header">
+		<div class="headin">
+			<div class="logo">
+			<span class="hd_text"><b>NIKHIL METAL CORPORATION</b></span>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+<div class="rightJS li"></div>
+   
+  
+<div class="center_content">
+     <div id="form_box">
+     <form id="from1" name="form1" method="post" action="">
+          <div class="admin_title">Admin</div>
+          
+          <div class="form_label">User Name</div>
+          <div class="form_content"><input type="text" id="username" name="username" /></div>
+          <div class="clear"></div>
+          
+          <div class="form_label">Password</div>
+          <div class="form_content"><input type="password" id="password" name="password" /></div>
+          <div class="clear"></div>
+          
+          <div align="center" style="margin-top:30px;"><input type="submit" id="submit" name="submit"  value="Login" class="submit_btn" /></div>
+          </form>
+		  
+		  
+		   <?php  
+    if(isset($_POST["submit"])){  
+      
+    if(!empty($_POST['username']) && !empty($_POST['password'])) {  
+        $username=$_POST['username'];  
+        $password=$_POST['password'];  
+      
+        $con=mysql_connect('localhost','root',' ') or die(mysql_error());  
+        mysql_select_db('abc') or die("cannot select DB");  
+      
+        $query=mysql_query("SELECT * FROM login WHERE username='".$username."' AND password='".$password."'");  
+        $numrows=mysql_num_rows($query);  
+        if($numrows!=0)  
+        {  
+        while($row=mysql_fetch_assoc($query))  
+        {  
+        $dbusername=$row['username'];  
+        $dbpassword=$row['password'];  
+        }  
+      
+        if($username == $dbusername && $password == $dbpassword)  
+        {  
+        session_start();  
+        $_SESSION['sess_user']=$username;  
+      
+        /* Redirect browser */  
+        header("Location: page1.php");  
+        }  
+        } else {  
+        echo "Invalid username or password!";  
+        }  
+      
+    } else {  
+        echo "All fields are required!";  
+    }  
+    }  
+    ?>  
+   
+     </div>
+</div>
+
+
+
+
+</div>
+
+</body>
+</html>

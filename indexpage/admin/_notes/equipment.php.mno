@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:etid;datatype:int,name:name;datatype:string" />
+	<infoitem key="UD_editlist" value="name:eid;datatype:int,name:etid;datatype:int,name:name;datatype:string,name:batchno;datatype:string,name:amc;datatype:real,name:expdate;datatype:string,name:con_person;datatype:string,name:remark;datatype:blob,name:cno;datatype:string" />
+	<infoitem key="UD_getlist" value="name:eid;datatype:int,name:etid;datatype:int,name:name;datatype:string,name:batchno;datatype:string,name:tname;datatype:string" />
+</info>

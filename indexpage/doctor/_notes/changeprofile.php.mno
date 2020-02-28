@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_list_usercat_rs" value="name:id;datatype:int,name:name;datatype:string" />
+	<infoitem key="UD_usercat_list_rs" value="name:id;datatype:int,name:name;datatype:string" />
+	<infoitem key="UD_viewadminprofie_rs" value="name:id;datatype:int,name:username;datatype:string,name:password;datatype:string,name:emailid;datatype:string,name:name;datatype:string,name:contact;datatype:int,name:image;datatype:string" />
+</info>
