@@ -284,12 +284,7 @@ else{
                   <p>Add Flat </p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="addflat.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Flat 1</p>
-                </a>
-              </li>
+        
               <li class="nav-item">
                 <a href="flatdesc.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
