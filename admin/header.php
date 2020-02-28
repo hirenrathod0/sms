@@ -114,7 +114,7 @@ else{
             
           </li>
            <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Event Menu
@@ -151,17 +151,16 @@ else{
           </li>
 
           <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Meeting Menu
-                <i class="fas fa-angle-left right"></i>
- 
+                <i class="fas fa-angle-left right"></i> 
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p> Add Meeting Details</p>
                 </a>
@@ -175,25 +174,25 @@ else{
               </p>
             </a>
           </li>
-          <a href="showmeeting.php" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>
-                Show Meeting
-                <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
+         <li class="nav-item">
+                <a href="showmeeting.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> Show Meeting </p>
+                </a>
+              </li>
+            </ul>
           </li>
-           <li class="nav-item">
+           <!-- <li class="nav-item">
             <a href="addattendance.php" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>
                 Add Meeting Atandence
-                <!-- <span class="right badge badge-danger">New</span> -->
+                <span class="right badge badge-danger">New</span> 
               </p>
             </a>
-          </li>           
+          </li>         
             </ul>
-          </li>
+          </li>-->   
          <!--  <li class="nav-item">
             <a href="maintenance.php" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -272,7 +271,7 @@ else{
          
 
           <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Flat
@@ -310,7 +309,7 @@ else{
 
 
           <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Maintainance Menu
@@ -378,7 +377,7 @@ else{
           </li>
 
            <li class="nav-item has-treeview">
-            <a href="complaint.php" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Visitor Menu
