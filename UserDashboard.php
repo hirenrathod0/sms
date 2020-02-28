@@ -147,16 +147,56 @@ include('header.php');
           </a>
         </div>    
       </div>     
+      <div class="row">
+      <div class="card card-info">
+              <div class="card-header">
+                <h3 class="card-title">Past Expenses(Total Expenses)</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="lineChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- DONUT CHART -->
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">This Month</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+      </div>
+
+
+
 
       <section class="content-header">
         <div class="container-fluid">
           <div class="col-md-12">
             <div class="card card-default">
               <div class="card-header">
-                <h3 class="card-title">
+                <h1 class="card-title">
                   <i class="fas fa-bullhorn"></i>
                   Notice Board
-                </h3>
+                </h1>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -234,6 +274,97 @@ include('header.php');
 
 
     $(function() {
+
+
+      var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label               : 'Digital Goods',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 90]
+        },
+        
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+    var lineChartData = jQuery.extend(true, {}, areaChartData)
+    lineChartData.datasets[0].fill = false;
+    //lineChartData.datasets[1].fill = false;
+    lineChartOptions.datasetFill = false;
+
+    //-------------
+    //- DONUT CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Maintenance', 
+          'Gas Bill',
+          'Electricity Bill', 
+          'Water Charges', 
+          'Parking Charges', 
+          'Other', 
+      ],
+      datasets: [
+        {
+          data: [400,500,800,100,100,300],
+          backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var donutChart = new Chart(donutChartCanvas, {
+      type: 'doughnut',
+      data: donutData,
+      options: donutOptions      
+    })
+
+
+    var lineChart = new Chart(lineChartCanvas, { 
+      type: 'line',
+      data: lineChartData, 
+      options: lineChartOptions
+    })
+
+
 
       var myobj1 = {
        uid: id,
