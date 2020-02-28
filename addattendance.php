@@ -1,20 +1,19 @@
-<?php include 'header.php';
+;<?php include 'header.php';
+  $query1="select id,fullName from users";
+                 
+        $result=mysqli_query($con,$query1);
+                $num_of_rows=mysqli_num_rows($result);
+    
+
 if(isset($_POST['submit']))
-{
-    for ($x = 0; $x <=$num_of_rows ; $x++) {
-	$query="INSERT into meeting_attendance(uid,mid,pa) VALUES(1, '".$_REQUEST['mid']."','".$_POST['att0']."' )";
+{   
+    for ($x = 1; $x <=$num_of_rows; $x++) { 
+	$query="INSERT into meeting_attendance(uid,mid,pa)VALUES(1,'".$_REQUEST['mid']."','".$_POST['att'.$x]."')";
 	$row=mysqli_query($con,$query);
-
-	if(isset($row) )
-	{		
-		echo "<script>alert($query);</script>";		
-		//header('location:user_reg.php');	
-	}else{
-		die('Could not Insert: '. mysql_error());		
-	}
-       }
+    
 }
-
+    
+}
 ?>
   <div class="content-wrapper">
 
@@ -22,7 +21,7 @@ if(isset($_POST['submit']))
 	<div class="container-fluid">
 
 		<CENTER><h1>member details</h1></CENTER>
-
+<form class="form-horizontal" name="user_reg" method="post" style="padding-left:5%">
     <table class="table display" id="cattable" width="100%">
             <thead>
                 <!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
@@ -31,27 +30,23 @@ if(isset($_POST['submit']))
                 <?php 
         
 
-                 $query1="select id,fullName from users";
-                 
-        $result=mysqli_query($con,$query1);
-                $num_of_rows=mysqli_num_rows($result);
-        
+               
         // echo "$dummy1";
 
         if($result === FALSE) { 
             die(mysql_error()); // TODO: better error handling
         }
-                
+        $counter=1;        
         while($row=$result->fetch_assoc())
         {
-            $counter=0;
+            
                  ?>
                     <tr>
                         
                <td><?php echo $row['fullName']; ?></td>
                                 
                         
-                         <td><select class="form-control" id="sel1" name="att<?php echo "$counter";?>"  >
+                         <td><select class="form-control" id="sel1" name="att<?php echo $counter;?>"  >
 						<option value="p">present</option>						
 						<option value="a">abesent</option>						
 					</select></td>
@@ -61,7 +56,8 @@ if(isset($_POST['submit']))
                     </tr> 
                 
                     <?php 
-                }
+        $counter++;        
+        }
                 ?>
             </tbody>
         </table>    
@@ -69,7 +65,7 @@ if(isset($_POST['submit']))
 <br/>
     <input type="submit" name="submit" value="Mark Attendance" />
 
-	
+        </form>
 				
 
 	</div><!-- /.container-fluid -->
