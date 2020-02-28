@@ -1,6 +1,6 @@
 
 <?php include 'header.php';
-$query="select userEmail from users where id=2";
+$query="select userEmail from users where id=".$_SESSION['uid']."";
 $r=mysqli_query($con,$query);
 $row = mysqli_fetch_array($r);
 $to ='patelpriyanshi0807@gmail.com';

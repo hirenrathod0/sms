@@ -90,6 +90,9 @@ if (isset($_POST['sign'])) {
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block" name="sign">Sign In</button>
           </div>
+           <p class="mb-1">
+        <a href="signup.php">Register User</a>
+      </p>
           <!-- /.col -->
         </div>
       </form>
