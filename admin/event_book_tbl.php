@@ -3,9 +3,18 @@
  <section class="content-header">
       <div class="container-fluid">
 
-        <table class="table display" id="cattable" width="100%">
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Event Booking List</h1>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+        <table class="table display" id="event_book" width="100%">
 			<thead>
-				<tr style="text-align: center;"><th colspan="7"><h2>Event Booking List</h2></th></tr>
+				<!-- <tr style="text-align: center;"><th colspan="7"><h2>Event Booking List</h2></th></tr> -->
 				<tr><th>User Name</th><th>Start Time</th><th>End Time</th><th>Place</th><th>Function Title</th><th>Function Details</th><th>Action</th></tr>
 			</thead>
 			<tbody>
@@ -61,3 +70,22 @@
 	}
 	?>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+	$(document).ready( function () {
+		$('#event_book').DataTable({			        
+			"aoColumns": [                    
+			null,
+			null,			
+			null,			
+			null,
+			null,
+			null,			
+			
+			{ "bSortable": false,"bSearchable": false}                                      
+			],
+			buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+			dom: 'lBfrtip',
+			"lengthChange": true
+		});
+	});
+</script>

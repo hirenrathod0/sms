@@ -5,9 +5,18 @@
 <section class="content-header">
 	<div class="container-fluid">
 
-		<CENTER><h1>meetings</h1></CENTER>
+		<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Meeting Attandence List</h1>
+          </div><!-- /.col -->
+          
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
 
-    <table class="table display" id="cattable" width="100%">
+    <table class="table display" id="meetattend" width="100%">
             <thead>
                 <!-- <tr style="text-align: center;"><th colspan="5"><h2>Flat Allotment List</h2></th></tr> -->
                  <th>title</th><th>agenda</th><th>date</th><th>present</th><th>abesent</th></thead>
@@ -57,3 +66,13 @@
 </section>
 </div>
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#meetattend').DataTable({                  
+                
+            buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print'  ],
+            dom: 'lBfrtip',
+            "lengthChange": true
+        });
+    });
+</script>
