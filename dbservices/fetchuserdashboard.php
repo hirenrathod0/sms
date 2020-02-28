@@ -35,7 +35,7 @@ echo $str;
 
 if($_POST['need'] == 'members')
 {
-    $query = "SELECT * from member_detail where uid=:uid";
+    $query = "SELECT COUNT(uid) from member_detail where uid=:uid";
 
 
     $statement = $dbh->prepare($query);
@@ -51,7 +51,7 @@ if($_POST['need'] == 'members')
     $str="<div class='row'>";
     foreach($result as $row)
     {
-        $str=$row['name'];
+        $str=$row[0];
         // $str = $str.'<div class="col-md-3">
         // <div class="info-box mb-3 bg-info">
         //   <div class="info-box-content">
