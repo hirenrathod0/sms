@@ -2,8 +2,8 @@
 
 if(isset($_POST['insert_user_buffer']))
 {
-
-  $query="INSERT into user_buffer(fullName,userEmail,password,contactNo,type,gender,dob,fid) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."', '".$_POST["dob"]."', '".$_POST["fid"]."')";
+  // echo ($_POST['fullName'].$_POST['userEmail'].$_POST['password'].$_POST['contactNo'].$_POST['type'].$_POST['gender'].$_POST['dob'].$_POST['flat']);
+  $query="INSERT into user_buffer(fullName,userEmail,password,contactNo,type,gender,dob,fid) VALUES('".$_POST["fullName"]."', '".$_POST["userEmail"]."', '".$_POST["password"]."', '".$_POST["contactNo"]."', '".$_POST["type"]."', '".$_POST["gender"]."', '".$_POST["dob"]."', '".$_POST["flat"]."')";
   $row=mysqli_query($con,$query);
   
   //$dummy=mysqli_insert_id($con);
@@ -15,7 +15,7 @@ if(isset($_POST['insert_user_buffer']))
   // echo "$row";
   if(isset($row) )
   {   
-    echo "<script>alert('Reques is Send to Admin'); location.href='signup.php';</script>";   
+    echo "<script>alert('Request is Send to Admin'); </script>";   
     //header('location:user_reg.php');  
   }else{
     die('Could not Insert: '. mysql_error());   
@@ -103,7 +103,7 @@ if(isset($_POST['insert_user_buffer']))
         </div>
       </div>
       <div class="form-group row">
-        <label class="control-label col-sm-3" for="email">Select Flat:</label>
+        <label class="control-label col-sm-3" for="">Select Flat:</label>
         <div class="col-sm-7">
           <select class="form-control" id="sel1" name="flat">
             <option>Select Option</option>
@@ -120,14 +120,19 @@ if(isset($_POST['insert_user_buffer']))
       <div class="form-group row">        
         <div class="col-sm-offset-3 col-sm-9" style="padding-left:26% ">
          
-                    <?php $sql=mysqli_query($con,"select id from users order by id desc limit 1");
-  while($row1=mysqli_fetch_array($sql)){?>
-                    <a href="addmember.php?uid=<?php echo $row1['id'];?>" class="btn btn-primary" name="insert_user_buffer" >submit</a>
+                     <?php //$sql=mysqli_query($con,"select id from users order by id desc limit 1"); --> -->
+  //while($row1=mysqli_fetch_array($sql)){?>
+                    <!-- <a href="addmember.php?uid=<?php// echo $row1['id'];?>" class="btn btn-primary"  >submit</a> -->
                     <?php 
-        }
-        ?> <button type="reset" class="btn btn-primary">Reset</button>
+      //  }
+        ?><button type="submit" class="btn btn-primary" name="insert_user_buffer">Submit</button> 
+        <button type="reset" class="btn btn-primary">Reset</button>
         </div>        
+
       </div>
+       <p class="mb-1">
+        <a href="login.php">Login</a>
+      </p>
     </form>
 
 
