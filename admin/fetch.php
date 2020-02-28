@@ -17,7 +17,7 @@ include("config.php");
 // $result = $statement->fetchAll();
 // $total_row = $statement->rowCount();
 $output = '
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered display" width="100%" id="tbl_flat">
 	<tr>
 		<th>Block</th>
 		<th>Flat No.</th>
@@ -25,6 +25,10 @@ $output = '
 		<th>BHK</th>
 		<th>Floor No.</th>
 		<th>Price</th>
+		<th>Owner Name</th>
+		<th>Owner Contact</th>
+		<th>Owner Email</th>
+
 		<th>Edit</th>
 		<th>Delete</th>
 	</tr>
@@ -41,6 +45,9 @@ if($total_row > 0)
 			<td width="40%">'.$row["BHK"].'</td>
 			<td width="40%">'.$row["floor_no"].'</td>
 			<td width="40%">'.$row["price"].'</td>
+			<td width="40%">'.$row["owner"].'</td>
+			<td width="40%">'.$row["ownercno"].'</td>
+			<td width="40%">'.$row["owneremail"].'</td>
 			<td width="10%">
 				<button type="button" name="edit" class="btn btn-primary btn-xs edit" id="'.$row["fid"].'">Edit</button>
 			</td>
