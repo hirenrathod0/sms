@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Recordset1" value="name:id;datatype:int,name:pid;datatype:int,name:xname;datatype:string,name:date;datatype:timestamp" />
+	<infoitem key="UD_rs_xray" value="name:rid;datatype:int,name:name;datatype:string,name:price;datatype:int,name:date;datatype:timestamp" />
+</info>

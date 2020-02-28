@@ -28,18 +28,29 @@ include('header.php');
       <!-- Info boxes -->
       <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
-          <a href="">
+          <a href="vehical_list.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-car-side"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Your vehicles </span>
+                <span class="info-box-text">
+                    <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from vehicle_detail where uid=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn=$row['COUNT'];
+                  }
+                  echo $cmpn;
+                  ?>
+                  </span>              
                 <span class="info-box-number" id="vehicles"></span>
               </div>
+              </div>
               <!-- /.info-box-content -->
+          </a>
             </div>
             <!-- /.info-box -->
-          </a>
-        </div>
+        <!-- </div> -->
 
         <div class="col-12 col-sm-6 col-md-3">
           <a href="memberview.php">
@@ -47,6 +58,16 @@ include('header.php');
               <span class="info-box-icon bg-success elevation-1"><i class="fas  fa-users"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">family members  </span>
+                <span class="info-box-text">
+                    <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from member_detail where uid=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn1=$row['COUNT'];
+                  }
+                  echo $cmpn1;
+                  ?>
+                  </span>
                 <span class="info-box-number" id="memberdetails"></span>
               </div>
               <!-- /.info-box-content -->
@@ -61,6 +82,17 @@ include('header.php');
               <span class="info-box-icon bg-warning  elevation-1"><i class="fas fa-calendar-alt"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Your registered events  </span>
+                <span class="info-box-text">
+                    <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from booking where mem_id=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn2=$row['COUNT'];
+                  }
+                  echo $cmpn2;
+                  ?>
+                  </span>
+
                 <span class="info-box-number" id="ownevents"></span>
               </div>
               <!-- /.info-box-content -->
@@ -144,6 +176,8 @@ include('header.php');
 
               <p><?php echo ($rows['descr']); ?></p>
               <p><?php echo ($rows['date']); ?></p>
+              <div id="<?php echo "progress".$rows['nid'];?>"  >
+              </div>
               <span>
                 <i class="fa fa-thumbs-up" onclick="vote('y',<?php echo ($rows['nid']);?>, this)" ></i>
                 <span>Yes </span>
@@ -152,7 +186,7 @@ include('header.php');
                 <i class="fa fa-thumbs-down" onclick="vote('n',<?php echo ($rows['nid']);?>, this)"></i>
                 <span>No</span>
               </span>
-
+              
             </div>
           <?php } ?>
         </div>
@@ -281,7 +315,53 @@ include('header.php');
          document.getElementById('compstatus').innerHTML = data;
        }
      })
+
+
+
+
+     //kjgskcascj
+
+     
+
    });
+
+    function test(nid)
+    {
+      alert('onload'+ nid);
+      var myobj10 = {
+        nid: nid,
+        need: 'votingstatus'
+      }
+
+      $.ajax({
+        type: "POST",
+        url: 'dbservices/noticevote.php',
+        data: myobj10,
+        success: function(data)
+        {
+          //alert(data);
+          var arr = data.split(',');
+          var yes = arr[0];
+          var total = arr[1];
+          var html = '<div class="col-md-6  col-sm-6 col-12">'+
+               '<div class="info-box bg-success">'+
+               '<span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>'+
+              '<div class="info-box-content">'+
+                '<span class="info-box-text">Likes</span>'+
+                '<span class="info-box-number">'+yes+'</span>'+
+                '<span class="info-box-text">DisLikes</span>'+
+                '<span class="info-box-number">'+(total - yes)+'</span>'+
+                '<div class="progress">'+
+                  '<div class="progress-bar" style="width: '+yes*100/total+'%"></div>'+
+                '</div></div></div></div>';
+          var eleid = 'progress'+nid;
+          document.getElementById(eleid).innerHTML = html;
+        }
+      })
+
+
+
+    }
 
     function vote(d1, nid, ele)
     {
@@ -298,7 +378,8 @@ include('header.php');
       var myobj6 = {
         nid: nid,
         usrid: <?php echo ($_SESSION['uid']); ?>,
-        ans: d1
+        ans: d1,
+        need: 'voting'
       }
 
       $.ajax({
@@ -307,10 +388,10 @@ include('header.php');
         data: myobj6,
         success: function(data)
         {
-
+          alert(txt);
+          test(nid);
           if(data === '1')
           {
-            alert(txt);
             if(d1 === 'y' )
             {
               ele.classList.toggle("fa-thumbs-o-up");

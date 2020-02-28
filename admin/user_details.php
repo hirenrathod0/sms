@@ -48,9 +48,9 @@ if(isset($_POST['insert_visitor_reg']))
                 <h3 class="widget-user-username"> <?php echo $row[1];  ?> </h3>
                 <h5 class="widget-user-desc">Member Name</h5>
               </div>
-              <!-- <div class="widget-user-image">
+              <div class="widget-user-image">
                 <img class="img-circle elevation-2" src="../dist/img/user1-128x128.jpg" alt="User Avatar">
-              </div> -->
+              </div>
               <div class="card-footer">
                 <div class="row">
                   <div class="col-sm-4 border-right">
