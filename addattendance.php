@@ -4,16 +4,17 @@
         $result=mysqli_query($con,$query1);
                 $num_of_rows=mysqli_num_rows($result);
     
-
-if(isset($_POST['submit']))
-{   
+  
     for ($x = 1; $x <=$num_of_rows; $x++) { 
 	$query="INSERT into meeting_attendance(uid,mid,pa)VALUES(1,'".$_REQUEST['mid']."','".$_POST['att'.$x]."')";
 	$row=mysqli_query($con,$query);
     
-}
+       $query="update meeting_details set presentstatus=1 where mid='".$_REQUEST['mid']."'";
+	$row=mysqli_query($con,$query); 
     
-}
+    }
+    
+
 ?>
   <div class="content-wrapper">
 
@@ -63,8 +64,7 @@ if(isset($_POST['submit']))
         </table>    
 
 <br/>
-    <input type="submit" name="submit" value="Mark Attendance" />
-
+     <td><a href="meetingattend.php" name="submit"  >mark attendance</a></td> 
         </form>
 				
 
