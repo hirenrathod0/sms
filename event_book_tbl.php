@@ -10,7 +10,7 @@
 			</thead>
 			<tbody>
 				<?php 
-				$query1="select fullName,id,booking_id,mem_id,start_time,end_time,place,fun_details,fun_title from users u,booking f where id=mem_id ORDER BY start_time DESC";
+				$query1="select fullName,id,booking_id,mem_id,start_time,end_time,place,fun_details,fun_title from users u,booking f where id=mem_id and mem_id=".$_SESSION['uid']." ORDER BY start_time DESC";
 				$result=mysqli_query($con,$query1);
 
 				if($result === FALSE) { 

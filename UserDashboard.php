@@ -2,31 +2,31 @@
 include('header.php');
 ?>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Dashboard</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- Info boxes -->
-        <div class="row">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Info boxes -->
+      <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
           <a href="">
             <div class="info-box mb-3">
@@ -39,9 +39,9 @@ include('header.php');
             </div>
             <!-- /.info-box -->
           </a>
-          </div>
-          
-          <div class="col-12 col-sm-6 col-md-3">
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-3">
           <a href="memberview.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas  fa-users"></i></span>
@@ -53,9 +53,9 @@ include('header.php');
             </div>
             <!-- /.info-box -->
           </a>
-          </div>
+        </div>
 
-      <div class="col-12 col-sm-6 col-md-3">
+        <div class="col-12 col-sm-6 col-md-3">
           <a href="event_book_tbl.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-warning  elevation-1"><i class="fas fa-calendar-alt"></i></span>
@@ -67,91 +67,109 @@ include('header.php');
             </div>
             <!-- /.info-box -->
           </a>
-          </div> 
-          
-          <div class="col-12 col-sm-6 col-md-3">
+        </div> 
+
+        <div class="col-12 col-sm-6 col-md-3">
           <a href="maintenance_bill_history.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-receipt "></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Bills</span>
-                <span class="info-box-number" id="billcount"></span>
+                <span class="info-box-number" id="">
+                  <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from maintenance_bill where fid=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn=$row['COUNT'];
+                  }
+                  echo $cmpn;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </a>
-          </div>
+        </div>
 
-          <div class="col-12 col-sm-6 col-md-3">
+        <div class="col-12 col-sm-6 col-md-3">
           <a href="cmp_history.php">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fas fa-cog"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text">Complaint Status  </span>
-                <span class="info-box-number" id="compstatus"></span>
+                <span class="info-box-number" id="">
+                  <?php 
+                  $sql=mysqli_query($con,"SELECT COUNT(*) COUNT from tblcomplaints where userId=".$_SESSION['uid']."");
+                  while($row=mysqli_fetch_array($sql))
+                  {
+                    $cmpn=$row['COUNT'];
+                  }
+                  echo $cmpn;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </a>
-          </div>    
-          </div>     
+        </div>    
+      </div>     
 
-           <section class="content-header">
-      <div class="container-fluid">
+      <section class="content-header">
+        <div class="container-fluid">
           <div class="col-md-6">
-        <div class="card card-default">
-          <div class="card-header">
-            <h3 class="card-title">
-              <i class="fas fa-bullhorn"></i>
-              Notice Board
-            </h3>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-              <?php 
-              $query1="select * from notice order by nid desc";
-              $result=mysqli_query($con,$query1);
+            <div class="card card-default">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <i class="fas fa-bullhorn"></i>
+                  Notice Board
+                </h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <?php 
+                $query1="select * from notice order by nid desc";
+                $result=mysqli_query($con,$query1);
               // print_r($result);l
-              if($result === FALSE) { 
+                if($result === FALSE) { 
             die(mysql_error()); // TODO: better error handling
           }
           while($rows=$result->fetch_assoc())
           {
             ?>
             <div class="callout callout-info">
-            
-            <h5><?php echo ($rows['title']); ?></h5>
 
-            <p><?php echo ($rows['descr']); ?></p>
-            <p><?php echo ($rows['date']); ?></p>
-            <span>
-            <i class="fa fa-thumbs-up" onclick="vote('y',<?php echo ($rows['nid']);?>, this)" ></i>
-            <span>Yes </span>
-            </span>
-            <span>
-            <i class="fa fa-thumbs-down" onclick="vote('n',<?php echo ($rows['nid']);?>, this)"></i>
-            <span>No</span>
-            </span>
+              <h5><?php echo ($rows['title']); ?></h5>
 
-          </div>
-        <?php } ?>
+              <p><?php echo ($rows['descr']); ?></p>
+              <p><?php echo ($rows['date']); ?></p>
+              <span>
+                <i class="fa fa-thumbs-up" onclick="vote('y',<?php echo ($rows['nid']);?>, this)" ></i>
+                <span>Yes </span>
+              </span>
+              <span>
+                <i class="fa fa-thumbs-down" onclick="vote('n',<?php echo ($rows['nid']);?>, this)"></i>
+                <span>No</span>
+              </span>
+
+            </div>
+          <?php } ?>
+        </div>
+        <!-- /.card-body -->
       </div>
-      <!-- /.card-body -->
+      <!-- /.card -->
     </div>
-    <!-- /.card -->
-  </div>
-        
-        
 
-      </div><!-- /.container-fluid -->
-    </section>
+
+
+  </div><!-- /.container-fluid -->
+</section>
         <!-- <div><h2></h2></div>
-        <div id="vehicles"></div> -->
+          <div id="vehicles"></div> -->
 
         <!-- <div><h2>family members </h2></div>
-        <div id="memberdetails"></div> -->
+          <div id="memberdetails"></div> -->
 
        <!--  <div><h2>Your registered events </h2></div>
         <div id="ownevents"></div>
@@ -169,146 +187,146 @@ include('header.php');
   </div>
 
 
-<?php
-include('footer.php');
-?>
-
-<script>
   <?php
-  
-      echo "var id=".$_SESSION['uid'].";var name='".$_SESSION['fullName']."';";
-
+  include('footer.php');
   ?>
 
-   
-$(function() {
-  
-  var myobj1 = {
-     uid: id,
-     uname: name,
-     need: 'vehicles'
-   }
+  <script>
+    <?php
 
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchuserdashboard.php',
-     data: myobj1,
-     success: function(data)
-     {
-       document.getElementById('vehicles').innerHTML = data;
+    echo "var id=".$_SESSION['uid'].";var name='".$_SESSION['fullName']."';";
+
+    ?>
+
+
+    $(function() {
+
+      var myobj1 = {
+       uid: id,
+       uname: name,
+       need: 'vehicles'
      }
-   })
+
+     $.ajax({
+       type: "POST",
+       url: 'dbservices/fetchuserdashboard.php',
+       data: myobj1,
+       success: function(data)
+       {
+         document.getElementById('vehicles').innerHTML = data;
+       }
+     })
 
 
-   var myobj2 = {
-     uid: id,
-     uname: name,
-     need: 'members'
-   }
-
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchuserdashboard.php',
-     data: myobj2,
-     success: function(data)
-     {
-       document.getElementById('memberdetails').innerHTML = data;
+     var myobj2 = {
+       uid: id,
+       uname: name,
+       need: 'members'
      }
-   })
 
-   var myobj3 = {
-     uid: id,
-     uname: name,
-     need: 'billcount'
-   }
+     $.ajax({
+       type: "POST",
+       url: 'dbservices/fetchuserdashboard.php',
+       data: myobj2,
+       success: function(data)
+       {
+         document.getElementById('memberdetails').innerHTML = data;
+       }
+     })
 
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchuserdashboard.php',
-     data: myobj3,
-     success: function(data)
-     {
-       document.getElementById('billcount').innerHTML = data;
+     var myobj3 = {
+       uid: id,
+       uname: name,
+       need: 'billcount'
      }
-   })
 
-   var myobj4 = {
-     uid: id,
-     uname: name,
-     need: 'myevents'
-   }
+     $.ajax({
+       type: "POST",
+       url: 'dbservices/fetchuserdashboard.php',
+       data: myobj3,
+       success: function(data)
+       {
+         document.getElementById('billcount').innerHTML = data;
+       }
+     })
 
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchuserdashboard.php',
-     data: myobj4,
-     success: function(data)
-     {
-       document.getElementById('ownevents').innerHTML = data;
+     var myobj4 = {
+       uid: id,
+       uname: name,
+       need: 'myevents'
      }
-   })
 
-   var myobj5 = {
-     uid: id,
-     uname: name,
-     need: 'compstatus'
-   }
+     $.ajax({
+       type: "POST",
+       url: 'dbservices/fetchuserdashboard.php',
+       data: myobj4,
+       success: function(data)
+       {
+         document.getElementById('ownevents').innerHTML = data;
+       }
+     })
 
-   $.ajax({
-     type: "POST",
-     url: 'dbservices/fetchuserdashboard.php',
-     data: myobj5,
-     success: function(data)
-     {
-       document.getElementById('compstatus').innerHTML = data;
+     var myobj5 = {
+       uid: id,
+       uname: name,
+       need: 'compstatus'
      }
-   })
-});
 
-function vote(d1, nid, ele)
-{
-    var txt = "";
-    if(d1 === 'y')
+     $.ajax({
+       type: "POST",
+       url: 'dbservices/fetchuserdashboard.php',
+       data: myobj5,
+       success: function(data)
+       {
+         document.getElementById('compstatus').innerHTML = data;
+       }
+     })
+   });
+
+    function vote(d1, nid, ele)
     {
-        txt = "Clicked Thumbs UP";
-    }
-    if(d1 === 'n')
-    {
-        txt = "Clicked Thumbs DOWN";
-    }
-    
-    var myobj6 = {
-      nid: nid,
-      usrid: <?php echo ($_SESSION['uid']); ?>,
-      ans: d1
-    }
-    
-    $.ajax({
-      type: "POST",
-      url: 'dbservices/noticevote.php',
-      data: myobj6,
-      success: function(data)
+      var txt = "";
+      if(d1 === 'y')
       {
-        
-            if(data === '1')
-            {
-              alert(txt);
-              if(d1 === 'y' )
-              {
-                ele.classList.toggle("fa-thumbs-o-up");
-              }
-
-              if(d1 === 'n' )
-              {
-                ele.classList.toggle("fa-thumbs-o-down");
-              }
-
-            }
+        txt = "Clicked Thumbs UP";
       }
-    });
+      if(d1 === 'n')
+      {
+        txt = "Clicked Thumbs DOWN";
+      }
 
-}
+      var myobj6 = {
+        nid: nid,
+        usrid: <?php echo ($_SESSION['uid']); ?>,
+        ans: d1
+      }
 
-</script>
+      $.ajax({
+        type: "POST",
+        url: 'dbservices/noticevote.php',
+        data: myobj6,
+        success: function(data)
+        {
+
+          if(data === '1')
+          {
+            alert(txt);
+            if(d1 === 'y' )
+            {
+              ele.classList.toggle("fa-thumbs-o-up");
+            }
+
+            if(d1 === 'n' )
+            {
+              ele.classList.toggle("fa-thumbs-o-down");
+            }
+
+          }
+        }
+      });
+
+    }
+
+  </script>
 
 

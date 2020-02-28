@@ -35,7 +35,7 @@ echo $str;
 
 if($_POST['need'] == 'members')
 {
-    $query = "SELECT COUNT(uid) from member_detail where uid=:uid";
+    $query = "SELECT * from member_detail where uid=:uid";
 
 
     $statement = $dbh->prepare($query);
@@ -51,7 +51,7 @@ if($_POST['need'] == 'members')
     $str="<div class='row'>";
     foreach($result as $row)
     {
-        $str=$row[0];
+        $str=$row['name'];
         // $str = $str.'<div class="col-md-3">
         // <div class="info-box mb-3 bg-info">
         //   <div class="info-box-content">
@@ -138,11 +138,11 @@ if($_POST['need'] == 'myevents')
 
 if($_POST['need'] == 'compstatus')
 {
-    $query = "SELECT * from tblcomplaints where userId=:uid";
+    $query = "SELECT COUNT(*) COUNT from tblcomplaints where userId=:uid";
     $statement = $dbh->prepare($query);
     $statement->execute(
         array(
-            ':uid' =>   $_POST['uid'] 
+            ':uid' =>   $_SESSION['uid'] 
         )
     );
     
@@ -150,7 +150,7 @@ if($_POST['need'] == 'compstatus')
     $str="<div class='row'>";
     foreach($result as $row)
     {
-        $str=$row['complaintTitle'];
+        $str=$row['COUNT'];
         // $str = $str.'<div class="col-md-3">
         // <div class="info-box mb-3 bg-warning">
         //   <div class="info-box-content">
